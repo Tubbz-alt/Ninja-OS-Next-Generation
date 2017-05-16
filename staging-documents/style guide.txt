@@ -1,0 +1,237 @@
+		~--==Ninja OS Style Guide==--~
+
+This style guide is to set the standard styling guides for Usage Guides, Themes, Artwork, Icons, and all bundled art and all asthetic, non-technical elements.
+
+-- 1. Documentation and User Guides --
+
+	All documentation will be written in standard neutral, technical English.
+(or translated into equivilant in another language). Neutral to be defined as,
+all persons and groups of persons will be portrayed in a neutral light. Keep
+language social and political neutral as well. All guides will be designed to
+help the user, and help the user only. There shall be no portion of guides that
+is either misleading or disruptive to the user's desired tasks. The guides to
+the best of the ability of the author, will contain ethical advice. Unless
+completely unavoidable possible, the guide should not mention groups, persons,
+or nations, or nationality.
+
+	Examples may be given to illustrate a point. These must use factual real
+world events, and be written in the tone of a neutral observer, and contain a
+point to illustrate a technical lesson played out in reality. Examples should
+always been written in the third person, and refrence all characters in the
+third person only, as historical events.
+
+	You should not include politics, to include social politics. Guides will
+all be "how to" guides, and politics do not belong. You will write in a
+political, and social-politicial(read soft p politics), neutral tone, similar to
+the Wikipedia Standard. It should hard be possible to guess the author's personal
+stances from reading a user guide. 
+
+	You will make no attempt to guess, hint, suggest, or otherwise disclose
+knowledge of what context Ninja OS would be used in any matter other than
+technical operations concerned with its own testing.
+
+	Furthermore, all documentation will by objective. The purpose is to
+inform the end user on how to accomplish a technical task, and should revolve
+around the use of Ninja OS. This includes buy not limited to:
+	* Basic GNU/Linux usage.
+	* Basic software and communications usage( i.e. web, IRC, IM, Photo,
+	  video, sound editting)
+	* Obtaining and maintaining privacy
+	* How-to guides on the use of software included
+
+	Ninja OS is a publicly distributed Operating System. You will not
+publish anything that you do not want in the public sphere. You will not mention
+any hidden systems, documents, or recommend using any services that random
+members of the general public are not welcome to. You will also not publiush or
+mention anything that the general public will not find useful as well.
+
+	The Policy of Ninja OS concerning "darknet" sites is that of "niether
+confirm nor deny" knowledge of the existance of any invidual darknet site, nor
+provide guidance on how to find darknet content. What is OK is providing
+information on darknets themselves, or generic instructions of how one would
+access darknet material. Its also OK to provide access to darknet gateways for
+otherwise clearnet content. When discussing potential content of darknets, its
+also mandatory to avoid authoritative tones, or any confirmation of any content.
+
+	For example, Ninja OS has an official .onion which is a mirror of its
+clearnet content. There is no information not available on the .onion site that
+is not available on ninjaos.org.
+
+	All documents to be included need to be released under a permissive license that allows redistribution, and modification free of charge, our prefered license would be the "Creative Commons Attributation-ShareAlike", but we accecpt any license which fits the crieteria. All documents are subject to review and editing by the Ninja OS staff for publication.
+https://creativecommons.org/licenses/
+
+	The policy concerning all governments, political idealogies, militias,
+groups, non-profits, causes, etc... is that Ninja OS neither supports nor
+condemns any group except those opposed to the existance and continued maintence
+of Ninja OS, and supports no ideaology except the continued development of Ninja
+OS itself.
+
+-- 2. Themes, usability and programs --
+
+	We use light colored, bland, inoffensive themes that are designed to not
+stand out, and give an overall appearence of a generic desktop operating system.
+Images are not to contain really bright or really dark colors, stand out, or grab
+the eye more than necessary. Absolutely nothing that could potentially look
+"dangerous" from across the room, or cause Ninja OS to stick out.
+
+	We should report a strong prefrence and bias to FOSS projects, and a
+strong discouragement of closed source or proprietary programing and/or code,
+themes, documents, We also try, when possible to use standard software with good
+upstream communities, of which the use is widely understood. It is mandatory
+that all encryption, pen-testing, and otherwise security related tools either
+distributed dirrectly, or advocated by in user guides be Free Software as
+defined by the FSF.
+
+	In addition, applications should load quick, be agile, close quickly,
+have very shallow learning curves, while being as straightforward as possible.
+A prefrence for stability is also emphasized. Apps will be preconfigured for
+sane defaults, that will "just work" for more cases than other setting
+combinations. Unnecarry options will not be presented to the user, but will
+be available for power users to select manually.
+
+
+	Subsection A
+Guide for code and coding
+
+BASH-
+When scripting bash, except extremely short scripts, and wrappers:
+
+* Unless there is an explicit need all shell scripting will be done in BASH.
+-- #!/bin/bash will be the first line in every shell script.
+
+* All file names will end with .sh
+
+* Indentation for shell scripts will be four spaces, with a half-step of two
+  spaces for condition statements in if and case.
+
+* all functions will be named in lowercase with words seperated by underscore
+  _'s
+
+* Intergers and arrays will be declared with the approriate declare/local
+  switches (-i,-a,-A) at the top of a function or script. Global variables will
+  be declared at the top of the script, or at the top of the main() function.
+
+* Configuration settings
+
+* Global variable names will be all uppercase, and local variables all lowercase
+
+* in if, while, and for statements, put then then and do commands on the same 
+  line as the conditional statement after a semi-colon ;
+
+* scripts are expected to have a main(), exit_with_error(), and message()
+  functions. Scripts that have the need will utilize submsg(),
+  continue_with_error(), switch_checker() and help_and_exit() functions
+
+-- main(): Will have the programs main code It will be run at the end of the
+   script with the line main "${@}". This will be the first function read if
+   there is no switch_checker() needed. If switch_checker() is present, it will
+   run directly after switch checker, with the santized output replacing $@.
+
+-- exit_with_error(): will take two parameters, $1, the error code, and $2 the
+   error message. It will output to STDERR, annouce the scriptname with the word
+   "ERROR", and exit with the code speficied in $1
+
+-- message(): Will output to STDOUT with the script name, and whatever message
+   is in $@
+
+-- submsg(): Is a stylized subheader of msg, designed to print substatements of
+   a previous message(). generally indenting the text without printing the
+   script name
+
+-- switch_checker(): proccesses the command line and makes a variable named
+   $PARMS, with the switches removed. This variable is called by main() such as
+   main $PARMS. switch_checker is run on the second to last line of the script.
+   the last line is "main". switch_checker will use a case statement inside a
+   while loop with a shift statement to filter out switches from parameters.
+   see example script in staging scripts.
+
+-- exit_and_help(): takes two parameters, the first is an integer, the exit code
+   the second, is the error message. It will also perform any cleanup of the
+   script normally done at the end, or that won't be done because of an error,
+   or abort. it will contain the following code:
+
+exit_and_help() {
+    message "${BRIGHT_RED}ERROR:${NOCOLOR} $2"
+    <cleanup code goes here>
+    exit $1
+}
+
+* Color variables are found in liveos_boilerplate.sh. If not using this library
+  please copy all the colors to your script.
+
+* Information will use terminal colors appropirately, below are standards for
+  which data gets what color:
+
+-- 3. Conduct of Staff --
+
+	In the official capacity as staff of Ninja OS, no political or social
+statements will be made regarding Ninja OS, beyond arguing for its continued
+legal and socially acceptable use, as well as component software. Niether Ninja
+OS, nor the team in capacity as official members will either support or
+repudate any political ideaology or movement, nor suggest Ninja OS has an
+affinity, affiliation or opposition to the same. They are otherwise free to
+join any movement or hold any views while not representing Ninja OS, or its dev
+team.
+
+
+-- 4. Concerning darknet content --
+
+Ninja OS contains both TOR(The Onion Router), and I2P(Invisible Internet
+Project), and is capable of accessing darknet content on both networks. The
+official policy on darknet content is:
+
+	# we acknowledge that darknet sites in general do exist, both on TOR or
+	  i2p.
+	# We do not recommend, suggest, denounce, unrecommend or even
+	  acknolwedge any particular darknet sites existance, discuss addresses
+	  or locations of any site that is not simply a mirror of content
+	  available, publicly, on clearnet. The mirror must also have the same
+	  operator as it's clearnet counterpart.
+	# Providing generic instructions on how to access a darknet site, and
+	  discussion of darknets and their technology is perfectly OK.
+	# Also OK are mirrors of clearnet content, as long as they are operated
+	  but the same entity that operates the clearnet version.
+
+-- 7. Links to sites --
+	Both the web browser and IRC client have links to websites and IRC
+networks, meant to be helpful and informative to the user.
+
+	# All links if possible use SSL/TLS, and marked if they don't
+	# All sites are publicly available
+	# Public Content Only. Only content that is available to the general
+	  public.
+	# Sites are ment to be informative, and utilitarian and nature.
+	  Entertainment sites do not get included.
+
+-- 6. Translation and internationalization --
+
+	The developers primarily speak english, and english is the "lingua
+franca" of development. All source documents are to be available in English,
+and the English version to be the authoritative if there is a conflict due to
+poor translation. We aim to provide translation and localization for the
+majority users of the internet. We aim to follow standard POSIX, ISO, and
+freedesktop.org standards. Prioritization of translation and localization are
+given based soley on pontenial users, which is determined as percent of internet
+using population.
+
+https://en.wikipedia.org/wiki/Languages_used_on_the_Internet#Internet_users_by_language
+1 	English
+2 	Chinese
+3 	Spanish
+4 	Arabic
+5 	Portuguese
+6 	Japanese
+7 	Russia
+8 	German
+9 	French
+10 	Malay
+
+	Our current goal is full internationalization for the top ten languages,
+with locale being that of the most internet users. However, we do not have the
+resources, or developer time to accomplish this. However, we state a goal is
+full internationalization around these guidelines.
+
+	A long term goal is full internationalization of all posix locales. This
+will take more manpower than we have for increasingly diminishing returns(i.e.
+trivial portions of the internet users and potential users speaking only these
+languages).

@@ -1,0 +1,140 @@
+#!/bin/bash
+# This is a replacement for installscript.sh
+# please note, you will need to make sure a local copy of postgresql is not
+# running otherwise this will not work.
+
+# Set this to whatever local you want.
+locale=en_US.UTF-8
+
+message() {
+    echo "Ninja OS: $@"
+}
+_generate_locale() {
+  local -i exit=0
+  cp /etc/locale.gen /etc/locale.gen.bak
+  exit+=$?
+  echo "$locale UTF-8" > /etc/locale.gen
+  locale-gen
+  exit+=$?
+  mv /etc/locale.gen.bak /etc/locale.gen
+  exit+=$?
+  return $exit
+}
+
+_install_metasploit() {
+  # initialize the postgresql database, make a user for metasploit, and then
+  # cache the database
+  local -i exit=0
+
+  # initialize the postgresql database and start it
+  sudo -u postgres initdb --locale $LANG -E UTF8 -D '/var/lib/postgres/data'
+  exit+=$?
+  cd /var/lib/postgres
+  mkdir -p /run/postgresql
+  chown postgres /run/postgresql
+  sudo -u postgres pg_ctl -D /var/lib/postgres/data start
+  exit+=$?
+  sleep 5 # wait 5 seconds for the database to load
+
+  #create a database for msf, and a user called metasploit
+  sudo -u postgres createdb msf
+  exit+=$?
+  sudo -u postgres createuser -s -N metasploit
+  exit+=$?
+  sudo -u postgres psql << EOF
+ALTER ROLE metasploit WITH PASSWORD 'n1nj40s';
+EOF
+  exit+=$?
+
+  #make temp database confile file and then cache the database
+  mkdir -p /root/.msf4
+  cat > /root/.msf4/database.yml << EOF
+production:
+ adapter: postgresql
+ database: msf
+ username: metasploit
+ password: n1nj40s
+ host: localhost
+ port: 5432
+ pool: 5
+ timeout: 5
+EOF
+  exit+=$?
+  #now, start metasploit and rebuild the cache
+  MSF_DATABASE_CONFIG=/root/.msf4/database.yml
+  msfconsole --quiet -x db_rebuild_cache << EOF
+EOF
+
+  #clean up
+  rm -rf /root/.msf4/
+  pkill postgres
+  pkill msfrpcd
+  return $exit
+}
+
+post_install() {
+  message "Starting Post-Install Script..."
+
+  #keep a count of errors
+  local -i errors=0 
+  #initialize pacman's gpg keys
+  message "Generating Package GPG-Keyring"
+  pacman-key --init
+  errors+=$?
+  pacman-key --populate archlinux
+  errors+=$?
+  #set capabilities so these work. this doesn't work quiet right because
+  #either AUFS or tmpfs doesn't respect extended atributes
+  message "Setting libcap capabilities"
+  setcap 'CAP_NET_RAW+eip CAP_NET_ADMIN+eip' /usr/bin/dumpcap
+  errors+=$?
+  setcap 'CAP_NET_RAW+eip CAP_NET_ADMIN+eip' /usr/bin/arp-scan
+  errors+=$?
+  # Set SUID so ping actually works 
+  message "setting SUID bit for ping"
+  chmod u+s /usr/bin/ping
+  errors+=$?
+  # Use old style network interface naming conventions
+  message "Making Link Based Configuration Options and Adding Groups"
+  ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
+  errors+=$?
+  ln -s /usr/share/zoneinfo/Etc/Zulu /etc/localtime
+  errors+=$?
+  # Add a system group for NetworkManager
+  groupadd -r networkmanager
+  errors+=$?
+  systemctl mask mkinitcpio-generate-shutdown-ramfs.service
+  errors+=$?
+  _generate_locale
+  erroris+=$?
+  message "Configuring Metasploit Postresql Database"
+  _install_metasploit
+  if [ $? -ne 0 ];then
+    message "Metasploit Database Configuration Failed!"
+    errors+=1
+  fi
+  # Now check if there are any errors to determine the type of exit message
+  if [ ${errors} -eq 0 ];then
+    message "Install Script; No Errors"
+      else
+    message "Something Went Wrong with the Post Install; ${errors} error(s)"
+  fi
+}
+
+pre_remove() {
+  message "Removing modifications we made durring install"
+  #put things back the way we found them
+  #remove capabilities
+  setcap -r /usr/bin/dumpcap
+  setcap -r /usr/bin/arp-scan
+  #un uid pings
+  chmod u-s /usr/bin/ping
+  #remove udev rules for interface naming
+  rm /etc/udev/rules.d/80-net-setup-link.rules
+  #unset clock
+  rm /etc/localtime
+  #get rid of networkmanager group created earlier
+  groupdel networkmanager
+  systemctl unmask mkinitcpio-generate-shutdown-ramfs.service
+}
+

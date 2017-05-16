@@ -1,0 +1,4 @@
+# This should run everytime a usbdevice is removed and check if its the boot
+# device. This is incomplete function. Current features of reboot need BASH
+# 
+# ACTION=="remove", RUN+="/tmp/emergency_bin/busybox sh /tmp/emergency_bin/udev_test.sh remove '%p' '$attr{busnum}' '$attr{devnum}'"

@@ -1,0 +1,15 @@
+This bdisk profile is licensed under the GPLv3, to protect your rights, and the
+rights of all users. Some included Arch Linux packages might contain non-free
+code. consult individual packages for more information, the addedpacks file
+lists all installed packages. See their corresponding Arch Linux package pages
+for more details:
+
+https://www.gnu.org/licenses/gpl.html
+https://www.archlinux.org/packages/
+
+All adpoted code is credited as such, and all original code is released under
+the GPLv3. All adopted code is re-released under the GPLv3, if possible.
+see GPL3.TXT located in same dirrectory.
+
+
+© 2011-2017 Ninja OS

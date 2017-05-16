@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+# /etc/rc.shutdown
+#
+## Live OS Stripped rc.shutdown file
+# avoid staircase effect
+
+echo " "
+echo "$(tput bold)Initiating shutdown...$(tput sgr0)"
+echo " "
+#stop all proccesses
+/tmp/emergency_bin/busybox killall X
+/tmp/emergency_bin/busybox killall5 -9
+
+#unmount all filesystems
+truecrypt -d
+/tmp/emergency_bin/busybox umount -f /media/*
+/tmp/emergency_bin/busybox umount -f /run/media/*
+
+##Memory wiper. this takes a long time, and is broken
+#smem -llv &
+
+# Power off or reboot
+if [[ $RUNLEVEL = 0 ]]; then
+	echo "$(tput setaf 6)$(tput bold)	POWER OFF$(tput sgr0)"
+	/tmp/emergency_bin/busybox poweroff -f
+
+else
+	echo "$(tput setaf 6)$(tput bold)	REBOOTING $(tput sgr0)"
+	/tmp/emergency_bin/busybox reboot -f
+
+fi

@@ -1,0 +1,34 @@
+This file is replacing the old Manual of Common Tasks, because well, that didn't
+get the point accross to well.
+
+Here is some of the design goals of Ninja OS. Please note we don't currently
+meet all them due to our own limitations. These are merely goals.
+
+Timing
+------
+Ninja OS is supposed to be as fast and responsive as possible:
+
+Timings for boot and shutdown:
+
+Boot - 15 seconds
+shutdown - 5 seconds
+
+Vision and goals
+----------------
+Overreaching goal of Ninja OS is to accomplish all the easy quick tasks one
+might need a desktop computer for, on a single stick. Ninja OS is the 
+"Operating System for Operators". Its 
+
+1. Setup ready to use.
+--All programs are setup to have the most common use case setup for default.
+--All welcome screens and guides are disabled.(rip the tags off)
+--All initializations complete. The Desktop is to be setup for both speed and
+ease of use. Desktop shortcuts are created.
+
+2. Light Pen Testing, and reconnassaince.
+This is by no means a pen testing distro, but we add basic pen testing and
+reconnassaince tools. Instead of lots of diffrent tools, a purpose driven set
+of tools that work well together.
+
+3. It Just works out of the box
+As Many times

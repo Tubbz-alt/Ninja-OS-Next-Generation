@@ -1,0 +1,14 @@
+# mkinitcpio preset file for Ninja Boot'n'Nuke (nban)
+
+ALL_config="/etc/mkinitcpio.d/nban.conf"
+ALL_kver="/boot/vmlinuz-linux"
+
+PRESETS=('default')
+
+default_config="/etc/mkinitcpio.d/nban.conf"
+default_image="/boot/nban.img"
+#default_options=""
+
+fallback_config="/etc/mkinitcpio.d/nban.conf"
+fallback_image="/boot/nban-fallback.img"
+fallback_options="-S autodetect"

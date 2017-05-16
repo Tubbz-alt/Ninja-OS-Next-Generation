@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+#  Written for the NinjaOS by the development team.
+#  licensed under the GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+#
+
+#Ninja OS Boot and Nuke. wipe all attached disk drives, then reboot
+run_hook() {
+    chmod +x /usr/share/ninjaos/bootanuke.sh
+    /usr/share/ninjaos/bootanuke.sh
+}
+

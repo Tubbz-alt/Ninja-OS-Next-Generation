@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+#  Written for the NinjaOS by the development team.
+#  licensed under the GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+#
+
+build() {
+    add_runscript "nban"
+}
+
+help() {
+    cat << EOF
+This hook creates the Ninja OS Boot'n'Nuke(nban), which is a Boot-n-Nuke written
+as an initial ram disk. It is inspired by, but shares no code with Darik's Boot
+And Nuke(DBAN). Combined with a kernel and minimal syslinux install, it becomes
+part of the shuriken, a single use, single purpose NBAN drive. NBAN can be used
+standalone on any archlinux machine. To use, set initrd=nban.img on your kernel
+command line. Please note this will wipe all information on all attached storage
+media.
+
+EOF
+}

@@ -1,0 +1,100 @@
+   =============NINJA OPERATING SYSTEM LARCH BUILD PROFILE================
+
+This is the git project for mainline Ninja OS. It is build using bdisk LiveOS
+constructor kit for Arch Linux. Ninja OS is a live operating system based on
+Archlinux(http://archlinux.org). Follow the instructions on the bdisk site to
+build.
+
+https://bdisk.square-r00t.net
+
+
+This is beta quality software, see the bug tracker for bugs and known issues.
+
+official sourceforge site: http://sourceforge.net/projects/ninjaos/
+
+official bugtracker: https://gitlab.com/ninjaos/ninjaos-ng/issues
+
+official homepage:  http://ninjaos.org
+
+official TOR .onion: http://ninjaos4xt6nc2ft.onion/ninjaos
+
+official git repo: https://gitlab.com/ninjaos/ninjaos
+
+official piratebay: https://thepiratebay.se/user/devninja/
+
+Yes, you saw correctly, we now have an official pirate bay account used for
+releasing torrents.
+
+See "instructions.txt" for build instructions.
+
+              -~== Subdirrectories and Features ==~-
+repo - Repo for additional packages not in parent distro Arch linux. We are
+signing all new package and the index is signed. Compiled from AUR pkgbuilds
+and nominally tested.
+
+This can be accessed online as an Arch Linux repository. simply add the
+following to pacman.conf, and select your appropriate archecture. This repo is
+gpg signed, and the key is the same as the Ninja OS key used for other things.
+You can find a package called ninjaos-keyring in AUR that will install this
+automaticly.
+
+[ninjaos]
+Server=http://ninjaos.org/repo/$arch
+
+unfinnished-scripts - not used scripts that do not get included when compiled
+with the CD/USB stick.
+
+cd-root - directory that is used as the root of the live medium, not in the
+squashfs file.
+
+rootoverlay - overlay that gets placed on top of root file system, everything
+in here overwrites the installed files at the base location, and is relivant to
+root "/" in the live system. 
+Important files and locations in rootoverlay:
+
+rootoverlay/var/liveos_version.conf - contains basic versioning information and
+a SHA256 hash sum of the image displayed at boot.
+
+rootoverlay/usr/share/scripts - directory contains scripts written by us for
+use in this project. GPL licensed.
+
+rootoverlay/var/lib/misc - directory contains files with hash sums of important
+files not in the main squash container, for use with the integrity checker
+script.
+
+rootoverlay/var/interface - stores scrambled mac addresses for ethernet
+interfaces with mh_scramble, as to make them persistant.
+
+rootoverlay/etc/skel/User_Guides - Small Ninja OS, linux,and general computer
+usage guides
+
+
+		----Modification and Redistribution----
+All configuration files and scripts are licensed under the GPLv3, or any later,
+version, except where noted. and you are free to modify and re-distribute
+under those terms. I will dual license under GPLv2 if someone could give me
+one solid good idea why I should. The following are guidelines:
+
+Guidelines - if you are going to make ANY modifications that get re-distributed,
+you are encouraged to add time, date and user handle stamps to code
+modifications and change the versioning to reflect modification. such as
+(ninja version)-(yourmod name)-(modversion). i.e. 0.5.3-pirate-7, for Ninja OS
+version 0.5.3 with version 7 of the fictional pirate patch set.
+
+If there are substantial changes, you should fork the project, and call it
+something else entirely.
+
+check_arp.py is licensed under the FreeBSD license, written by jack @ NYI
+
+		----GPG----
+Fingerprint:
+
+D5E7 6841 665A 4408 D73C
+2D87 96FD 6113 A1F8 331E
+
+Key ID:
+A1F8331E
+
+--------------------------------------------------------------------------------
+© 2011-2017 Ninja OS. Licensed under the Creative Commons Attribution-ShareAlike
+3.0 Unported (CC BY-SA 3.0)

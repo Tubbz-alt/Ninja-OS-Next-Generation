@@ -1,0 +1,27 @@
+# Maintainer: Dev Ninja <ninja_os@yahoo.com>
+
+# This pakcage is a replacement for installscript.sh
+# This package is a post-install script for Ninja OS. After you install Ninja OS
+# edit the settings at the top of ninjaos-inst.install, compile with makepkg
+# and then install this packge with the Update / Add package [-U] button.
+
+pkgname=ninjaos-inst
+pkgver=3
+pkgrel=1
+pkgdesc="post-install script for building ninjaos"
+url="http://ninjaos.org"
+arch=('any')
+license=('GPL3')
+depends=('pacman' 'archlinux-keyring' 'wireshark-cli' 'networkmanager' 'iputils' 'libcap')
+install=${pkgname}.install
+source=("dummy.file")
+sha256sums=('f3fa9084f7d61af4cbd8c6c0404cf7aad83ba7461ed693e3885b2247cf057520')
+validpgpkeys=('D5E76841665A4408D73C2D8796FD6113A1F8331E')
+build() {
+  echo "This is a Post Installation script for Ninja OS."
+  echo "It is a dummy package with no software."
+}
+
+package() {
+  echo "see the .install file for more information"
+}
