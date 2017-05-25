@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=PackETH(As Root)
+GenericName=Packet Generator(As Root)
+Exec=gksu packETH
+Terminal=false
+Icon=packETH
+Type=Application
+Categories=Application;Network;Security
+Comment=A GUI Ethernet Packet Generator

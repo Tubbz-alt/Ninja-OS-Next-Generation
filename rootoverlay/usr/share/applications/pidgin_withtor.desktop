@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Pidgin Internet Messenger(over TOR)
+GenericName=Internet Messenger(TOR)
+Comment=Chat over IM.  Supports AIM, Google Talk, Jabber/XMPP, MSN, Yahoo and more
+Exec=torsocks pidgin
+Icon=pidgin
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Network;InstantMessaging;

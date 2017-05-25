@@ -1,0 +1,10 @@
+production:
+ adapter: postgresql
+ database: msf
+ username: metasploit
+ password: n1nj40s
+ host: localhost
+ port: 5432
+ pool: 5
+ timeout: 5
+

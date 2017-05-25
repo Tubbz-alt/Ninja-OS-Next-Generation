@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=notification For Privacy Mode
+GenericName=Notification For Privacy Mode
+Comment=libnotify wrapper for privacy mode
+Exec=/usr/share/scripts/priv_notify.sh
+Icon=dialog-information
+Catagories=System;Network;
+Name[en]=Notification For Privacy Mode

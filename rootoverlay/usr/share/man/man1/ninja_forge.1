@@ -1,0 +1,87 @@
+.TH NINJA_FORGE 1
+.SH NAME
+.B ninja_forge - 
+Forges new Ninja OS usb sticks.
+.SH SYNOPSIS
+.B ninja_forge
+[\fB\-k\fR \fIPACKAGE_FILE\fR]
+[\fB\-\-package\fR \fIPACKAGE_FILE\fR]
+[\fB\-m\fR]
+[\fB\-\-meta\fR]
+[\fB\-a\fR]
+[\fB\-\-hash\fR]
+[\fB\-g\fR]
+[\fB\-\-gpg\fR]
+[\fB\-n\fR]
+[\fB\-\-part\-num\fR]
+[\fB\-o\fR]
+[\fB\-\-noop\fR]
+[\fB\-p\fR]
+[\fB\-\-partonly\fR]
+[\fB\-u\fR]
+[\fB\-\-upgrade\fR]
+[\fB\-v\fR]
+[\fB\-\-verify\fR]
+.IR block_device
+.SH DESCRIPTION
+	Ninja Forge is a tool that creates new Ninja OS USB sticks. It functions
+by formating a drive and then reconstituting Ninja OS from .img files generated
+previously by Ninja Clone. You can use any USB stick that is larger than the
+partition size(see liveos_version.conf). Ninja Forge will throw a warning for
+USB sticks less than double the size of the image.
+
+	When partitioning, it makes two partitions. One OS partition, and the
+other blank, presumably for data. The OS partition is whatever size is set in
+liveos_version.conf and the blank partition is the size of the remainder of the
+USB drive. Upgrades however can write to any partition you so choose(see -p
+below).
+
+	It is possible to upgrade a previous install using --upgrade that
+preserves data or other contents on the flash drive. Please note that --upgrade
+defaults to partition one, and does not checking to ensure this is correct. If
+Ninja OS is not installed to Parition 1, you will need to set partition manually
+with -p
+
+We take one parameter on the command line, and thats the block device name
+(/dev/sdX)
+.SH OPTIONS
+.TP
+.BR \-k ", " \-\-package " " \fIpackage_file.liveos.zip\fR
+Forge from a \fIliveos_zip(5)\fR format package instead of base files. This
+format is used by \fIninja_clone\fR. WARNING!: This needs extra disk space to
+temporarily decompress the files.
+
+Package Options:
+.TP
+	
+.BR \-m ", " \-\-meta
+Prints Package metadata and versioning in addition to other operations
+.TP
+	
+.BR \-a ", " \-\-hash
+Checks hash sums in addition to other operations.
+.TP
+	
+.BR \-g ", " \-\-gpg
+Check GPG signatures in addition to other operations.
+.TP
+	
+.BR \-o ", " \-\-noop
+Don't format or copy data, for use with -m, -a and -g.(i.e. just check metadata,
+hash sums and signatures)
+.TP
+.BR \-n ", " \-\-part-num
+Disk Partition Number. Default is 1. i.e. as /dev/sda1
+.TP
+.BR \-p ", " \-\-partonly
+Format the disk and partition only. Do not copy any data.
+.TP
+.BR \-u ", " \-\-upgrade
+Upgrade from a previous version of Ninja OS. i.e. skip partition and formating.
+.TP
+.BR \-v ", " \-\-verify
+Verify a package, alias for --meta --hash --noop --gpg --package --verify
+\fIfilename\fR
+
+.SH SEE ALSO
+\fIliveos_zip(5)\fR \fIninja_clone(1)\fR

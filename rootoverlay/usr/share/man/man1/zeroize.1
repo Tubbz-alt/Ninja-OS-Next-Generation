@@ -1,0 +1,30 @@
+.TH ZEROIZE 1
+.SH NAME
+.B ZEROIZE -
+Stop and secure the running system, and then overwrite the entire USB stick with
+zeros, destroying all data.
+.SH SYNOPSIS
+.B zeroize
+[\fB\-\-noconfirm\fR]
+.IR usbstick_blockdevice
+.SH DESCRIPTION
+Zeroize. Do the UnThinkable. Wipe all data on USB stick, make a single blank FAT
+partition, then reboot. Also known as "Self Destruct", "SDZ", and
+"Self Destruct/Zeroize"
+
+First it wipes the first 128k(all potential encrypted partition headers) from
+every partition of the drive with /dev/urandom, making recovery of encrypted
+partions along with all filesystem tables, nigh impossible.
+
+Second, it zero fills the entire drive with /dev/zero
+
+Third, and final, it re-partitions and reformats the disk as a FAT32 partition
+and reboots. This should make the USB drive look like a regular, blank
+universally compatible USB stick, with no trace that we were ever there.
+.SH OPTIONS
+.TP
+.BR \-\-noconfirm
+Do no ask a confirmation prompt. This is useful if you need to call from a
+script
+.SH ALIASES
+.I self_destruct zzz zeroize

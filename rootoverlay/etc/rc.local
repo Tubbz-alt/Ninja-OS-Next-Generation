@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Old school /etc/rc.local file is being revived to fit odds and ends that
+# do not go in their own systemd unit. In case you are too young to remember.
+# this file runs at the end of boot.
+
+# set permissions for i2p correctly. larch overlays chown everything to root
+# causing this to fail
+chown -R i2p:i2p /opt/i2p/

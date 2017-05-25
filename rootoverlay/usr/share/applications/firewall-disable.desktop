@@ -1,0 +1,22 @@
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=Disable Firewall
+GenericName=Disables Firewall
+Exec=/usr/share/scripts/firewall_gui_control.sh stop
+Terminal=false
+Icon=security-low
+Type=Application
+Categories=firewallctl
+Comment=Clears Default IPTable firewall Rules
+
+Name[en]=Disable Firewall
+Name[zh]=禁用防火墙
+Name[es]=Desactivar Firewall
+Name[ar]=جدار حماية تعطيل
+Name[pt]=Firewall Desativar
+Name[ja]=無効にするファイアウォール
+Name[ru]=Отключить брандмауэр
+Name[de]=Disable Firewall
+Name[fr]=Pare-feu Désactiver
+Name[ms]=ഫയർവോൾ പ്രവർത്തനരഹിതമാക്കുക

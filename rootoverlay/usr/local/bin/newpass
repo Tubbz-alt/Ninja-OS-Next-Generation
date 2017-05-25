@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+#  Written for Ninja OS by the development team.
+#  licensed under the GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+#
+
+help_and_exit() {
+cat 1>&2 << EOF
+newpass: simple script to generate new passwords. The default is a min length
+of 20, and max length of 30. If only one parameter is specified, a password of exact
+length is used.
+
+	Usage:
+	$ newpass [min length] [max length]
+EOF
+exit 1
+}
+
+min=24
+max=24
+
+[ "${1}" == "--help" ] && help_and_exit
+
+if [ ! -z $2 ];then
+    max=$2
+    min=$1
+  elif [ ! -z $1 ];then
+    min=$1
+    max=$1
+fi
+
+makepasswd --minchars=${min} --maxchars=${max}

@@ -1,0 +1,23 @@
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=Enable Firewall
+GenericName=Enables Firewall
+Exec=/usr/share/scripts/firewall_gui_control.sh start
+Terminal=false
+Icon=security-high
+Type=Application
+Categories=firewallctl
+Comment=Loads Default IPtable firewall Rules
+
+Name[en]=Enable Firewall
+Name[zh]=启用防火墙
+Name[es]=Habilitar Firewall
+Name[ar]=تمكين جدار حماية
+Name[pt]=Ativar Firewall
+Name[ja]=ファイアウォールを有効にします
+Name[ru]=Включить брандмауэр
+Name[de]=Firewall aktivieren
+Name[fr]=activer le pare-feu
+Name[ms]=ഫയർവോൾ പ്രവർത്തനക്ഷമമാക്കുക
+

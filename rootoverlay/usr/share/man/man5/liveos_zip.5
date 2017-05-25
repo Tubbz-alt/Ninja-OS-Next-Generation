@@ -1,0 +1,112 @@
+.TH LIVEOS_ZIP 5
+.SH NAME
+liveos.zip packaging format for distributing live operating systems.
+.SH DESCRIPTION
+liveos.zip is a software distribution archive based on the ZIP archiving format.
+File extension is for files that end in .liveos.zip.
+
+A .liveos.zip archive contains a disk image, the bootloader, MD5 hashsums,
+optionally GPG detached signatures, documentation, and an index file
+documenting its contents.
+
+These files can be decompressed and installed on their own, or they can be
+manipulated with the \fIninja_forge\fR and \fIninja_clone\fR commands.
+
+.SH STRUCTURE
+Filenames and system commands are highlighted with \fIitalics\fR and key content
+inside files with \fBbold\fR.
+
+
+.I /
+.br
+  \fIliveos_version.conf\fR - index file with metadata about package. Uses
+  key=pair values to describe the contents. The following keys are recognized:
+
+	\fBFORMAT_VER\fR - version of LIVEOS.ZIP being used.
+.br
+	\fBOSNAME\fR - Name of OS in the package. \fBOSSLUG\fR is made from this value
+.br
+	by removing spaces and moving all chars to lowercase
+.br
+	\fBOSVERSION\fR - Version of the OS in the package.
+.br
+	\fBOSARCH\fR - CPU archecture the OS is compiled for.(i686 or x86_64)	
+.br
+	\fBPART_SIZE\fR - Size of the partition that the OS will take up on the disk.
+.br
+	This needs to match the size of the .img file
+.br
+	\fBBOOT_BACKGROUND\fR - JPEG file that is shown on the boot loader screen
+.br
+	\fBBACKGROUND_SHA256\fR - Hash sum of said JPEG. This is done for authenticity
+.br
+	reasons.
+.br
+	\fBCONF_KEYNAME\fR - the short GPG keyname of the OS that is used to sign
+.br
+	the package, and for integrity checks.
+.br
+	\fBCONF_KEYSIG\fR - the full fingerprint of the key the OS uses for integrity
+.br
+	checking.
+
+  \fI$OSSLUG_$OSVERSION.img\fR - the main image file with the OS. this is a snap
+  shot of a partition. OSSLUG and OSVERSION are the name and version of the OS.
+
+  \fIninjabootsector$OSVERSION.img\fR - the 440 byte syslinux MBR boot sector that
+  corresponds with the live image. This gets installed at the beginning of the
+  drive
+
+  \fIscripts/\fR
+
+    \fIninjaforge.sh\fR - Forge script that installs the contained OS onto a USB
+    Stick. This is the same as \fIninja_forge\fR, in Ninja OS.
+
+    \fIliveos_lib.sh\fR - bash library for \fIninjaforge.sh\fR as used in Ninja
+    OS.
+
+  \fIhash/\fR
+
+    \fImd5\fR - File with MD5 hashsums of critical components to check against
+    damage in transport. Will not ensure authenticity. key=value paired file.
+    key/file MD5 sums are as follows :
+
+	\fBMAIN_HASH\fR - \fI$OSSLUG_$OSVERSION.img\fR
+.br
+	\fBBS_HASH\fR - \fIninjabootsector$OSVERSION.img\fR
+.br
+	\fBINDEX_HASH\fR - \fIliveos_version.conf\fR
+.br
+	\fBLIB_SH_HASH\fR - \fIliveos_lib.sh\fR
+.br
+	\fBFORGE_SH_HASH\fR - \fIninjaforge.sh\fR
+
+  \fIgpg/\fR
+    This directory optionally contains GPG signatures of files in the archive.
+    Optional, because only the OS author will be able to generate these
+    signatures, because access to the private GPG key is needed. There is no
+    automated tooling for this, and that is done so on purpose. The following
+    signature files are recognized, and corresspond to their base filename:
+
+	\fI$OSSLUG_$OSVERSION.img.sig\fR
+.br
+	\fIninjabootsector$OSVERSION.img.sig\fR
+.br
+	\fIliveos_version.conf.sig\fR
+.br
+	\fIliveos_lib.sh.sig\fR
+.br
+	\fIninjaforge.sh.sig\fR
+
+  \fIdoc/\fR
+
+    \fIREADME\fR - README file with install instructions
+
+    \fIlicense.txt\fR - Licensing agreement. Terms and Conditions of use for
+    the OS contained in the package. Both Ninja OS and the .liveos.zip format
+    and all tooling are licensed for public use under the GPLv3, and all
+    derivative work must follow.
+
+.SH SEE ALSO
+\fIninja_forge(1)\fR \fIninja_clone(1)\fR \fIzip(1)\fR \fIunzip(1)\fR
+\fIliveos_version_conf(5)\fR

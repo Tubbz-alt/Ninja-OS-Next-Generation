@@ -1,0 +1,19 @@
+.TH NEWPASS
+.SH NAME
+newpass - generate a random string suitable as a password
+.SH SYNOPSIS
+.B newpass
+.IR minlength
+.IR maxlength
+.SH DESCRIPTION
+Use Debian's mkpassword to generate random password string. Takes two optional
+arguments, the mininum length and the maximum length.
+
+If there are no arguments, then a default of 24 characters is used.
+
+If there is one argument, the string will be the length of the argument.
+
+If there are two arguments, the string will a length with a min of the first
+parameter, and the max of the second.
+.SH SEE ALSO
+\fImkpasswd(1)\fR

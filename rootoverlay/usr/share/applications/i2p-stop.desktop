@@ -1,0 +1,22 @@
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=Stop I2P
+GenericName=Stops I2P router
+Exec=/usr/share/scripts/i2p_control.sh stop
+Terminal=false
+Icon=i2p-stop
+Type=Application
+Categories=i2pctl
+Comment=Stops Invisible Internet Router
+
+Name[en]=Stop I2P
+Name[zh]=停止I2P
+Name[es]=Detener I2P
+Name[ar]=توقف I2P
+Name[pt]=Parar I2P
+Name[ja]=停止I2P
+Name[ru]=Stop I2P
+Name[de]=Stopp I2P
+Name[fr]=Arrêter I2P
+Name[ms]=Hentikan I2P

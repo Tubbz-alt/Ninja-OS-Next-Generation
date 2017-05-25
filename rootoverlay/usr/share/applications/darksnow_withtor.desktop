@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Dark Snow(Over TOR)
+GenericName=Frontend for Darkice(icecast/shoutcast source)
+Exec=torsocks darksnow
+Terminal=false
+Icon=/usr/share/icons/hicolor/32x32/apps/darksnow.png
+Type=Application
+Categories=Audio;Network;Application
+Comment=Shoutcast and Icecast audio streaming source

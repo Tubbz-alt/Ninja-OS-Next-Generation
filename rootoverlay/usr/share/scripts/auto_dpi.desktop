@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Auto-DPI
+GenericName=Calculate and set DPI Automaticly
+Comment=automaticly sets screen scaling for HiDPI screens.
+Exec=/usr/share/scripts/auto_dpi.sh
+Icon=video-display
+Catagories=System;Boot;Display
+Name[en_US]=Auto-DPI

@@ -1,0 +1,94 @@
+<?xml encoding="UTF-8" version="1.0"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1425867531518953-1</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<description>Open Terminal in this location</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>mat</icon>
+	<name>Remove Metadata</name>
+	<unique-id>1451484662116314-3</unique-id>
+	<command>mat-gui %F</command>
+	<description>Scrub File Metadata with Metadata Anonymization Toolkit</description>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>stock_xfburn-data-copy</icon>
+	<name>Convert To .ISO</name>
+	<unique-id>1491439860285804-2</unique-id>
+	<command>/usr/share/scripts/2iso.sh %F</command>
+	<description>Convert Proprietary Disk Images to ISO9660 Standard</description>
+	<patterns>*.nrg;*.NRG;*.CCD*;*.ccd;*.Nrg;*.Ccd</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>drive-harddisk</icon>
+	<name>Convert to .IMG</name>
+	<unique-id>1491439930297837-3</unique-id>
+	<command>dmg2img %f</command>
+	<description>Convert Mac .DMG files to standard .IMG</description>
+	<patterns>*.dmg;*.DMG;*.Dmg</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>gcr-key-pair</icon>
+	<name>GPG - sign/verify/encrypt/decrypt</name>
+	<unique-id>1425873884805046-1</unique-id>
+	<command>gpa -f %F</command>
+	<description>Open Files With GPA For GPG usage</description>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>qphotorec</icon>
+	<name>Convert to .PNG</name>
+	<unique-id>1491440148303419-4</unique-id>
+	<command>gif2png %F</command>
+	<description>Convert GIF Image to a PNG Image</description>
+	<patterns>*.png;*.PNG;*.Png</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>-------</name>
+	<unique-id>1425867992641592-6</unique-id>
+	<command>true</command>
+	<description>spacer</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>edit-delete</icon>
+	<name>Secure Delete</name>
+	<unique-id>1451484670887515-4</unique-id>
+	<command>/usr/share/scripts/srm_notify.sh %F</command>
+	<description>Securely Wipe Files Before Deletion</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+</actions>

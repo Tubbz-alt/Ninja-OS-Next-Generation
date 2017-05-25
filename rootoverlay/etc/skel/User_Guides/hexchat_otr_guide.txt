@@ -1,0 +1,21 @@
+Hexchat-OTR is written by TingPing and redistributed under the terms
+of the GPL version 2.
+https://github.com/TingPing/hexchat-otr
+
+
+  =Start a session with a user=
+/query <nick>
+/otr start
+
+/otr trust #After verifying the fingerprint of the key
+
+To connect with a user
+/otr auth <password>
+
+/otr authq <challenge> <response expected>
+
+When you're done:
+/otr finish
+
+
+© 2011-15 Ninja OS. Licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)

@@ -1,0 +1,15 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=gFTP(Over TOR)
+Comment=Download and upload files using multiple file transfer protocols
+GenericName=FTP Client(TOR)
+Exec=torsocks gftp %u
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=gftp.png
+Categories=Application;Network;
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=gftp
+X-GNOME-Bugzilla-Component=general
+X-GNOME-Bugzilla-Version=2.0.19

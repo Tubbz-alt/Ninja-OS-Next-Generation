@@ -1,0 +1,9 @@
+# logrotate for basic IDS
+/var/log/netsec.log {
+  rotate 1
+  maxsize 100M
+  daily
+  compress
+  missingok
+}
+

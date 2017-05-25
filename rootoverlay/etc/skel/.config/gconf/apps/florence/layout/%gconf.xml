@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="extensions" mtime="1425865769" type="string">
+		<stringvalue>standardnv:standardfn:actionkys</stringvalue>
+	</entry>
+	<entry name="style" mtime="1425865731" type="string">
+		<stringvalue>/usr/share/florence/styles/default</stringvalue>
+	</entry>
+</gconf>

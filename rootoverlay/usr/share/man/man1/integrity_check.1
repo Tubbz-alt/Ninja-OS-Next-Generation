@@ -1,0 +1,55 @@
+.TH INTEGRITY_CHECK
+.SH NAME
+.B integrity_check
+checks system components against GPG signatures.
+.SH SYNOPSIS
+.B integrity_check
+.SH DESCRIPTION
+Integrity Check uses GPG signature to check Ninja OS/LiveOS system for tampering
+or damage. These signature are generated before shipping by the Operating
+System author using the system GPG key.
+
+The signatures are stored in two places \fI/var/lib/misc/\fR, and in
+\fI/boot/sigs/\fR. the files /var/ are inside the main squashfs file, those in
+/boot are outside it.
+
+See the Ninja OS user guide in ~/User_Guides for more information.
+
+.SH FILES CHECKED
+List of files and the location of their sigs:
+
+	\fI/var/lib/misc\fR:
+.br
+	Boot Sector first 440 bytes of drive	-	bootsector.sig
+
+	\fBBoot Menu\fR:
+.br
+	vesamenu.c32 chain.c32 libutil.c32	-	Corresponding .sig files
+.br
+	libcom32.c32 reboot.c32 hdt.c32
+.br
+	libmenu.c32 libgpl.c32
+
+
+	\fBKernel\fR(whatever is in /boot/kernalname)	-	kernel.sig
+.br
+	/var/liveos_version.conf			-	liveos_version.conf.sig
+.br
+	syslinux background image		-	SHA256 as specified by
+.br
+							liveos_version.conf
+.br
+        /boot/intel-ucode.img			-	intel-ucode.img.sig
+
+
+	\fI/boot/sigs\fR:
+.br
+	/boot/larch.img				-	larch.img.sig
+.br
+	/boot/isolinux/ldlinux.sys		- 	ldlinux.sys.sig
+.br
+	/larch/mods.sqf				-	mods.sqf.sig
+.br
+	/larch/system.sqf				-	system.sqf.sig
+
+

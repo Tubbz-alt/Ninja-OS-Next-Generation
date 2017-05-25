@@ -1,0 +1,22 @@
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=Start I2P
+GenericName=Starts I2P router
+Exec=/usr/share/scripts/i2p_control.sh start
+Terminal=false
+Icon=i2p-start
+Type=Application
+Categories=i2pctl
+Comment=Starts Invisible Internet Router
+
+Name[en]=Start I2P
+Name[zh]=开始I2P
+Name[es]=Inicio I2P
+Name[ar]=بداية I2P
+Name[pt]=Iniciar I2P
+Name[ja]=スタートI2P
+Name[ru]=Начало I2P
+Name[de]=Starten I2P
+Name[fr]=Démarrer I2P
+Name[ms]=Mula I2P

@@ -1,0 +1,39 @@
+.TH NINJA_ClONE 1
+.SH NAME
+.B ninja_clone -
+Clones the currently running Ninja OS system into .img files. See also
+\fIninja_forge(1)\fR
+.SH SYNOPSIS
+.B ninja_clone
+[\fB\-a\fR]
+[\fB\-\-hash\fR]
+[\fB\-k\fR]
+[\fB\-\-package\fR]
+[\fB\-d\fR]
+[\fB\-\-dupe\fR]
+.IR target
+.SH DESCRIPTION
+Ninja Clone clones the running Ninja OS system into either .img files or onto
+another disk. Cloned images are meant to be used with ninja_forge to make Ninja
+OS USB sticks. See \fIninja_forge(1)\fR for more information. \fItarget\fR is a
+directory name unless \-\-dupe is specified when it becomes a block device.
+.SH OPTIONS
+.TP
+.BR \-d ", " \-\-dupe " " \fI\</dev/sdX\>\fR
+Instead of cloning to a directly, duplicate Ninja OS directly to another USB
+Stick, where /dev/sdX is the name of the block device. Will erase data on the
+USB stick. \fIninja_dupe(1)\fR is an alias for this
+.TP
+.BR \-k ", " \-\-package
+In addition to making image files of the running system, compress them into
+compressed archive packages along with README, license, and forge scripts. This
+package can be read directly by \fIninja_forge(1)\fR, or redistributed. This
+uses the \fIliveos_zip(5)\fR package format
+.TP
+.BR \-a ", " \-\-hash
+When using \-\-package, include MD5 hash sums in the final package to detect
+package integrity. This cannot provide resistance against purposeful tampering,
+only accidental damage in transmission. Only usable with \-\-package
+
+.SH SEE ALSO
+\fIliveos_zip(5)\fR \fIninja_forge(1)\fR

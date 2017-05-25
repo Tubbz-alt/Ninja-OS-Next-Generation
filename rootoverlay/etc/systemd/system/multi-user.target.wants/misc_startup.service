@@ -1,0 +1,15 @@
+[Unit]
+Description=Miscellaneous Startup Configuration settings
+After=privoxy.service network.target
+
+[Service]
+Type=oneshot
+TimeoutSec=3
+ExecStart=/etc/rc.local
+TimeoutStopSec=1
+SuccessExitStatus=0
+StandardOutput=tty
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

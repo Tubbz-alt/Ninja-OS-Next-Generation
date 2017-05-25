@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Multi-Monitor Support
+GenericName=Set up Additional monitors with xrand.
+Comment=Uses xrandr to set up multiple monitors correctly
+Exec=/usr/share/scripts/multi_mon.sh
+Icon=video-display
+Catagories=System;Boot;Display
+

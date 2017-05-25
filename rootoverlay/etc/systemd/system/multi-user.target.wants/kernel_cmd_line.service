@@ -1,0 +1,15 @@
+[Unit]
+Description=Apply Options From Boot Menu
+Before=NetworkManager.service
+#After=csprngd.service
+#Before=getty@tty1.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/share/scripts/kernel_cmd_check.sh
+TimeoutStopSec=1
+StandardOutput=tty
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

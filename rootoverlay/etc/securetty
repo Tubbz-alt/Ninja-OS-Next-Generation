@@ -1,0 +1,8 @@
+#
+# /etc/securetty
+#
+
+console
+tty1
+tty2
+# End of file

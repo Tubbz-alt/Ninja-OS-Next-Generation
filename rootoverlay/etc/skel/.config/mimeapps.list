@@ -1,0 +1,12 @@
+[Added Associations]
+x-scheme-handler/mailto=exo-mail-reader.desktop
+image/gif=ristretto.desktop;
+image/jpeg=ristretto.desktop;
+application/pdf=epdfview.desktop;
+image/png=ristretto.desktop;
+
+[Default Applications]
+image/gif=ristretto.desktop
+image/jpeg=ristretto.desktop
+application/pdf=epdfview.desktop
+image/png=ristretto.desktop

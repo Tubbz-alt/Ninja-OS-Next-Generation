@@ -1,0 +1,21 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=I2P Console
+GenericName=Opens I2P Console
+Exec=/usr/share/scripts/i2p_control.sh console
+Terminal=false
+Icon=i2p-webconsole
+Type=Application
+Categories=i2pctl
+Comment=Open the Invisible Internet Console in the Web Browser
+
+Name[en]=I2P Console
+Name[zh]=I2P控制台
+Name[es]=I2P Consola
+Name[ar]=وحدة التحكم I2P
+Name[pt]=I2P Console
+Name[ja]=I2Pコンソール
+Name[ru]=I2P консоли
+Name[de]=I2P Konsole
+Name[fr]=I2P Console
+Name[ms]=I2P Console

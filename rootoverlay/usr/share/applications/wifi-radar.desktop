@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Name=WiFi Radar
+GenericName=Wireless tool
+Comment=Tool for connecting to wireless networks
+Icon=wifi-radar.svg
+FilePattern=wifi-radar
+TryExec=wifi-radar
+Exec=sudo wifi-radar
+Categories=System;

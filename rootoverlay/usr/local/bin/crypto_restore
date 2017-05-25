@@ -1,0 +1,1 @@
+/usr/share/scripts/crypto_backup.sh --restore "$@"

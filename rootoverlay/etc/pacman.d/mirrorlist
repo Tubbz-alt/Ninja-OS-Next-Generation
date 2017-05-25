@@ -1,0 +1,132 @@
+##
+## Arch Linux repository mirrorlist
+## Generated on 2016-11-28
+##
+
+## Worldwide
+#Server = https://archlinux.surlyjake.com/archlinux/$repo/os/$arch
+
+## Australia
+#Server = https://mirror.aarnet.edu.au/pub/archlinux/$repo/os/$arch
+
+## Bulgaria
+#Server = https://mirrors.uni-plovdiv.net/archlinux/$repo/os/$arch
+
+## Canada
+#Server = https://mirror.frgl.pw/archlinux/$repo/os/$arch
+#Server = https://muug.ca/mirror/archlinux/$repo/os/$arch
+
+## China
+#Server = https://mirrors.skyshe.cn/archlinux/$repo/os/$arch
+#Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+#Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
+#Server = https://mirrors.xjtu.edu.cn/archlinux/$repo/os/$arch
+
+## Czech Republic
+#Server = https://mirror.dkm.cz/archlinux/$repo/os/$arch
+#Server = https://ftp.sh.cvut.cz/arch/$repo/os/$arch
+
+## Denmark
+#Server = https://mirrors.dotsrc.org/archlinux/$repo/os/$arch
+#Server = https://mirror.one.com/archlinux/$repo/os/$arch
+
+## France
+#Server = https://archlinux.vi-di.fr/$repo/os/$arch
+#Server = https://mirror.armbrust.me/archlinux/$repo/os/$arch
+#Server = https://fooo.biz/archlinux/$repo/os/$arch
+#Server = https://www.mailtunnel.eu/archlinux/$repo/os/$arch
+#Server = https://arch.nimukaito.net/$repo/os/$arch
+#Server = https://archlinux.mirror.pkern.at/$repo/os/$arch
+#Server = https://mirror.tyborek.pl/arch/$repo/os/$arch
+#Server = https://mirror.wormhole.eu/archlinux/$repo/os/$arch
+
+## Germany
+Server = https://arch.32g.eu/$repo/os/$arch
+#Server = https://mirror.aardvark.it/archlinux/$repo/os/$arch
+Server = https://mirror.bethselamin.de/$repo/os/$arch
+#Server = https://mirrors.cicku.me/archlinux/$repo/os/$arch
+#Server = https://archlinux.cyborg-connect.de/$repo/os/$arch
+#Server = https://mirror.f4st.host/archlinux/$repo/os/$arch
+#Server = https://ftp.fau.de/archlinux/$repo/os/$arch
+#Server = https://mirror.fluxent.de/archlinux/$repo/os/$arch
+#Server = https://mirror.hactar.xyz/$repo/os/$arch
+#Server = https://archlinux.honkgong.info/$repo/os/$arch
+#Server = https://mirror.jankoppe.de/$repo/os/$arch
+#Server = https://arch.jensgutermuth.de/$repo/os/$arch
+#Server = https://mirror.js-webcoding.de/pub/archlinux/$repo/os/$arch
+#Server = https://k42.ch/mirror/archlinux/$repo/os/$arch
+#Server = https://mirror.loli.forsale/arch/$repo/os/$arch
+#Server = https://mirror.metalgamer.eu/archlinux/$repo/os/$arch
+#Server = https://mirror.michael-eckert.net/archlinux/$repo/os/$arch
+#Server = https://mirror.netcologne.de/archlinux/$repo/os/$arch
+#Server = https://mirrors.niyawe.de/archlinux/$repo/os/$arch
+#Server = https://mirror.pseudoform.org/$repo/os/$arch
+#Server = https://www.ratenzahlung.de/mirror/archlinux/$repo/os/$arch
+#Server = https://archlinux.thaller.ws/$repo/os/$arch
+#Server = https://mirror.ubrco.de/archlinux/$repo/os/$arch
+#Server = https://mirror.vfn-nrw.de/archlinux/$repo/os/$arch
+
+## Greece
+#Server = https://foss.aueb.gr/mirrors/linux/archlinux/$repo/os/$arch
+
+## Hong Kong
+#Server = https://arch-mirror.wtako.net/$repo/os/$arch
+
+## Iceland
+Server = https://mirror.system.is/arch/$repo/os/$arch
+
+## Iran
+#Server = https://repo.sadjad.ac.ir/arch/$repo/os/$arch
+
+## Ireland
+#Server = https://ftp.heanet.ie/mirrors/ftp.archlinux.org/$repo/os/$arch
+
+## Lithuania
+#Server = https://mirrors.atviras.lt/archlinux/$repo/os/$arch
+#Server = https://arch.relevant.lt/$repo/os/$arch
+
+## Macedonia
+#Server = https://mirror.t-home.mk/archlinux/$repo/os/$arch
+
+## Netherlands
+#Server = https://mirror.i3d.net/pub/archlinux/$repo/os/$arch
+
+## New Zealand
+#Server = https://mirror.smith.geek.nz/archlinux/$repo/os/$arch
+
+## Norway
+#Server = https://mirror.neuf.no/archlinux/$repo/os/$arch
+
+## Russia
+#Server = https://mirror.aur.rocks/$repo/os/$arch
+#Server = https://mirror.rol.ru/archlinux/$repo/os/$arch
+#Server = https://mirror.yandex.ru/archlinux/$repo/os/$arch
+
+## Slovakia
+#Server = https://mirror.lnx.sk/pub/linux/archlinux/$repo/os/$arch
+
+## Slovenia
+#Server = https://archimonde.ts.si/archlinux/$repo/os/$arch
+
+## Sweden
+#Server = https://ftp.lysator.liu.se/pub/archlinux/$repo/os/$arch
+#Server = https://ftp.myrveln.se/pub/linux/archlinux/$repo/os/$arch
+
+## Switzerland
+#Server = https://pkg.adfinis-sygroup.ch/archlinux/$repo/os/$arch
+
+## Ukraine
+#Server = https://mirrors.nix.org.ua/linux/archlinux/$repo/os/$arch
+
+## United States
+#Server = https://mirror.grig.io/archlinux/$repo/os/$arch
+#Server = https://mirrors.kernel.org/archlinux/$repo/os/$arch
+#Server = https://kwk.pw/arch/$repo/os/$arch
+#Server = https://mirror.lty.me/archlinux/$repo/os/$arch
+#Server = https://mirrors.lug.mtu.edu/archlinux/$repo/os/$arch
+#Server = https://mirrors.ocf.berkeley.edu/archlinux/$repo/os/$arch
+#Server = https://mirrors.rit.edu/archlinux/$repo/os/$arch
+#Server = https://mirrors.rutgers.edu/archlinux/$repo/os/$arch
+#Server = https://mirrors.tuxns.net/archlinux/$repo/os/$arch
+
+

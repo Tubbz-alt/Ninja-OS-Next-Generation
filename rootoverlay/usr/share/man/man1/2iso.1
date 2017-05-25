@@ -1,0 +1,19 @@
+.TH 2ISO 1
+.SH NAME
+2iso - convert to ISO9660 format
+.SH SYNOPSIS
+.B 2iso
+.IR filenames
+.SH DESCRIPTION
+Script that converts disk images made with proprietary Windows(tm) tools into
+standard ISO9660 .ISO disk images en mass. Useable with wildcards, and will
+harmlessly ignore unsupported formats.
+
+This script uses and needs the the nrg2iso and ccd2iso binaries to be installed
+in $PATH.
+
+Supports Two formats:
+.br
+	\fB.nrg\fR - Nero Burning Rom
+.br
+	\fB.ccd\fR - CloneCD

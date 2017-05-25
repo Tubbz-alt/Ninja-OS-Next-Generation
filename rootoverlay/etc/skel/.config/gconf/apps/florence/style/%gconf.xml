@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="sounds" mtime="1425865769" type="bool" value="false"/>
+	<entry name="focus_zoom" mtime="1425865769" type="float" value="1"/>
+</gconf>

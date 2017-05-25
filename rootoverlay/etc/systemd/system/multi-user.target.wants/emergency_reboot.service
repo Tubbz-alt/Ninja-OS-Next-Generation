@@ -1,0 +1,13 @@
+[Unit]
+Description=Emergency Reboot Watcher
+
+[Service]
+Type=simple
+ExecStart=/usr/share/scripts/drive_watch.sh
+ExecStop=/usr/bin/true
+TimeoutStopSec=1
+StandardOutput=tty
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target

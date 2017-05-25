@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Self-Destruct/Zeroize
+GenericName=Self-Destruct/Zeroize
+Comment=Wipe the drive you booted from and reboot the computer
+Exec=/usr/share/scripts/terminal_zeroize.sh zeroize
+Icon=software-update-urgent
+Categories=System
+Name[en]=Self-Destruct/Zeroize

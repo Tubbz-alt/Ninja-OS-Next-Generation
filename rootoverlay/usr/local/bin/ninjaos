@@ -1,0 +1,90 @@
+#!/bin/bash
+#
+#  Written for Ninja OS by the development team.
+#  licensed under the GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+#
+#  This is a help script that describes the operation of Ninja OS.
+
+BRIGHTCYAN=$(tput bold;tput setaf 6)
+BRIGHT=$(tput bold)
+NOCOLOR=$(tput sgr0)
+
+echo "${BRIGHTCYAN}  --+$(tput setaf 7)Ninja OS help${BRIGHTCYAN}+-- ${NOCOLOR}"
+cat << EOF
+
+Website	: http://ninjaos.org
+TOR	: http://ninjaos4xt6nc2ft.onion/ninjaos
+Git	: https://gitlab.com/ninjaos/ninjaos
+GPG Key	: A1F8331E
+Full GPG Fingerprint: D5E7 6841 665A 4408 D73C
+		      2D87 96FD 6113 A1F8 331E
+
+Ninja OS is a live OS based on Arch, GNU, Linux and XFC4.
+
+* Ninja OS is licensed under the GNU Public License Version 3. All installed
+  programs are also redistributed when possible with the GPLv3. For terms and
+  conditions see the file /COPYING.TXT. 
+
+* For the official user guide see ~/User_Guides/Ninja OS - User Guide.txt
+
+EOF
+
+[[ $1 != "more" && $1 != "commands" ]] && echo "type 'ninjaos more' for more info"
+
+more_info() {
+cat << EOF
+
+* Scripts are stored in /usr/share/scripts directory, see file
+  /usr/share/scripts/script_list.txt for information.
+
+* For a list of installed packages try typing:
+	$ pacman -Q
+  For search
+	$ pacman -Qs
+  For detailed information
+	$ pacman -Qi
+
+* The following commands exist independant of packages and external software:
+2iso             metasploit_rpcd  ninja_forge    rescramble      zzz
+crypto_backup    newpass          ninjaos        self_destruct
+crypto_restore   ninja_clone      ninja_upgrade  shuriken_forge
+integrity_check  ninja_dupe       pngstrip       zeroize
+
+type "ninjaos commands" for detailed information
+
+EOF
+}
+
+ninjaos_commands() {
+cat << EOF
+The following commands are unique to Ninja OS:
+
+ninjaos - this command
+
+ninja_forge, ninja_clone, ninja_dupe, ninja_upgrade, shuriken_forge - Clone and
+Forge, see User Guide for more information
+
+zzz, zeroize, self_destruct - Self Destruct/Zeroize, see User Guide for more
+information.
+
+crypto_backup, crypto_restore - quickly load and reload you GPG and OTR keys,
+see --help for more info
+
+pngstrip - strip metadata off png images, see --help
+
+2iso - converts NRG and CCD propertiary disk images into standard .ISOs see
+--help
+
+newpass - generates passwords, see --help
+
+metasploit_rpcd - starts metasploit rpc daemon for use with armitage.
+
+rescramble - re-runs mac and host scramble in privacy mode. Resets your desktop
+
+intergrity_check - checks components for tampering against GPG signatures, see
+User Guide for more information
+EOF
+}
+
+[ "${1}" == "more" ] && more_info
+[ "${1}" == "commands" ] && ninjaos_commands

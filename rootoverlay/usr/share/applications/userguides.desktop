@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=User Guides
+GenericName=User Guides
+Comment=NinjaOS user guide, UNIX cheat sheets, privacy guides, and other collected how-tos
+Icon=folder
+Exec=xdg-open /home/user/User_Guides
+Categories=Utility;X-Xfce-Toplevel;

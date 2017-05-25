@@ -1,0 +1,24 @@
+.TH CRYPTO_BACKUP 1
+.SH NAME
+.B crypto_backup - 
+Backup or restore GPG and OTR keys
+.SH SYNOPSIS
+.B crypto_backup
+[\fB\-c\fR]
+[\fB\-\-check-only\fR]
+[\fB\-r\fR]
+[\fB\-\-restore\fR]
+.IR target
+.SH DESCRIPTION
+This script backs up(or restores) GPG and OTR keys in the user directory to an 
+archive file. you need to specify a taget name.
+
+crypt_backup.tar.gz is automaticly appended to target name durring backup.
+.SH OPTIONS
+.TP
+.BR \-c ", " \-\-check-only
+only check archive backup file, do no operations
+.TP
+.BR \-r ", " \-\-restore
+Restore previously backed up crypto keys from archive file. you may also use
+the \fIcrypto_restore\fR command

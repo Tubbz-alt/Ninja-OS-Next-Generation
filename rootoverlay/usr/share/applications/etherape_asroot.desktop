@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=EtherApe(As Root)
+GenericName=EtherApe
+Comment=Graphical Network Monitor
+Comment[es]=Monitor Gráfico de Red
+Exec=gksu etherape
+Terminal=false
+Type=Application
+Icon=etherape
+Categories=GNOME;Network;

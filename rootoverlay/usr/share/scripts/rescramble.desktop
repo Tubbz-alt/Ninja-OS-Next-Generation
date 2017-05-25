@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=ReScramble
+GenericName=MAC Address and Hostname Rescrambler
+Comment=Regenerate new scrambled MAC and host information
+Exec=/usr/share/scripts/rescramble_gui.sh
+Icon=starred
+Categories=System
+Name[en_US]=ReScramble

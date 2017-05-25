@@ -1,0 +1,13 @@
+[Unit]
+Description=Parachute for emergency RAM based shutdown
+Before=NetworkManager.service
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/bash /usr/share/scripts/parachute.sh
+TimeoutStopSec=1
+StandardOutput=tty
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

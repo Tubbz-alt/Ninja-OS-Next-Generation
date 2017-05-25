@@ -1,0 +1,766 @@
+		╔═════════════════════════════════════════════════╗
+		╟╌╌╌#╌╌╌*╌╌╌+╌╌╌Ninja OS User Guide╌╌╌+╌╌╌*╌╌╌#╌╌╌╢
+		╚═════════════════════════════════════════════════╝
+
+WORK IN PROGRESS
+
+	Ninja OS is an Arch GNU/Linux + X11 + XFCE4 + Larch system that uses
+standard libraries and binaries, so this guide will only cover things unique to 
+Ninja OS. For more information on Arch, GNU, Linux, X.org, and XFCE please see
+respective websites.
+
+	It should be noted that this is sitll BETA software. Please do not rely
+on Ninja OS, or any other BETA software to work as intented for any failsafe or
+mission critical work. BETA means untested and unproven.
+
+	+--==Table of Contents==--+
+	    1. Clone and Forge (Installation)
+		A. Clone
+		B. Forge
+		C. Make
+		D. Dupe
+		E. Check
+	    2. Integrity Check
+	    3. Privacy/Privacy Mode
+		A. Privacy Mode
+		B. Self Destruct/Zeroize(SD/Z)
+		C. Automatic Reboot on Unplug
+		D. TOR + I2P Usage
+		E. I2P
+		F. Miscellaneous
+	    4. Ninja Boot'n'Nuke
+	    5. Camouflage
+	    6. IPtables Firewall
+	    7. NinjaOS Scripts
+	    8. Kernel Command-line Options
+	    9. Intel Microcode Update
+	    10. Misc
+		A. Ninja OS Public Key
+		B. Multi-Tocuh
+		C. File Manager Add Ons
+		D. Electum Bitcoinc client
+		E. Hotkey Shortcuts
+		F. Passwords
+	    11. Known Bugs/Issues
+
+=====1. Clone and Forge=====
+
+	Overview: "clone" Ninja OS into .img files, and use same image files to
+make new copies of Ninja OS. Coversly, you can "dupe" ninja os onto a new USB
+stick. You can also make redistributable packages for someone to install Ninja
+OS with nothing more than a UNIX like computer with BASH and PV binaries.
+
+	Before you begin, make sure you have a good copy of Ninja OS. To do
+this, perform an integrity check.
+
+On the Command Line type:
+
+	$ integrity_check
+
+	The script should run through a bunch of self-checks, should see a bunch
+of teal OK! and 0 failures at the end. Once your know you have a good copy, you
+may proceede. See Section 2 for more information on integrity checking.
+
+-- A. Clone --
+	Clone Ninja OS into .img Files:
+
+	$ ninja_clone
+
+	Clones the currently running Ninja OS system into .img files suitable
+for use with the forge command. If run with no options, it will clone to the
+present dirrectory. If a directory is specified, the files will be made there.
+
+	Please note: the --package function is used to make the redistributables
+found available for download. However, we include detached signatures for the
+main image and bootsectore that cannot be generated with this tool.
+
+	It should be noted that no hash alone can be used to verify authenticity
+of a file. We initially used SHA256 sums, but that was a waste. MD5 can check
+integrity just as well if authenticity is not a factor. i.e. data corruption
+and packet loss.
+
+	Usage:
+	$ cloneninja.sh <target-directory>
+
+	Options:
+	-a, --hash	Include a file with MD5 checksums of the .img files in
+			in the package. only works with --package
+
+	-d, --dupe	Copies dirrectly to another device(block) without making
+			.img files
+
+	-k, --package	Makes a complete re-distributable .zip file with forge
+			scripts, README, and licensing files
+
+-- B. Forge --
+	Ninja Forge is a tool that creates new Ninja OS USB sticks. It functions
+by formating a drive and then reconstituting Ninja OS from .img files generated
+previously by Ninja Clone. You can use any USB stick that is larger than the
+partition size(see liveos_version.conf). Ninja Forge will throw a warning for
+USB sticks less than double the size of the image.
+
+	When partitioning, it makes two partitions. One OS partition, and the
+other blank, presumably for data. The OS partition is whatever size is set in
+liveos_version.conf and the blank partition is the size of the remainder of the
+USB drive. Upgrades however can write to any partition you so choose(see -p
+below).
+
+	It is possible to upgrade a previous install using --upgrade that
+preserves data or other contents on the flash drive. Please note that --upgrade
+defaults to partition one, and does not checking to ensure this is correct. If
+Ninja OS is not installed to Parition 1, you will need to set partition manually
+with -p
+
+We take one parameter on the command line, and thats the block device name
+(/dev/sdX)
+
+	Usage:
+	$ ninja_forge [--options] <block device>
+
+	Options:
+	-?, --help	This message
+
+	-m, --meta	Print versioning information.
+
+			  Additional Meta Options:
+	  -a, --hash	Checks hash sums in addition to other operations.
+	  -g, --gpg	Check GPG signatures in addition to other operations.
+
+
+	-k, --package	Use a .liveos.zip package instead of files in a
+			directory.
+			WARNING: This needs space in the local directory to
+			unzip the package file. Use as -k <filename>
+
+	-n, --part-num	Disk Partition Number. Default is 1. i.e. as /dev/sda1
+			This is already implemented in makeninja.sh
+
+	-o, --noop	Don't partition or copy data, for use with -c, -a and -g
+
+	-p, --partonly	Partition only. Set up the partitioning, but do not
+			copy any data.
+
+	-u, --upgrade	Upgrade from a previous version of Ninja OS. i.e. skip
+			partition setup.
+
+	-v,--verify	Verify a package, alias for --meta --hash --noop --gpg
+			--package --verify <filename>
+
+-- C. Upgrade --
+	Write the OS only, do not set up partitions.
+
+	Upgrade assumes the flash drive is already paritioned for Ninja OS. This
+is part of the ninjaforge.sh script, and also uses .img files made with Ninja
+Clone.
+
+	Usage:
+
+	$ ninja_upgrade /dev/sdX
+
+	Same options as ninja_forge. See Above.
+
+-- D. Dupe --
+	Ninja Dupe is part of cloneninja.sh. Instead of creating .img files it
+will copy dirrectly to another USB stick. Be warned, this will format the
+destination USB stick in the proccess.
+
+	Use as:
+	$ ninja_dupe /dev/sdX
+
+-- E. Check --
+	Verify you have a working system
+
+	Now that you've made/forged your (new or old) version of ninja os.
+you want to test it. Boot the new copy of Ninja OS, and run in terminal
+
+	$ integrity_check
+
+	You should see teal OK!s and 0 errors. For more information see
+	section 2, Integrity Check.
+
+=====2. Integrity Check=====
+	Check integrity of system files.
+
+	To detect damage and tampering, Ninja OS implements Integrity Check.
+We use GPG detached signatures for several key components, checked against the
+Ninja OS public signing key. This should provide a fair margin of saftey, as
+this is a simple script, written in bash, and easy to inspect. For a list of
+files checked, and the location of their public keys see below.
+
+-- A. Simple --
+	Easy, will detect most basic threats.
+
+	On the command line type:
+
+	$ integrity_check
+
+	You should see a bunch of teal "OK!"s and 0 failures. If not, restore
+from a back up immediately. The GPG keyname on top should appear green. As long
+as the key is green, the same name and fingerprint on the key matches the name
+and fingerprint in the config file
+
+	There is a dotted line "---", before line, the GPG detached signatures
+are stored in "/var/lib/misc/" on the running larch system.(inside the
+main read only squash file), and after the line, sigs in /boot/sigs/
+(outside the main squash file).
+
+-- B. Advanced --
+	Make sure the script hasn't been tampered with.
+	type this on the command line:
+
+	$ gpg --no-default-keyring --keyring /usr/share/ninja_pubring.gpg \
+	  --list-keys
+
+	You should see the Ninja OS key listed as the only key, compare the
+signature/keyname to the one listed below in section 7 MISC.
+
+	Read the script /usr/share/scripts/liveos_integritycheck.sh. Make sure
+that the KEYNAME= variable in bash is set using the above string, or someting
+close.
+
+	Make sure all the items start with something like this:
+
+gpg --no-default-keyring --keyring /usr/share/ninja_pubring.gpg --verify \
+/var/lib/misc/tocheck.sig /path/file/tocheck 2> /tmp/temp_int
+
+	Run integrity check as normal, knowing the bash script has not been
+tampered with.
+
+-- C. Forensic --
+	This will prove, beyond a reasonable doubt that NinjaOS is indeed
+authentic.
+
+	Run a known good OS, such as another known good copy of Ninja OS. Mount
+the system.sqf squash file. Directly compare the sigs with their files using
+your own downloaded key.
+
+	List of files and the location of their sigs:
+
+	/var/lib/misc :
+	Boot Sector first 440 bytes of drive	-	bootsector.sig
+
+	Boot Loader:
+	/boot/isolinux/
+	vesamenu.c32 chain.c32 libutil.c32	-	Corresponding .sig files
+	libcom32.c32 reboot.c32 hdt.c32
+	libmenu.c32 libgpl.c32
+
+	Kernel(whatever is in /boot/kernalname)	-	kernel.sig
+	/var/liveos_version.conf		-	liveos_version.conf.sig
+	syslinux background image		-	SHA256 as specified by
+							liveos_version.conf
+        /boot/intel-ucode.img			-	intel-ucode.img.sig
+
+	/boot/sigs :
+	/boot/larch.img				-	larch.img.sig
+	/boot/isolinux/ldlinux.sys		- 	ldlinux.sys.sig
+	/larch/mods.sqf				-	mods.sqf.sig
+	/larch/system.sqf			-	system.sqf.sig
+
+=====3. Privacy/Privacy Mode=====
+
+-- A. Privacy Mode --
+	Scramble ethernet MAC addresses and hostname at boot.
+
+	At the boot menu when you first start Ninja OS, you are presented with
+four menu items. "Ninja OS", "Ninja OS(Privacy Mode)", No X, and "Memory
+Tester". The first option is the default, and will automaticly boot in 5 seconds
+if not selected. It will use default settings of what you expect a GNU/Linux
+system. "Memory Tester" is self explanitory.
+
+	If "Privacy Mode" is selected, a script is run to randomized all network
+identifiable strings and settings, to make the machine look like a random
+unidentifiable machine on the network. These are calculated on the fly every
+time, randomly, and go away every reboot, or use initiated rescramble. The net
+effect is your computer's physical identity will be unascertainable. It will
+make session to session tracking of your hardware impossible.
+
+	You may also enter privacy mode by entering "privmodeture" on the kernel
+command line.
+
+	This is accomplished by the script, mh_scramble.py in
+	/usr/share/scripts/
+
+	When privacy mode is activated the following information is replaced
+with random but valid information:
+
+	* MAC addresses of all ethernet adapters, wired and wireless.
+	* Hostname of the machine. Set to a pronouncable string.
+	* /etc/machine-id as used by udev to identify the machine on the
+	network.
+
+	***NOTE***: This does NOT re-run DHCP, you migh need to reconnect to
+the network(using NetworkManager), to regain connectivity, especially if you
+connected automaticly.
+
+	Running in privacy mode will result in two further button on the
+desktop:
+
+	* ReScramble: Re-run the mh_scramble.py script without rebooting. You
+	will appear to be another random, completely diffrent machine.
+
+	What Privacy mode does *NOT* do:
+
+	* layer 2 Cell/mobile broadband addresses or identifier
+	scrambling. There is no good way to do this(from within NinjaOS that
+	is). In addition your carrier would need the information to verify your
+	signal and let you connect.(which are obviously paid accounts).
+
+	* Automatic wrapping of data in TOR, or any privacy network, or
+	otherwise automatic anonymization of high level data. Under the
+	applications menu under "Internet", there are second menu items of
+	various internet programs with "Over TOR", select this and the program
+	will be routed through TOR. you can also use "usewithtor" on the command
+	line.
+
+	* Start TOR, or any other privacy network automaticly. This is
+	dangerous, as it creates unwanted connections, or you might need to do
+	further configuration of the network before starting TOR(such as setting
+	up bridging, VPNs, etc..), or TOR use might be undesired at the given
+	moment.(flag you as an undersirable user on a hostile network)
+
+-- B. Self Destruct/Zeroize(SD/Z) --
+	Destroy the running copy of Ninja OS(in software only), completely.
+
+	Ninja OS has had the ability to Self Destruct. The term "Zeroize" is
+analogous. Self Destruct/Zeroize overwrites the entire USB stick, reformats it
+to a blank(FAT32) partition, and reboots, turning the USB Stick into an ordinary
+flash drive.
+
+	There are three ways of calling self destruct:
+
+	* First is from the applications menu in XFCE.
+	Applications -> System -> SelfDestruct.
+
+	* Second is on the shell by type "self_destruct", "zeroize" or "zzz".
+
+	* Third is at the boot menu, you can hit tab at the boot menu screen and
+	add either "selfdestruct", "zeroize", or "zzz" to the kernel command
+	line, and it will boot to self destruct mode, with NO WARNINGS.
+
+	If called from a running system, i.e. either the shell, or from the
+menu, it will give you a prompt to continue, where you must press "y". Please
+note, there is no confirmation if called from the boot menu.
+
+NOTE: Since version 0.11.2 there is an update to the confirmation where it no
+longer waits for an enter key press. As soon as the 'y' is pressed it starts.
+
+	Once confirmation is given, then the disk will begin to overwrite
+itself, and it will become uninterruptable, and irreversable at this point. In
+order it will:
+
+			-The Setup-
+	1. Lock the terminal down by trapping all escapes, changing to virtual
+	terminal #1(which is auto login), stop virtual terminal #2(at this point
+	the only terminal left is 1, which is locked down).
+	2. Prevent all logins by locking the root account, and making an empty
+	file in /etc/nologin(overkill, but just to be sure)
+	3. Clear the screen, and reset all formating.
+	4. force unmount of encrypted partitions(truecrypt and LUKS) and
+	unloading of the keys from memory.
+	5. Copy the static binaries for "pv" and "parted" to tmpfs mounted /tmp
+	and then mark them, along with busybox copied at boot to SUID so they
+	run as root, and then make the root filesystem read only.
+
+			-The Scrub-
+	6. Fill the first 128k of each partition on the USB stick, and the MBR
+	with random data. This will overwrite the headers of any potential
+	encrypted partions, making them all useless.(and indistinguishable from
+	random data). then send a sync command to the kernel, to make sure it
+	gets written before continuing.
+	7.  ~ Display a small info-mational text ~, at this point, you can walk
+	away from the computer.
+	8. Fill the USB stick sequetially with zeros, using "dd" and "pv", you
+	will see a progress bar, and an ETC for when it will be done.
+
+			-The Cleanup-
+	9. Reformat the disk, and put an empty fat32 partition on the disk,
+	then sync it.
+	10. Reboot the system.
+
+-- C. Autoreboot on system media removal --
+	Just unplug the stick and walk away.
+
+	If you unplug the Ninja OS USB stick, the computer will reboot
+automaticly. This is accomplished by running a bash script at startup to look if
+the device still exists once every 1/3 second, and if it does, it runs reboot -f
+from busybox in /tmp/emergency_bin/busybox.
+
+-- D. TOR and I2P use --
+	The Onion Router(TOR), is installed, as are many useful programs for
+using TOR. Unlike other privacy based Live Distros, TOR is not the default, nor
+does it start by default.
+
+	Starting TOR is done in the gui by the program "vidalia". it will show
+connection information, and a progress bar. TOR will be inaccessable until you
+see a green onion. you can close this program(not exit), and it will run in the
+task bar. a green onion means your connected to TOR. A yellow onion is in the
+proccess of connecting, and a blue onion with a red "x" means disconnected.
+
+	I2P can be started and stopped from a menu item entitled "I2P Control"
+under the "Internet" submenu. This sub-menu has "start", "stop", "status", and
+"console" items.
+
+	Firefox is preconfigured with a proxy switcher "FoxyProxy". It is setup
+to automaticly route .i2p and .onion URLs through their respective services.
+To use TOR as a proxy for clearnet sites, click the fox icon on the tool bar
+until it turns green. You can also right click and select "Use TOR+I2P" for all
+URLS.
+
+	Other programs:
+
+	You will notice that under the "internet" submenu, some items have (Over
+TOR) added to them. They are pre-setup to work with TOR. See next paragraph on
+"torsocks".
+
+	On the command line prefix any command with "torsocks", and all of its
+network connections will be routed through TOR. Be advised if its a protocol
+that is not supported by TOR, it will fail, and kick back errors. This program
+is called "torsocks".
+
+-- E. I2P --
+
+	The Invisble Internet Project(I2P) has a few I2P specific features. The
+following you can do from Ninja OS.
+
+You can stop the default services in I2P Internals -> Hidden Services
+
+	i. EEPsites - can be accessed in the browser, similar to .onion sites,
+	they end in .i2p. Ninja OS is setup to automaticly be able to view these
+
+	ii. I2P mail. The I2P founders offer free anonymous email. you can
+	access this by going to the I2P Console(browser link, and link from
+	"I2P Control" submenu in "Internet".), and then under I2P services(you
+	may need to click the I2P logo in the upper left hand corner), there is
+	link for "email". This is a locally running front end for hq.postman.i2p
+	, where you may create an account. This is simply a preconfigured hidden
+	email server.(setup by the I2P project)
+
+	By default I2P has a tunnel setup so you can use any email client you
+wish. The settings are
+
+	Incomming:
+	Type: POP3
+	Host: localhost
+	Port: 7660
+	Encryption: None
+	Authentication: Password
+
+	Outgoing:
+	Type: SMTP
+	Host: localhost
+	Port: 7659
+	Encryption: None
+	Authentication: Password
+
+	iii. I2P-IRC
+	The I2P devs have their own IRC Server configured by default. Simply
+	Connect to localhost on port 6668.
+
+	iii. Seedless
+	Seedless is "services directory lookup", or a form of privative DNS
+	for excedingly long hostname lookups. It depends and uses "neodatis"
+	database plugin. It is used by other programs.
+
+	iv. Botes-mail
+	Or better Named "SecureMail" in I2P. Unlike regular I2P mail, this is
+	a distributed and authenticated message sharing system. This uses a
+	method of communication similar to TOX or .onion, where your address is
+	public key, and the encryption is baked in. Except this works primarly
+	over I2P. It has the advantage that its interface is the same as regular
+	email. It comes with a default web interface, but you can use IMAP and
+	SMTP with a normal mail client.
+
+	You can access it under I2P Services -> SecureMail
+
+	Using Botes:
+	First step is to make an identity.
+
+	Identities -> New Identity.
+
+	Fill out the form. Most of this should be self explanitory. To date we
+	do note have a good guide for what encryption is the best for this,
+	the default should be fine. "Vanity Destination" is a similar concept
+	to vanity .onions and bitcoin addresses. It brute forces the first few
+	letters for you. Careful in using this. every additional character will
+	take exponentially longer. The only required field is "public name".
+
+	One you hit "create" you will have made a new email address. You can
+	click on the name, and get an overview of this identity. The long random
+	looking string is your "email address" you can give out for other botes
+	users to reach you via email.
+
+	To use with a regular email client, click the "settings" menu bar item
+	on the left hand side. You will notice an "IMAP" port and an "SMTP"
+	port. You can use these for connecting your favorite email. IMAP being
+	incoming, and SMTP being outgoing. You can also use the link at the
+	bottom to set a password.
+	
+
+-- F. Misc --
+	Like most other Live OSs, Ninja does not keep persistant data.
+Information saved on the system, not specificly on external media is saved into
+RAM, and lost at reboot. No usage tracks are saved between instances. Only what
+is otherwise moved or copied somewhere intentionally to either a data partition,
+or external media.
+
+	For information that is saved on persistant partitions, or external
+media, or data you would like to upload/export we have:
+
+	* Metadata Scrubers  : pngcrush, ascrubber, jhead, command line
+	programs, but there are shortcuts in the file manager for using them
+	within right-click menus. MAT(metadata anonymization toolkit), is also
+	installed. MAT has a nice gui you can find in menu -> multimedia -> MAT.
+	you can also use MAT on the command line as in mat <filenames>
+
+	* Secure Delete/Shred: from secure-delete to scrub, there are utilities
+	for securely erasing files, and overwriting entire drives so the
+	contents cannot be recovered. there is also a built in menu item
+	"Secure Delete" that works in a drop in replacement for the regular
+	"Delete", but overwrites files with two passes of random, before
+	unlinking.
+
+	* Encryption: most standard widely used encryption protocols like GPG,
+	SSL, OTR, and TLS are implemented where they can, in what programs they
+	can be. For disk storage both LUKS and ZuluCrypt are available. Please
+	note that 0.8.x was the last series with Truecrypt as its been
+	discontinued. ZuluCrypt is capable of read/writing Truecrypt partitions,
+	and is the recommended program for using truecrypt containers.
+
+	For further information regarding your privacy online, see "privacy
+howtos.txt", in the same directory.
+
+=====4. Ninja Boot'n'Nuke=====
+
+-- A. NBAN --
+
+!!! THIS WILL ERASE ALL DATA ON THE COMPUTER AND ALL ATTACHED STORAGE DEVICES!!!
+
+	Ninja Boot'n'Nuke is a Boot'n'Nuker written as a Arch Linux mkinitcpio
+profile. A DASH script is run, that detects and then scrubs all storage media
+attached to the computer at the time of boot. The script is designed to scrub
+the disks in parallel. The pattern of wipe is identical to Self
+Destruct/Zeroize, the first 128k of each partition is overwritten wit random,
+and then the entire drive is sequentially zerofilled. After its finished, the
+drive is repartitioned FAT32. Finally the machine is rebooted.
+
+!!! THIS WILL ERASE ALL DATA ON THE COMPUTER AND ALL ATTACHED STORAGE DEVICES!!!
+
+You can build the nban image with:
+	$ mkinitcpio -p nban
+
+	OR
+
+	$ shuriken_forge -n
+
+After this is built you can then use it by changing "initrd=" at boot to
+"initrd=nban.img"
+
+-- B. Shuriken --
+	Combine an nban .img, a kernel, and a minimal syslinux install on a USB
+stick, and you have a shuriken. Shurikens are quick to make single use shredding
+tools for painlessly end of lifeing computers. In the syslinux bootmenu for
+the shuriken, there are two options: to continue the wipe, and to abort by
+rebooting the computer.
+
+To make a shuriken from Ninja OS:
+	$ shuriken_forge.sh </dev/sdX>
+
+	
+=====5. Camouflage=====
+	¡EXPERIMENTAL - USE WITH CAUTION!
+
+	Camouflage disguises Ninja OS's XFCE4 desktop to look like other
+operating systems using themes and images. So far, implementations are very
+basic, and won't pass close inspection, but rather draw less attention at
+distance and in perephial vision. We have plants to implement Windows XP,
+Windows 7, Windows 10, and Mac OS X looking themes. So far this is at a very
+base level. So far these are very rough and will not pass close inspection.
+
+	Windows XP - use the built in Windows XP theme
+
+	Windows 7  - Looks like Windows 7 using the basic, non-aero theme.
+
+	Windows 10, OSX
+
+	Use:
+
+	From the kernel prompt, add one of the following to the kernel command
+	line: camo-winxp, camo-win7, camo-win10 camo-osx
+
+	From the OS:
+	/usr/share/scripts/xfce4-camo.sh <winxp|win7|win10|osx>
+
+=====6. IPTables based Firewall=====
+	Block all incoming packets by default via iptables
+
+	Ninja OS has IPtables configured to silently drop all incomming packets,
+except for the loop back and already established/related connections.
+
+If you need incomming connections, you need to disable the firewall.
+
+Manipulating the firewall on the command line is as follows:
+
+	$ sudo systemctl stop iptables - disable the firewall
+	$ sudo systemctl start iptables - re-enable the firewall
+
+You can do this in the GUI under the menu:
+	Applications -> System -> Firewall Control -> Enable/Disable Firewall
+
+You can further check the status of the firewall with:
+	$ sudo iptables -L -v
+
+=====7. NinjaOS Scripts=====
+
+	Scripts, special use configs, and .desktop files are generally stored in
+"/usr/share/scripts/" as a staging area. This is outside of path, and done that
+way for a reason. Most of them are made into commands by being called by one
+line scripts in "/usr/local/bin/", which serve as aliases.
+
+/usr/share/scripts/script_list.txt maintains a list, and explination of the
+files in the directory.
+	
+To find a list of installed command line packages, simply type "ninjaos" or look
+in /etc/CLI-APPS-LIST
+
+=====8. Kernel Command-Line Options=====
+	Boot time options.
+
+	These options you can pass to operating system at boot time. They work
+by a call from a systemd unit that parses /proc/cmdline looking for options.
+It is conceivable to add menu items for all of them, but for various reasons,
+we won't, so you need to consult the documentation(this guide), and memorize
+what you need to type.  You can combine them in any combination unless otherwise
+stated.
+
+	You can access the kernel command line by hitting the <TAB> key at the
+boot menu item you want to use. The following NinjaOS specific options are
+currently recognozied:
+
+        Parameter                  | Description
+-----------------------------------+--------------------------------------------
+	privmodetrue		     privacy mode
+
+	selfdestruct, zeroize, zzz   starts SD/Z instead of booting to the
+				     desktop. Cannot combine with other options
+				     obviously.
+
+	nox 			     doesn't start the GUI XFCE, or the desktop
+				     automaticly(leaves you at command line),
+				     has menu item.
+
+	xconfigure		     does a manual Xorg -configure before
+				     starting X(might solve problems with
+				     graphics card)
+
+		++EXPERIMENTAL++
+Items below this line operating, but their effects are either inconsistant, or
+not thoroughly tested.
+
+	autodpi			     automaticly sets scaling in X to match the
+				     DPI of each monitor.
+
+	sshd			     generates keys and starts sshd server on
+				     boot.
+
+	camo-winxp, camo-win7	     Camoflauge the desktop to look like
+				     desired version of Microsoft Windows™, or
+				     Apple Macintosh™ OSX.
+
+		++NOT YET IMPLEMENTED++
+
+	camo-win10, camo-osx	     Camo for windows 10 and Apple OSX
+
+=====9. Intel microcode updates====
+
+	Ninja OS ships with the package intel-ucode, which was broken off from
+the main kernel package because of how early it needs to run. AMD microcode
+updates as normal, but if you need intel microcode updates apply the following
+at boot:
+	# At the boot screen menu, hit tab.
+	# there is going to be an entry initrd=/boot/larch/img.
+        # change initrd to initrd=/boot/intel-ucode.img,initrd=/boot/larch/img
+	# Hit enter. System will update the microcode before running the rest
+	of the system
+
+=====10. Misc=====
+
+-- A. Ninja OS Public GPG key --
+	File		: /usr/share/ninja_os_public_key.gpg
+	ID		: A1F8331E
+	Fingerprint	: D5E7 6841 665A 4408 D73C 2D87 96FD 6113 A1F8 331E
+
+	This key is published to keyservers, and should never change. for
+maximum security, write down offline, or memorize the Key ID, and make sure this
+key appears in the stock keyring for "User". *ALL* Ninja OS releases are signed
+with this key, as is the [ninjaos] repository, and all authenticated messages.
+
+-- B. Multi Touch --
+	NinjaOS uses touchegg to recognize multi-touch inputs and gestures on
+touchscreens and touchpads. Due to current limitations, the only gestures that
+are supported are:
+
+	* tap with two fingers for right click
+	* drag with two fingers for scroll
+
+-- C. File Manager Addons --
+	Thunar, the filemanager used, has the following added functionality:
+
+	* GTKhash plugin. There is a "digests" tab under file properties, that
+	generates most commonly used hashes and checksums
+	* configured right click actions:
+		- srm -rfl for secure deletion.
+		- mat metadata scrubbing
+		- a few additional converters and metadata strippers dependant
+		  on datatype.
+
+-- D. Electrum Bitcoin client. --
+	Electrum Bitcoin client, a "lite" BTC client.
+
+	You can use to use bitcoin easily on a non-persistant OS. It uses
+external servers for a block chain, and can generate a pass phrase to make
+recovery of a wallet easy as remembering a phrase.
+
+	We use a small dirty hack, forcing it to pre load video4linux version 1
+compat library by changing the desktop icon, so QR code scanning
+actually works.
+
+	Also configured is a shortcut to use Electrum over TOR.
+
+-- E. Desktop Hotkey Shortcuts --
+
+Global GUI shortcut keys:
+	ctrl-alt-t	- Terminal
+	ctrl-alt-p	- Task Manager(p for "ps")
+	ctrl-alt-n	- Net Activity Viewer (GUIfied netstat)
+	ctrl-alt-e	- Text editor - leafpad
+	ctrl-alt-z	- Zeroize(Self Destruct). You need to press three times
+			  in rapid succession to trigger. There is no warning
+			  or confirm from the shortcut
+        ctrl-alt-L	- Lock Screen: Lock Screen (slockd, from suckless.org)
+
+			  Please note you need to set a password before hand.
+			  You can unlock the screen by typing your password and
+			  hitting enter. The lock screen is flat grey and does
+			  not change on keypress. a failed password turns the
+			  screen red. This is a very simple screen locker.
+
+Windows comfort keys:
+	ctrl-shift-esc	- Task Manager
+	Super-L		- Lock Screen
+
+-- F. Passwords --
+
+	The usernames "user" and "root" both have no password, by default. There
+is a menu item for setting user password which is sometimes needed by some
+administration tasks, like drive manipulation.
+
+=====11. Known Issues=====
+
+We've moved to an online issue tracker:
+
+https://gitlab.com/ninjaos/ninjaos/issues/
+
+--------------------------------------------------------------------------------
+© 2011-2017 Ninja OS. Licensed under the Creative Commons Attribution-ShareAlike
+3.0 Unported (CC BY-SA 3.0)

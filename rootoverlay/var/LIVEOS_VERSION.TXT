@@ -1,0 +1,5 @@
+NinjaOS 0.11.5
+/boot/isolinux/ninjaboot.jpg 501ba63aa30956ccd41f892925b74c0a7a9fdf810800637f878b3ea01a03af29
+
+
+Version Verification File. Line 1 should be the name of project and the version. Line 2 is location of boot screen splash and an SHA256 hash sum of that file. Lines 3 and 4 are intentionaly left blank. Both the version number in the image file and the version on line 1 should match, and the hash sum for the image should be as listed above.

@@ -1,0 +1,3340 @@
+How To Remain Anonymous in Cyberspace. A short intro.
+
+		+---------------------------+
+		+--===Table of Contents===--+
+		+---------------------------+
+   Section 1 - Software to Download, Sites to Bookmark
+
+	A. Disk Encryption/Secure Storage
+	B. Password Management
+	C. Secure Deletion
+	D. MAC Address scrambling
+	E. Darknets, Proxies and VPNs
+	F. Live Operating Systems
+	G. Metadata Scrubbers
+	H. Media Tools
+	I. Encryption Frameworks and Plugins(SSL/TLS, GPG and OTR)
+	J. FireFox Plugins
+	K. CryptoCurrency
+	L. Mobile
+        M. Other
+	N. Misc Links
+
+   Section 2 - Software Usage
+
+	A. MAC Addresses
+	B. Security Framework and Utilities
+	C. Secure Deletion/File Shredding
+	D. Password and Identity Management
+	E. Darknets, Proxies, and VPNs.
+	F. Scrub Meta-Data
+	G. LiveCD/USB Stick usage
+	H. Instant Message and IRC
+	I. Disk Encryption/Secure Storage
+	J. Password Management
+	K. GNU Privacy Guard
+	L. Web Browsing
+	M. CryptoCurrency
+	N. Mobile
+	O. GPG, OTR and Tox.
+
+   Section 3 - Operating Theory
+
+	A. Life-cycle of Data
+	B. TOR, proxy, and VPN usage
+	C. Disk Encryption Theorm
+	D. Cellphones and You, Mobile Security Explained
+	E. Key Handling with Assymetric Crypto(Such as GNU Privacy Guard(GPG)
+	   and OTR)
+	F. Private Conversations
+
+   Appendix
+
+	A. Privacy Network Proxy Settings.
+	B. Privoxy Config for Privacy Networks
+	C. Online lists of IRC sites.
+	D. Torbrowser/button HTTP user agent
+	E. Firefox manual config options
+	|-1. Submarine mode
+	F. URLS on localhost
+	G. Ninja OS Public key
+
+
+		-----===== SECTION 1 Downloads and Links =====-----		
+Software to download, Sites to bookmark.
+
+If you are running Linux, consult your distribution's online repositories before
+looking to download from the web. In BSD consult your flavour's ports selection.
+
+--A. Disk Encryption --
+Guarding against theft and coercion by allowing the proper storing of sensative
+material without fear of reprisal.
+
+        * Truecrypt replacements. Truecrypt has been discontinued, the last
+	  trusted version is 7.1a, do not upgrade to 7.2. Because of its sudden
+	  nature of being discontinued and suspicious warnings its recomended
+	  you use something else. Truecrypt was a great high strength cross
+	  platform disk encryption utility. Here are some replacements:
+
+		** Ciphershed: https://ciphershed.org/ - an undiverged fork
+		   with a rebrand.
+		** ZuluCrypt and tcplay: https://code.google.com/p/zulucrypt/
+		                         https://github.com/bwalex/tc-play
+		                         works mainly on Linux/BSD.
+		** VeraCrypt: https://veracrypt.codeplex.com/ - An incompatible
+		   fork of Truecrypt that uses far more passes of encryption.
+		   Overkill? Perhaps, but its not less secure, we know that
+		   much.
+
+	* LUKS (linux unified key setup: https://code.google.com/p/cryptsetup/
+	   generally included with your linux operating sytem, if not, check
+	   your distribution's repositories.
+
+	* eCryptFS: https://launchpad.net/ecryptfslinux module for encrypted
+	  userspace. Used by Ubuntu and Mint as an option to encrypt $HOME
+	  dirrectory. See your distro's documentation for more information.
+
+-- B. Password Management --
+
+	Use software to create impossible to guess, strong passwords and store
+	them securely. Recommended Password Strength is at least 10 characters
+	upper and lower case, to include numbers. It is also recommended to
+	make and store passwords locally, not using an online service.
+
+	* KeePass2/KeePassX: http://keepass.info/download.html - cross platform
+	  password manager. available mac/windows/linux. Stores passwords in an
+	  encrypted file. nice features like automatically clearing copied
+	  passwords from memory after a few seconds, allowing you to copy
+	  without viewing passwords, as well as an easy to use password
+	  generator. Recommended to store password file on an encrypted disk
+	  for maximum effect.
+
+	* Password Gorilla: https://github.com/zdia/gorilla/wiki/ - similar to
+	  keepass, not compatible. 
+
+        * pwsafe,apg,makepasswd,pwgen - various linux based command line
+	  password generators, see your distribution's documentation.
+		** PWgen for windows: http://pwgen-win.sourceforge.net/
+
+	* Omziff: http://xtort.net/freeware/xtort-software/omziff/
+	  multi-tool with password generator for windows.
+
+-- C. Secure Deletion --
+
+	Secure Deletion and file shredding: Your done with a file, now get rid
+	of it before anyone else can pick through your cyber trash.
+
+	* Bleach Bit: http://bleachbit.sourceforge.net/ - available linux and
+	  windows. GUI usage track/cache cleaner than can overwrite files.
+
+	* scrub: https://code.google.com/p/diskscrub/ - overkill multipass
+	  scrubber, works on most UNIX-like operating systems.
+
+	* srm: http://srm.sourceforge.net/ - secure drop in replacement for the
+	  UNIX "rm" command to delete files. Available from many linux distros.
+
+	* ozmiff: http://xtort.net/freeware/xtort-software/omziff/
+	  as mentioned earlier, also shreds files.
+
+
+        * nautilus-wipe: http://wipetools.tuxfamily.org/nautilus-wipe.html
+	  plug in for GNOME's Nautilus file manager that adds a "secure delete"
+	  right click menu item
+ 
+	* Secure-Delete: http://www.thc.org/releases.php
+	  A suite of secure deletion tools to include a memory scrubber and its
+	  own version of srm. somewhat unmaintained.
+
+	* Darik's Boot And Nuke: http://www.dban.org/
+	  A LiveCD that does one thing, boots up, and automatically overwrites
+	  data on all attached hard disks.
+
+-- D. MAC(Media Access Control) address scrambling --
+
+	Change the physical address of a network interface to disguise your
+	hardware on a unknown local network.
+
+	* macchanger: http://www.alobbs.com/macchanger/ - Linux
+
+	* macchanger-gtk: linux -see your distro's repository
+
+	* Technitium Mac Address Changer:
+	  http://www.technitium.com/tmac/index.html - Windows
+
+	* MacDaddyX (untested):
+	  http://www.macupdate.com/app/mac/25729/macdaddyx - Mac OS X
+
+-- E. Darknets, Proxies, and VPNs --
+	* tor: https://www.torproject.org/ - The now epinonymous privacy net.
+	  A combination of routing proxy and darknet in an easy to use package.
+	  It is relatively untracable in both forms, ubiquitous, and somewhat.
+	  On windows and OSX, install the bundle, on GNU/Linux, install TOR
+	  Browser, tor, and vidalia. It has a few noted limitations and flaws,
+	  but is still useful for some purposes.
+		** torsocks: https://code.google.com/p/torsocks/ - command line
+		   linux program that runs a command rerouting its network calls
+		   through TOR
+		
+	* i2p: http://www.i2p2.de/ -experminetal anonymous "darknet". not quite
+	  as user friendly as tor.
+
+	* Freenet: https://freenetproject.org/ - another darknet with
+	  distributed storage.
+
+	* Foxy Proxy:
+	  https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
+	  good old fashion proxy switcher for Firefox web browser
+
+	* OpenVPN: https://openvpn.net/index.php/open-source/downloads.html
+	  VPN software, runs on linux and windows, with ports to the various
+	  BSDs. Server generally runs on commodity Linux/BSD x86 hardware.
+		** TunnelBlick: http://code.google.com/p/tunnelblick/
+		   OpenVPN Client for OSX
+
+	* OpenConnect: http://www.infradead.org/openconnect/
+	  Cisco's VPN server generally runs directly on their routers and
+	  switches.
+
+	* iodine - http://code.kryo.se/iodine/ - tunnel IPv4 through DNS
+	  servers. Experimental.
+
+-- F. Live Operating Systems --
+
+A portable Linux distro that comes pre-installed with various tools and runs
+right off a USB Stick. Not only do they run free operating systems like
+GNU/Linux as a base, they tend to be set up right, and don't leave traces on the
+machines they use. they are also portable, can be taken anywhere, and run on any
+machine.
+
+	* TAILS: https://tails.boum.org/
+	  Total Amnesiac Incognito Live System. Debian based
+
+	* Librte Linux: sourceforge.net/projects/liberte/
+	  Live distro based on Gentoo. Alternative to TAILS
+
+	* NinjaOS: http://ninjaos.org -
+	  Arch Linux based. Fast, with the neccary tools. Maintained by the
+	  author of this guide.
+
+-- G. Metadata scrubbers --
+Remove traces of meta- information out of images and other files.
+
+	* pngcrush: http://pmt.sourceforge.net/pngcrush/
+	  linux/UNIX and DOS/windows command line program for viewing and
+	  manipulating metadata in .PNG images.
+
+	* jhead: http://www.sentex.net/~mwandel/jhead/ - Windows/Mac/Linux
+	  Reads, writes, and scrubs metadata from JPEG images. command line tool
+
+	* Metadata Anonymization Toolkit(MAT): https://mat.boum.org/
+	  scrubs metadata from a wide variety of files to include, pngs, jpegs,
+	  pdfs, MS office documents, flacs and more. Easy to use, includes a GUI
+	  interface.
+
+-- H. Media Tools ---
+everyday tools to help you create media
+
+	* audacity: http://audacity.sourceforge.net/
+	  Free/libre/opensource audio editing linux/windows/mac.
+
+	* PiTiVi: http://www.pitivi.org/ - PiTiVi
+	  Video editor, runs on linux
+
+	* OpenShot: http://www.openshotvideo.com/
+	  yet another F/L/O video editor, runs on linux
+
+	* Espeak: http://espeak.sourceforge.net/ - text to speach framwork.
+	  Create a computer generated voice from text.
+		** Gespeak: https://github.com/InFog/GeSpeak
+		   GTK Front end for espeak
+
+	* GIMP: http://www.gimp.org/
+	  GNU Image Manipulation Program. F/L/O "Photoshop" like program runs
+	  Mac/liunx/windows.
+
+-- I Encryption Frameworks and Plugins --
+GPG, OTR,etc...
+
+	* GPG: Eponymous program that encrypts and verifies emails, files, and
+	  more. Most common framework there is will plugins for many many
+	  programs to use the same identity.
+ 
+		** http://http://www.gnupg.org/ - GPG homepage
+
+		** Seahorse: https://live.gnome.org/Seahorse
+		   Gnome front end
+
+		** Kleopatra:
+		   https://www.kde.org/applications/utilities/kleopatra/
+		   KDE front end
+
+		** GPA: http://wald.intevation.org/projects/gpa/
+		   Very lightweight generic GTK front end, Gnu Privacy Assistant
+
+		** GPG-Crypter: http://gpg-crypter.sourceforge.net/
+		   Simple utility thatuses GPG to encrypt and decrypt text.
+		   Works great for programs that don't have built in GPG
+		   capabilities, and/or not feasible to build them, such as web
+		   mail, anonymous message boards, etc...
+
+		** Enigmail: https://www.enigmail.net/home/index.php
+		   GPG plugin for thunderbird/seamonkey
+
+		** GPG4win http://www.gpg4win.org/
+		   Everything you need to get started with GPG on windows
+		   (GPA,clawsmail, and kleopatra, and some plugins for other
+		   programs)
+
+	* OTR: Off the record: http://www.cypherpunks.ca/otr/
+	  Encryption and authentication for IRC and instant message. Plugins
+	  available for a few clients, with pidgin being the most prominent.
+
+	* SSL/TLS - This is middleware that encrypts connections used in other
+	  software. Most of the time you need not install anything, except if
+	  your particular application needs additional software for it to work.
+	  You must manually installing OpenSSL on windows. It comes default on
+	  most modern Linux/Unix distributions/flavours.
+
+		** OpenSSL: http://www.openssl.org/
+		   Free SSL implementation, most widely used.
+
+		** LibreSSL: http://www.libressl.org/
+		   Fork of OpenSSL, over security concerns.
+
+-- J. FireFox Plugins --
+
+	* Https-everywhere: https://www.eff.org/https-everywhere
+	  Forces ssl optional sites(see above) to use ssl, available from long
+	  standing and reputable privacy advocates the Electronic Frontier
+	  Foundation(EFF - http://eff.org)
+
+	* NoScript: http://noscript.net/
+	  FireFox plugin to block and/or give you granular control over the
+	  java, javascript, flash, and other active content that runs in your
+	  web browser.
+
+	* User Agent Switcher:
+	  https://addons.mozilla.org/en-US/firefox/addon/user-agent-switcher/
+	  Spoofs your web browser identification. Useful for when sites take'
+	  sides in the browser wars, and try and force you to use a browser you
+	  don't want to. Or simply you don't want another piece of identifying
+	  information
+
+	* FoxyProxy: http://getfoxyproxy.org
+	  Adds a button, menu item, and/or context menu to switch between
+	  proxies. configure anonyimitty proxies, i2p, tor, and switch between
+	  them easily
+
+	* Trackmenot: http://www.cs.nyu.edu/trackmenot/
+	  Sends random requests(noise) to search engines to help deter them from
+	  building a profile on you.
+
+-- K. CryptoCurrency --
+CryptoCurencies are online, digital, partially anonymous currencies with no
+central control. They exist as information soley on computers. They are peer to
+peer, and money is "created"(mined), through proof of work(running hash
+algorythms). They are extremely decentralized and be used to purchases services
+online. You can even cary them on cell phones.
+
+There are three big Cryptocurrencies:
+
+	* Bitcoin. The original CryptoCurrency and most popular.
+		** Official homepage: https://bitcoin.org/
+
+		** Wiki: http://bitcoin.it
+
+		** Armory: https://bitcoinarmory.com/ Popular desktop client
+ 
+		** Mycellium: https://mycelium.com/ popular android BTC client
+
+		** Electrum: https://electrum.org/
+		  "lite" Bitcoin client, has been ported to litecoin and
+		  dogecoin as well.(big three). It doesn't use a local
+		  blockchain, and can store wallet as a "phrase" that can
+		  rebuild the wallet from the blockchain with the correct
+		  password. It also has QR code scanning as well as
+		  transmitting, making it most valuable on Live OSs.
+
+	* Litecoin - Propsed as an "silver" to bitcoin's "gold". By far the most
+	  popular "altcoin".
+		** Official Homepage https://litecoin.org/
+
+		** Wiki https://litecoin.info/
+
+	* Dogecoin - meme themed cybercurrency, that seems to be preffered
+	  method of tipping/exchange on some internet forums. Originally Started
+	  as a joke.
+		** Homepage: http://dogecoin.com/
+
+
+	* Notable cryptocurrency websites:
+		Knowledgebases and informational:
+		** https://bitcoin.it - Unofficial, but widely popular and
+		  trusted wiki for the bitcoin community. Read this if you have
+		  trouble understanding bitcoin.
+
+		** https://bitcoincharts.com: tracks the price of bitcoin on
+		   various exchanges, and gives lots of useful charts.
+
+		** https://coindesk.com: BTC prices, charts, news, and even
+		   price calculators. One of the best sources of any and all BTC
+		   breaking information.
+
+		Mining and Trading:
+	* The "Big Four" of BTC Exchanges:
+		* https://www.bitfinex.com
+
+		* https://www.bitstamp.net/
+
+		* https://btc-e.com/
+
+		* https://www.lakebtc.com/
+
+	* https://localbitcoins.com - find people to meetup and trade locally.
+	  Features an escrow service and mobile wallet. Its reputable and
+	  trustworthy.
+
+	* https://www.bitquick.co/ - buy bitcoins with cash, using bank
+	  deposits.
+
+	* https://cex.io/ - a single platform for pool mining, trading BTC and a
+	  handful of alt coins as well as US and Euro Dollars. Also features an
+	  online wallet that may be used as just that.
+
+	* https://www.cryptsy.com/ - Online wallent and trading platform for
+	  cryptocurrencies in bitcoin. Widest variety of crypto-currency, and
+	  the easiest way to store, aquire and handle obscure alt coins
+
+	* https://easywallet.org - web based wallet with no registration needed,
+	  just a unique URL. Good for throw away web wallets.
+
+	* https://bitsimple.com/ - allows using a paypal account, exchange.
+
+NOTE ON EXCHANGES: Just about all, cryptocurrency exchanges that trade BTC using
+either credit cards or bank accounts need real life verification nullifying most
+expectation of privacy.
+
+-- L. Mobile --
+The modern mobile telephone is one of dangerous exploit vectors, jammed packed
+with radios and full of personal information.
+
+	* Android OS based - popular open source project run by google, with
+	  many forks and side projects. Based on linux with a custom java based
+	  userland. Supports full device encryption. 
+
+		Custom ROMs:
+	
+		** Cynogenmod: http://www.cyanogenmod.org/
+		  Leading custom ROM with dozens of supported devices. Advanced
+		  privacy and security features built in. Consistant experiance
+		  between devices and carriers.
+				
+		** Replicant - Strictly Free Software only version of Android.
+				http://www.replicant.us/
+
+		Software for Android based OSs:
+
+		** F-Droid: https://f-droid.org/
+		  Free software package manager, and repository.
+		  Limited selection, but no adware and no broken/crappy apps.
+				
+
+		** ChatSecure: https://chatsecure.org/
+		  jabber client with built in OTR, TOR, SSL/TLS, SASL support.
+		  Can sync OTR keys from your desktop's chat client.
+				
+		** KeySync(desktop): https://guardianproject.info/apps/keysync/
+		  Desktop program to sync keys between mobile ChatSecure and
+		  Desktop chat programs. Runs Mac/Linux/Windows.
+
+ 
+		** FireFox Mobile
+		   https://www.mozilla.org/en-US/firefox/partners/
+		   Same great browser on your mobile device. Sync with firefox
+		   desktop
+			
+		** Https-everywhere Android:
+		   https://www.eff.org/https-everywhere
+		   Same as the desktop version, but for FireFox on Android
+
+		** OrBot: https://www.torproject.org/docs/android.html.en
+		   TOR daemon and controller for android
+	
+		** OrWeb: https://guardianproject.info/apps/orweb/
+		   TOR only web browser, intergrates with OrBot, see above
+
+		** KeePassDroid: http://www.keepassdroid.com/
+		   Port of KeePass to android
+
+		** OpenKeychain: https://f-droid.org/repository/browse/?fdfilter
+				=keychain&fdid=org.sufficientlysecure.keychain
+		   Implementation of GPG on Android. Fork of APG now that APG
+		   has been discontinued
+
+		** K9 Mail: http://code.google.com/p/k9mail/
+		   Android email client that supports gnupg encryption and
+		   intergrates with APG/OpenKeychain.
+
+		** EncPassChanger: https://play.google.com/store/apps/details?id
+		   		   =com.kibab.android.EncPassChanger
+		   Use a stronger password to encrypt your phone than the
+		   lockscreen password.
+
+		** AnTox: https://wiki.tox.im/Binaries
+		   Android TOX Client
+ 
+		** OsmAnd~: http://openstreetmaps.org
+		Open Street Maps Android client. Free as in speech replacement
+		for google maps. 
+
+		** NEEDED - remote wipe app
+
+		CryptoCurrency Wallets for Android:
+
+		** BitCoin: https://f-droid.org/repository/browse/?fdfilter
+		   =bitcoin&fdid=de.schildbach.wallet
+                ** mycellium: URL NEEDED
+		** LiteCoin: https://play.google.com/store/apps/details?id=
+			     de.schildbach.wallet_ltc
+		** DogeCoin: https://play.google.com/store/apps/details?id=
+			     de.langerhans.wallet
+
+		VPN Software
+
+		** OpenVPN for android: https://f-droid.org/repository/browse/?
+					fdfilter=vpn&fdid=de.blinkt.openvpn
+		** OpenConnect: https://f-droid.org/repository/browse/?fdfilter
+				=vpn&fdid=app.openconnect
+		   Connect to Cisco routers that Use Anyconnect.
+
+
+
+	* Motorola P2K phones - mid 2000s era 4LTR(four letter) phones:
+		** Motorola PST 7.25, 7.23 - *FIND WORKING LINK*(windows ONLY)
+		   Factory flash, edit, restore tool. Phone programmer
+
+		** P2K commander: *FIND WORKING LINK*(windows ONLY). 
+		   Browse Filesystem on p2000 OS phones.
+		** Motorola Phone Tools: *find working link*
+
+	* Throw away phones
+		** http://net10byop.com - Net 10, bring your own phone. use
+		   existing phones with cell calls data. No registration needed.
+		   works with ATT/T-mobile phones which are still carrier locked
+
+-- M. Other software --
+
+	* Yacy: http://www.yacy.net/
+	Yacy is a peer to peer web search which runs as a daemon on your
+	computer, and connects to other computers for a distributed peer to peer
+	search engine. Use in your webbrowser. Free software
+
+	* TOX: https://tox.im
+	Billed as a "Free replacement for skype", this peer to peer instant
+	message client uses next-generation cryptography, and next generation
+	Audio/Video codecs such as opus for video and voice chat. With no
+	centralized infrastructure. At the time of writing, its still in
+	alpha, but it looks very promising as far as being able to securely
+	replace a dozen or so chat and communications protocols and programs.
+	(instant message, phones, video confrencing, etc...)
+
+-- N. Misc and useful links. 
+
+	* Proxy lists and indexes:
+		http://hidemyass.com/proxy-list/
+		http://www.freeproxies.org/
+		http://www.socks24.org/
+		http://www.xroxy.com/proxylist.htm
+
+	* List of Anonymous VPN providers. This list is copied from
+	  torrentfreak.com, and we have no way of verifying any of these, except
+	  torrentfreak is relatively trusted.
+	  http://torrentfreak.com/vpn-services-that-take-your-anonymity-
+	  seriously-2013-edition/
+
+		https://www.privateinternetaccess.com/pages/buy-vpn/
+		https://btguard.com/
+		https://torguard.net/
+		http://www.torrentprivacy.com/index.php
+		https://privacy.io/
+		https://vikingvpn.com/
+		https://www.anonine.com
+		https://www.ivpn.net/
+		https://airvpn.org/
+		http://www.prq.se/?p=tunnel&intl=1
+		https://www.boxpn.com/
+		http://www.earthvpn.com/
+		https://mullvad.net/
+		http://faceless.me/
+		https://www.blackvpn.com/
+		https://ipredator.se/
+		https://nordvpn.com/
+
+	* Name and details persona generation:
+	Serious:
+		** http://www.kleimo.com/random/name.cfm
+		** http://www.fakenamegenerator.com/gen-random-us-us.php
+		** http://www.behindthename.com/random/
+
+	Silly and Stupid:
+		** http://rinkworks.com/namegen/ - fantasy name
+
+		** http://gangstaname.com/
+		   Has options for "gansta", pirate, mexican wreslter, pet,
+		   taxi driver, mafiosi, and vampires. 
+
+		** http://www.mrlumpy.com/outlaw.htm
+		   "biker %1'er" name generator
+
+		** http://rumandmonkey.com/widgets/toys/namegen/
+		   whole megapack of silly and stupid name generators
+
+		** http://www.mithrilandmages.com/utilities/
+		   Proper noun generation, names, places, storylines, etc....
+
+
+		-----===== SECTION 2 Software Usage =====-----			
+
+-- A. MAC Addresses --
+A MAC address is a level2/link layer address for ethernet, by far the most
+popular consumer network technology in both wired (LAN) and wireless (WiFi)
+technologies. The MAC address is a 48-bit string generally represented in a
+string of 6 bytes (12 hexadecimal characters, separated by colons as such
+FE:DC:BA:98:78:65). This is used for network configuration, and to PHYSCIALLY
+represent the hardware of your network card. If someone gets a real MAC address,
+if they physcially possess the computer or network card that it came from they
+can hence prove that data came from a particular computer.
+
+MAC addresses are burned into a network card at the time of manufacture, and
+represent a unique address of a specific network card. It can be used to
+Physically identify a piece of hardware. It has several limitations when used
+for tracking users. No operating system reads directly from hardware when making
+network calls, instead refrences the address from software, Some operating
+systems let users arbitrarily set the value or "spoof" very easily.
+The second limitation on tracking MAC addresses is that every time they are
+replaced every "hop", or router, on the internet by the router's own mac address.
+The only people who can see your MAC, are the people on your subnet, i.e. at
+home, the cafe/airport your in, etc... However all machines on the LOCAL network
+can see your mac, and this can be tied to your physical hardware if such
+hardware is obtained for comparison, will positively identify a computer, or
+more correctly a network card as the origin of data.(i.e. your attacker has, or
+gets access to your local router's logs).
+
+TL;DR This is only an issue on local networks.
+
+In addition, the computer's name, or "hostname" is send accross the network when
+obtaining an IP from a router via DHCP. This is done everytime your computer
+"automaticly" connects to the internet. On wireless connections you can specify
+a nickname for each wireless card. If none is specified, this should default to
+the computer hostname. The "hostname" is whatever name you set for your computer
+on windows, or whatever is in /etc/hostname in Linux/UNIX based machines.
+You can change this temporarily(until reboot). Anytime you scramble your MAC
+address, you most likely want to scramble your hostname as well.
+
+WHERE TO USE THIS: Of course, when you connect from home via fiber or cable
+connection, your MAC is not sent over the internet, and the cable company still
+has the hardware addressing of your local router/cable modem. Scrambling your
+MAC address is only of use on public networks, or any network you don't own.
+
+It should also be noted that the cable company if so needed could use a similar
+technique to tie your IP address(which does get seen) to a similar number for
+your cable modem, as could your mobile phone company.
+
+Data profiling is when the same user uses the same information over and over
+again, and sets a pattern they can be identified with. If you use the same fake
+MAC address repeatedly, it will develop a pattern. The best course of action
+with fake MAC addresses is to generate them randomly. There is little benefit
+of keeping the same spoofed MACs if you do not need to.
+
+TL;DR - Use a real MAC/Hostname at home and on trusted networks.
+Scramble your MAC BEFORE connecting to public/untrusted networks.
+
+How do you scramble a MAC address?(temporary software MAC).
+There are several ways to do this. easiest is to use a program as mentioned in
+=Section I=. However it can by done manually, in various operating systems:
+
+Linux/UNIX/OSX(as root) on the command line:
+	ifconfig eth0 down
+	ifconfig eth0 hw ether XY:XX:XX:XX:XX:XX
+	ifconfig eth0 up
+where Xs are any hexidecimal (0-F) digit, and Y is any EVEN hexadecimal number.
+Please note that eth0, is simply the first hardline ethernet card in linux.
+type "ifconfig -a " for a list of all network adapters, and subtitute another
+interface for "eth0" as appriorate.
+
+network-manager-applet also has an option to change your mac if you are running
+network manager(ubuntu, and most GUI-based distros), you can right click the
+network icon -> edit, should give you and option.
+
+Windows - edit a registry key go to start -> run "regedit" then navigate to
+this key in the registry editor:
+	[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\
+	{4D36E972-E325-11CE-BFC1-08002BE10318]
+
+modify the NetworkAddress Key to desired MAC.
+
+NOTE - the first 3 bytes(6 numbers) are a manufacturer ID, which identify the
+company that makes the network card. All of these are known, and there is a list
+of known manufactures. This is useful,if you need to carefully construct a MAC
+address instead of choosing a random one.(some networks actively discriminate
+against what they perceive to be random and fake addresses, or cards that aren't
+the type they are using(wired address used on wireless).
+
+Now we generate a hostname
+	In linux/UNIX/*NIX its as easy as typing on the command line:
+please note this changes after a reboot, and you need to restart your desktop
+enviroment generally, or it will not work.
+	# hostname <newhostname>
+
+	In windows, you want to right click my computer -> properties.
+Then change the computer name.
+
+-- B. Security Frameworks and utilities --
+
+	Frameworks are general concepts and code that build into other products,
+securing other things you do. While you most likely don't use them directly,
+you use products that incorporate them. Knowing the basics of what they are and
+how they work is important. Sometimes they are optional, and you can improve
+security by manually enabling them, and plan your operations around services
+that make better use of them. You might not have to install any of these
+directly. Most are implemented in user software. Understand how you can get the
+most out of them.
+
+	* SSL/TLS - Secure Socket Layer, and its replacement Transport Socket
+Layer. sub protocols that are used to encrypt many if not most kinds of
+communications on the internet. Look for for the SSL/TLS in program options.
+OpenSSL, GnuTLS, and NSS are various implementation wrappers for middleware.
+Used not only to encrypt, but authenticate websites and users.(verify identity).
+Check settings to make sure programs are running them. These mostly work
+transparantly. In firefox, a little lock icon, or a green identity bar should
+appear in the left side of the "Awesome" URL bar. Clicking on this should show
+the encryption status. https:// as opposed to http:// means encryption. the "s"
+stands for "SSL". Often other protocols are suffixed with "s" to indicate added
+ssl support. ftps, ircs, etc..
+
+	* GPG - Gnu Privacy Guard the open source successor to PGP, because PGP
+closed it's source code. Used to encrypt and authenticate users in email, as
+well as other functions. You need to create a private public key pair, and then
+maintain it. You give other users your public key, but keep your private key a
+closely guarded secret. This will allow you to not only to verify the contents
+of files and emails, but encrypted/decrypt them. It can also be used to
+postively identify contacts online via encryption. In linux, gpg is a command
+line application, but there are many front ends that provide a good GUI. a nice
+feature of GPG is that all applications share the same keys, and data, making
+keys imported into gpg universal, system wide. Also check your program's support
+for GPG, and how to enable it. See Section K for instructions on setting up and
+managing GPG keys.
+
+	Also, see the program gpg-crypter. Its a very simple tool that allows
+you to quickly encrypt text, and decrypt GPG blocks posted as text, use gpg in 
+communications that don't offer it as a transparent option, without having to
+mess with the command line.
+
+	* OTR - Off the Record. Similar concept to GPG, but this is written
+exclusively for instant message and chat programs. The software generally comes
+as plugins for various instant message clients.
+
+	* TOX - TOX is a communications protocol that has public-key private-key
+encryption baked into the protocol, where your public ID is your public-key
+
+-- C. File Shredding --
+	When you traditionally delete a file, all the operating system does is
+delete the information it has of the file in the file table(master list of files
+and locations of data), the actual data is still there, although it CAN be, but
+probably won't be over-written. Once unlinked, its often impossible for normal
+operating system calls to find the data. HOWEVER, a direct sequential byte by
+byte read can find this data quite easily, and many forensic SOFTWARE tools that
+run on regular computers exist to do this. Many are free/libre and/or open
+source. Many are not hard to use. That said, a singe "pass" is enough to make
+sure that %99.999 of attempts to recover data are unsuccessful. There are some
+media specific attacks that can recover data from specfic technologies. Even non
+forensic tools like "strings" and "dd" in UNIX can find this data fairly easily.
+
+HARD DISKS - In a Hard Disk, the disk can be disassembled, and a sensitive write
+tool can be used to look for "layers" and access written over data, for what
+value the underlying bit had before the current one. There is some dispute over
+how many "layers down" this will reliabily work. Peter Guttman, a security
+researcher, has specified a 35-path method for completely obliterating data.
+However, this, in modern terms, is widely believed to be excessive. The
+US National Security Agency and Department of Defense have their own methods
+(4 and 7 pass respectively). With modern hard disks however, its generally
+assumed a double pass of random data shall be sufficient by all but the most
+persistant attackers, and offers a better trade off when time spent is factored
+in.
+
+FLASH MEDIA, to include SSDs - They lack a history like spinning disks, but
+almost all modern formats do what they call "wear leveling", automaticlly
+remapping sectors, to wear the drive more evenly. This is done transparantly in
+the firmware, and its often impossible for the OS to know exactly where on the
+physical medium the data actually is. New solid state drives generally have a
+hardware "secure wipe" command that will overwrite backup and remapped sectors.
+This can be done in linux with hdparm. Its also assumed a double pass of fill
+will get most sectors on the drive, if done sequentially the entire drive.
+
+Follow the Guide:
+https://wiki.archlinux.org/index.php/SSD_Memory_Cell_Clearing
+
+FLOPPY DISKS, to include zip disks, or anything else with a spinning magnetic
+disk inside: These are obsolete. I recommend copying the data elsewhere, and
+then breaking open the case, and cutting the magnetic disk inside with scissors
+into triangle shaped patters. After a zero-overwrite. It you can do many disks
+this way, throw them all in the same trash bag and shake bag vigoursly(while
+closed), they should all rub together, making the mess worthless.
+
+For the more conventional - The 35 pass Guttman method should be sufficient if
+you plan on reusing them. The Guttman method was made with floppies in mind, and
+lower-density data-storage makes data retrieval easier.
+
+Darik's Boot And Nuke
+this is a LiveCD that does one thing, boots up, and automatically overwrites
+data on all attached hard disks. Store and use with care. Great for either
+emergencies, or if you really can't sit and watch the computer.
+
+There are two types of file scrubbers, ones that target specific files, and ones
+that look for and clean parts of the operating system. The first category
+includes programs like bleachbit, and various properitary implementations.
+They are good for easily cleaning all at once your usage tracks off your regular
+operating system on your hard disk. Be sure to read the documentation and check
+settings to make sure that data is overwritten on the disk(bleachbit is NOT
+enabled by default, check the settings). The second are targeted scrubbers like
+various incarnations of srm, scrub, wipe, and shred. Make sure you consult your
+documentation on how to use the right type of file shredding.
+
+Real world pro-tips:
+	* When you scrub entire disks, write all zeros directly to the block
+device(like using dd if=/dev/zero, etc..) TWICE, then FORMAT THE DISK, and then
+create a new file system on the disk. It would look like a blank medium. Do NOT
+Random fill an entire disk, it will look suspicious.
+
+	* When scrubbing individual files, just write TWO layers of random. This
+way it looks like random data. writing with zeros looks suspicious.
+
+-- D. Password and Identity management --
+Its important to use strong random for generated passwords.
+
+In Linux /dev/random or even /dev/urandom or block character devices and that
+based off them should be enough.
+
+You do need one password which is easy enough to memorize. This you put on
+Truecrypt containers and password managers. mix and match these enough that
+separate passworded files or objects with similar functions get seperate
+passwords. Now we get to "offline" passwords vs "online" passwords. See below
+
+TYPES OF PASSWORDS:
+
+There are two types of passwords
+
+	* Online: passwords that store data on networks that are accessible by
+other machines you cannot control that can be readilly accessed to brute-force
+your password. This standard applies to any password protected resource which
+also doesn't have a layer of physical security to it at all, or a brute-force
+tool can be readily applied. This is mainly things like Facebook, emails, or
+most internet and cloud connected passwords. These are at the most risk.
+However you CAN load your password manager before accessing these resources.
+
+	Online passwords should be as long and random as possible, they
+should be stored in encrypted containers, with password managers to minimize
+risk of improper exposure. The KeePass family of password managers are good for
+the entire life-cycle of your passwords.(creation/storage/retrieval/deletion).
+They are easy to make, and easy to change, easy to remove, and encrypted
+on the disk.
+
+	* Offline: Offline passwords are anything which a unknown opponent
+cannot routinely access or bruteforce. They can also be further protected by
+physical security. This is computers without remote access(like your
+laptop/desktop), encrypted files on your local machines(where you sit CONSOLE,
+not in general vicinity), etc. These are at lesser risk, and at the same time
+unable to be bruteforced by traditional methods. Many times, you cannot load
+your password manager BEFORE loading these resources.
+
+	Offline passwords need to be mnemonic enough that you can remember them,
+long enough they can't be easily bruteforced, and unique and unguessable your
+friends(and enemies) can't guess them. They can't be about any of your
+biometrics, your family, pets, nicknames, or anything a good guesser who obtains
+all your personal information can obtain. They are used to store online
+passwords. Make sure they are good, change often. If someone cracks one of
+these, chances are you probably know them.
+
+	Just remember the weakest point of cyber security is the human being.
+You pick a password based on biometrics, pet names, family names, hobbies,
+or any other factor it can and most likely will be guessed. 
+
+	* Generating names for alternate personas:  Your alt-ego, your "alias"
+if you got the pseudononymous route. User name or full name it does not matter.
+Someone is going to go through your interests and pin just about any thing you
+choose on your own to you. Don't try and think to hard. Have one randomly
+generated and save yourself the trouble.
+
+	Keep files on your alt-egos and don't mix match or cross reference one
+character from another. someone will pick up on this and link the two.
+Keep the files in an encrypted partition. See above. Don't post pictures from
+real life. If you MUST post something from real life, be sure to scrub and
+sanatize not just the picture, but the metadata something all Cameras and
+editing progs stamp into pic files.
+
+-- E. Darknets, Proxies and VPNs --
+
+	=DARKNETS=
+
+	There are two types of "darknets", there are the
+Anonymous Public Darknets(APD), such as Freenode, TOR, and I2P. Then there are
+what are essentially public access VPN, or Virtual Private Networks, which are
+primarely used by businesses to allow traveling members to stay securely
+connected to their physical office. Most VPN-based darknets will use same or
+similar software and have the advantage of looking not-suspicious. The APD, runs
+custom software specific to that darknet to provide access. They are by rule,
+public. Since they use built in forms of peer discovery, the software is the
+network.
+
+	The big diffrence between the approaches is that APDs are designed not
+only to protect the users from outsiders, but users from eachother. They are
+also designed to prevent users from identifying each other by their
+participation in the greater outside network. VPNs however assume a certain
+level of trust between the users, and are not designed to protect anonymitity
+between users, merely securing the content of traffic.
+
+	TOR(The Onion Router), works in two ways, both as a darknet,
+allowing access to hidden .onion sites, and as a complex routed proxy,
+allowing access to clearnet scrambled through its vast network to hide its
+origin. It works by using "onion" encryption, proggressive layers of encryption
+so each hop only sees the next hop and more encryption. Its greatest flaw is
+the last node to the destination is unencrypted and can snoop traffic. You can
+use end to end encryption to make up for this.
+
+	TOR also doesn't automatically route your data over TOR. It simply makes
+itself available as a local proxy to applications on your computer. Using
+privoxy inline with tor is popular and can be a good idea to further strip
+meta-data off web connections. Using TOR on the web you have two options.
+One, the most convenient method, and best for new users, is to simply use the
+tor projects "tor browser". This is a pre-set up FireFox ESR, with recommended
+tools and useful extensions built in. In more advanced mode, you want to try a
+FireFox extension called "Foxy Proxy". See Section I
+
+	Torsocks is a command line program that launches other programs
+rerouting all data through tor automatically. Great for making tor-enabled
+shortcuts on the desktop. you can copy a menu item in your GUI and rename it to
+say Program(withtor) and prefix the command it launches with "usewithtor".
+This works great with IRC.
+
+	Vidalia is a great front end controller for tor. its easy to use and
+unobtrusive. It launches tor and keeps you updated with tor's connection status,
+lets you view the tor network, and has a convenient button for new identity
+which really means "use a new IP address". If you are using tor on a desktop
+Vidalia is the way to go.
+
+	I2p is primarily a darknet, with .i2p domains. it provides access to i2p
+only features like mail, chat, and file-sharing that are done anonymously over
+i2p. I2P is also decentralized, offering a network-within-a-network, and depends
+mainly upon users to provide content. I2P uses something called "garlic routing"
+which is similar to "onion" routing in concept but more decentralized. Unlike
+TOR, there are only a few manually configured "exit nodes", none of which are
+dynamic, and usually get shut down on a regular basis. It is designed primarily
+as use for a darknet and not a proxy network.
+
+	=Virtual Private Networks=
+
+	A VPN creates an encrypted tunnel from your computer to a computer on
+the other end, where data is passed. One use for VPNs is a proxy on steroids,
+you can use them to stack another layer of security ontop of remote management
+interfaces for servers, you can use them as proxies to get around near side
+filtering and monitoring of data. You can route your data through the VPN
+itself, and as setup the VPN to act as a private network hidden to everyone not
+invited. Unlike APDs, you cannot hide from other members of the network. It also
+requires a client-server model, and you need somewhere to set up the server,
+unlike and APD which are generally peer to peer.
+
+This guide recommends using OpenVPN, as is the best option for use onLinux/*BSD
+Servers and Workstation. The most secure way to set up OpenVPN is with a
+public/private key *infrastructure*. This will all be set by whoever sets up
+your VPN. If you are setting your own server, be sure to read up on how to
+implement this.
+
+Additionally, you can turn on TLS packet encryption, so that each packet is 
+encrypted, making OpenVPN invisible to port scans.
+
+You also need to know if your server is running LZO encryption, its enabled by
+default in OpenVPN servers, but not in some common clients.
+
+OpenVPN can run over TCP OR UDP, make sure you know which one. UDP works better,
+but TCP can be used to tunnel accross networks where UDP is not supported, like
+TOR.
+
+Some notes:
+
+	# Use a Strong crypto algorythm, OpenVPN supports 256-bit AES. Ask for
+	  it.
+	# Use a Strong HMAC hash algorythm, OpenVPN supports SHA256. Ask for it.
+	# Another layer of encryption used to authenticate the TLS packets, ask
+	  for TLS authenication.(will give you another .key file, ta.key).
+	  This will help prevent bruteforce and network sniffing attacks from
+	  randomly finding your VPN. Ask for it.
+
+				TUN vs TAP
+
+	Tun is layer 3(OSI Model), or IP tunnelling that forwards IP packets.
+TAP is layer 2 frame forwarding, which forwards ethernet frames over the
+internet. For the purpose of this guide, it is simpler, with less permissions,
+and uses less overhead to use TUN instead of TAP. There is also no MAC addresses
+to wory about. If you need something like SMB(Samaba) file sharing, you might
+need to user TAP, but otherwise, just leave it alone.
+
+				Assymetric Crypto
+
+	Instead of Login information, you will be given a set of key and
+certificate files. Needless to say key and cert handling is big here. See
+Section 3 for key handling tips. keep the files in a secure place, and select
+them in your client, as appropriate.
+
+				Combining TOR and a VPN.
+	Sometimes and places running TOR directly is enough suspicion to warrant
+harrassment, or futher survialence. You might want to tunnel to another server
+and tunnel traffic over the tunnel. If you have a server that already runs TOR,
+as a middlenode, its even better. You can use VPNs or SSH for tunneling. Simply
+have TOR bind/listen on the its VPN IP address. Then you can connect to TOR
+through your VPN tunnel.
+
+NOTE: its not advisable to connect dirrectly to TOR dirrectly that is not local.
+All advantages are lost. Use either a VPN or SSH tunnel. Its also not advisable
+to use an exit node/hidden service for anything than that specific purpose. You
+risk exposing your site or compromising your machine.
+
+2. VPN Client Software:
+	A. OpenVPN on Linux/UNIX/*NIX.
+
+		i. NetworkManager - on Linux/UNIX, this is a GUI based
+		connection mananger that comes standard with most major distros.
+		it has plugins to support a wide array of VPNs. The OpenVPN
+		plugin is not installed by default, but can be found in most
+		distro's respositoyies.
+
+		ii. OpenVPN - If your not running NetworkManager you can run
+		OpenVPN by itself. In Linux this is a command line program that
+		can be run as a daemon, see your distributions guide for setup.
+
+	To install a VPN with NetworkManger-Applet, the GUI in most linux
+	distros: right click the network icon on your tray, and then go to
+	settings. Go to your interface's "add network", and select VPN. Select
+	the key and certificate files as appropriate, click the "advanced"
+	button to find TCP/UDP, LZO and authentication configuration. There is
+	also an option in "routes", under "IPv4"/"IPv6", respectively to route
+	all data through the VPN. If this is enabled, all TCP/IP of the
+	respective protocol will go through the VPN tunnel. Turn this on to use
+	the VPN as a relay proxy. Make sure your VPN is configured to route to
+	the internet, otherwise you won't be able to connect to anything.
+
+	B. OpenVPN for windows. Install the GUI, and then point it to the
+	config files on your hard disk.
+
+* PROXIES
+
+	Proxies merely bounce data off one server to your destination. While
+they can fool the destination server of your origin. However, they don't stand
+up to more complex discovery attacks, they also work in a strong client-server
+archetcture as an open proxy server needs to be available. That proxy server is
+easily identifiable as any other host on the network.
+
+	Back in the day, when you wanted to troll message boards and evade IP
+bans you'd simply get a list of free proxies and then set them in your network
+settings. Then there came plugins and addons for browsers which made this so
+much easier,with a flip of a button.  All they do is simply bounce data off the
+proxy server you add to the configuration. usually unauthenticated and
+unencrypted. you can set or unseta proxy, from your web browsers
+"network settings" page, or by a plugin.
+
+Very simple, and crude. Not elegant and they don't work
+all the time. Its also impossible to host protected content, there is little if
+no encryption or authentication. Effective for getting around automated IP
+address checking and little else.
+
+-- F. Scrub Meta-Data--
+Remove Identifying Marks from pictures and other media.
+
+	Meta-data are generally little bits of text embedded in media files to
+aid in description and organization of the files. Its sometimes very useful, but
+it can be used to compromise your privacy. Extra information can be location
+cordinates, camera name and model, and light meter settings. All of which can
+be used to identify otherwise unidentifiable subject matter.
+
+	Fortunately there are lots of good tools to keep the picture and remove
+metadata,
+
+	1. MAT - Metadata Anonymization Toolkit: made by the TAILS team.
+	This even includes a nice GUI as well as a command line program,
+	and works with a wide variety of files from pictures to word documents.
+	You can use MAT two ways. First is on the command line, where you just
+	type:
+
+	$ mat <filenames>
+
+	The second is running the GUI, where you can just drag and drop the
+	files and hit the "clean" button. Extremely quicky and easy. This is the
+	obviously preffered method.
+
+	2. jhead: jhead is a great command line tool for this. Not only can this
+scrub metadata, but also read it off jpeg pictures. type
+
+	$ "jhead -purejpg <filenames>"
+
+	3. pngcrush: like jhead, but for PNGs. unlike jhead, this only works one
+	file at a time. type:
+
+	$ pngcrush -rem alla -rem text <input file> <output file>
+
+	Next, is the data hidden in plain sight. Today's cameras have a much
+higher resolution than you'd ever need, you can also compromise yourself with
+identifiable information in plain sight. You need photo editing software. Its
+recommended to edit the picture first, and scrub metadata second. Its also
+recommended to make "online only" versions of pictures, and leave the high-res
+meta-data pictures in a seperate folder, for private consumption.
+
+GIMP is a good free light photo editing tool. you can blur and smudge out most
+unwanted details without being barely noticeable, you can also turn down the
+quality of JPEGs just enough to keep anyone from getting any good background
+information from your pictures. Its also recommended you save this as an online
+only version of a picture. Online only version gets reduced quality, and its
+recommended you limit size to 1024 pixels at its greatest dimension. This is
+large enough to get the point accross, small enough that extreme enlargements
+aren't really possible. GIMP can scale pictures quite easily. under
+Image -> scale, then make the larger number 1024 pixels while keeping the aspect
+ratio.
+
+There are a few levels of paranoia of what details should be removed from photos
+based on your personal threat model. This requires being honest with yourself of
+who you are hiding from. follow instructions up to your threat level.
+
+	1. Normal:
+		Remove license plates, credit card numbers,
+	personal phone numbers, social security numbers, and kind of serial
+	or registration numbers from any device, ID card. In fact is probably
+	not a good idea to post any form of official paperwork, forms, or
+	anything of the sort. The military would call this "OPSEC". If you are
+	*NOT* a photographer and not sharing art, remove metadata especially
+	if you've taken the picture with your phone, as this will advertise
+	your phone model. Limit upload resolution to 1024 of the largest
+	dimension.
+
+	2. Paranoid:
+		Filter out clothing brand names, faces, wedding rings, street
+	signs, location markers of all kinds, and any sort of information that
+	is unique to person, time, or place. Limit picture resolutions to 800.
+	Carefully screen artistic photos for OpSec before releasing.
+
+	3. Total:
+		Either create all media digitally using a clean computer, or
+	recycle all images from stock found on the internet. Refrain from
+	posting captured media(videos on pictures on social media). Upload from
+	some combination of TOR, I2P, and VPNs and Proxies.
+
+Threat Models, corresponding to the numbers above.
+
+Level 1 - This is for *most* people where we assume your threat model is mostly
+creepers and petty criminals, ordinary citizens with no special abilities,
+authority, or resources at their disposal.
+
+Level 2 - This is for people who have local criminal, municipal government,
+small cults, medium size corporations and other small organizations with similar
+resources, as an extant threat.
+
+Level 3 - For those who have adversaries who are, or have the tech resources of
+the largest corporations or a nation state.
+
+Workflow:. VERY IMPORTANT THESE BE DONE IN ORDER: 
+	1. edit - blur, smudge, otherwise manipulate photo.
+	2. scale - scale image so the larger dimension is 800 pixels
+	3. scrub - scrub metadata appropriate for filetype. 
+
+tl;dr: edit, scale, scrub all pictures before uploading them online.
+
+
+--  G. LiveCD/USB stick --
+Leave No Trace
+
+	Find a good live os. a good list. start with:
+https://sourceforge.net/directory/system-administration/osdistro/livecd/os:linux
+/freshness:recently-updated/
+
+	Make sure the live OS you use supports the feature you need. Test it in
+private, perhaps in a virtual box, and at least conduct a minimal audit and
+ask opinions of other users with similar needs to get a reputable live os.
+We of course, recommend NinjaOS as we wrote it. For TOR usage,
+TAILS and Liberte linux also top most lists. Do not use a virtual box for
+actual work.
+
+	A Live OS doesn't save data unless you copy data to an external disk or
+non-live partition or leave usage tracks, all of which are erased when you
+shutdown the computer.
+
+	USB sticks are better than CD ROMS. Not only are they faster, they
+can be dual partitioned to have a writable data portion that can save your
+work, encrypted, if so desired.
+
+	We of course recommend Ninja OS, as most of the tools listed in this 
+privacy guide come pre-installed. However TAILS and Liberte Linux are also
+recommended if you use TOR more often than not.
+
+At home: you can work on and view sensative data with some confidence you are
+not under survaillence. Your local network is run by you, and you can control
+it, and be reasonable sure its not monitoring you. However your public IP
+address under certain circumstances can lead back to your place of residence
+and whoever puts their name on the bill to pay for it.
+
+In public: A public network is most likely going to have some form of monitoring
+software. However, since its public, it only has as much information on you as
+you give it. If you use a fake MAC address, and don't use credit cards to pay
+for it, it will be nigh impossible to determine your identity. As mentioned,
+software like TOR, VPNs and other encryption can be used to defeat most
+monitoring setups. Most are primative, if they exist.
+
+Libraries are good spots for anonymous internet access. Librarians in general
+are strong privacy advocates, and they often have public use computers that you
+can play with. To evade whatever restrictions a library computer might put on
+you, or because you need certain tools. Try getting into a library computer's
+BIOS/firmware setup, to boot off a USB stick when at a library.
+
+Its also a good idea to try and scramble MAC addresses when using a library
+computer so they won't have an idea what computer you are using. This might not
+work. Its always a good idea to probe the capabilities of the computer/network
+you plan on using before using it.
+
+-- H. Instant Message and IRC(Internet Relay Chat) --
+
+# IRC - Chat protocol for nerds, about two decades before jabber. IRC is still
+the preffered chatroom protocol for hackers and the tech savy. It is feature
+rich, but old. Security varies between server to server, and client to client.
+Its important to pick a good setup for the optimal experiance. IRC works on
+a typical client/server model, with servers connected into load ballancing
+"networks"
+
+Lets start with finding a suitable IRC client.make sure it supports
+SSL, OTR too is a good bet as well. OTR
+
+	* mIRC: most popular by far, runs only on windows. You need OpenSSL
+	for windows to get SSL running:
+	http://www.slproweb.com/products/Win32OpenSSL.html
+	When you install OpenSSl for windows make sure you install the DLL files
+	into the windows system directory. This is where mIRC looks for them.
+
+	when you run mIRC type //echo $sslready it should come back with "yes"
+	http://www.mirc.com/ssl.html - more information.
+
+	* xchat2: great Linux GUI client, SSL out of the box, also works on
+	Windows and OS X. has OTR and SASL plugins.
+
+	* Hexchat: fork of xchat with more features, built in SASL, and better
+	features thatn xchat2. Also has an OTR plugin
+
+	* irssi: command line IRC client for Linux/UNIX, successor to BitchX
+	works great through ssh. Has OTR and SASL plugins as well.
+
+NOTE: If you are running GNU/Linux, your operating system keeps a repository of
+certificate authority root certificates for encryption, so its possible to
+authenticate servers with certificates. This is not possible in mIRC.
+
+Now you need an IRC network. If you already plan on joining a specific chatroom
+you will be given this information. If you are starting a new channel, you need
+to make choices
+
+When joining a group's IRC look up SSL compatible servers and their port numbers
+on the network's homepage or in the motd when you connect. The server might
+support SSL.
+
+When setting up your own channel, and looking for a suitable network things to
+take into account:
+
+* robust infrastructure. many diverse located servers, somewhat underutilized
+* good services - nickserv, chanserv. make sure they are present. tight
+integration with the server a bigger plus.
+* privacy and security - CA signed ssl certs are a plus.
+Other features are host name cloaking which hides your IP to other users,
+official .onion hosts, and support for SASL authentication.
+* Network operators have a stated policy or general attitude of free speech and
+sticking up for users rights.
+* some networks offer hostname cloaking, or otherwise do not expose a user's
+raw IP to other users. big big big plus
+
+you can do basic research on IRC networks with the search engines in Appendix C
+
+BASICS of IRC:
+First you need a screename. your "nickname" or "nick" is what IRC calls screen
+names. This is how IRC will identify you with, and how you will show up in Chat.
+Its the main means you are identifying on in IRC. You can change your nickname
+with the "/nick" command, once on IRC. Set a default inside your client
+
+Real Names, emails, and USERIDS. This goes back to the class days of IRC, when
+IRC was ran on multiuser machines, and system proccesses like "identd" would
+tell the IRC server the system login name of the user. the IRC server adds this
+to the IP, to further create a unique identity. As IRC servers do this, this is
+a potential security flaw in the modern world, where many if not most IRC
+clients run one at a time on graphical or single user setups. "Real Name" was
+also taken from your UNIX login information. Its legacy. All of this
+information shows up when someone does /whois $nickname on you. None of this
+needs to be, nor should be real information
+
+Its also smart to set "username" or "identd" or something similar to the same
+thing as your nickname. many UNIX clients default this to your machine login
+information. Never a good idea. Set it the same as your nickname.
+
+tl;dir - If you still don't get it, set "real name" "ident" "email", and all
+other personal information to the same as your "nickname"
+
+Now, connect to an IRC network. Your client should have a good list, if not,
+see above, or Appendix C. You can connect to an irc server by typing
+/server <servername> or using a connect dialog in a GUI.
+
+Now your connected, lets find people to talk with. Chat Rooms are called
+"Channels" and start with the "#" character. you can use the /join command,
+to join a #channel. i.e  /join #chat. You can list publicly available IRC
+channels with /list.
+
+On many IRC networks, they offer services to protect your nickname, and protect
+channels through optional registration. Services are special "bots", that end
+with "serv". 'Nickserv' and 'Chanserv' are the two most important to you,
+but others exist. Registering a nickname with nickserv will prevent anyone
+else from using it, and may offer other benefits of registration depending on
+the network. You can register with nickserv by typing:
+
+/msg nickserv register <password> <email>
+
+To log in with nickserv on return visits
+
+/msg nickserv identify <password>
+
+PROTIP: Some IRC networks have server commands to alias /msg nickserv as
+/nickserv, or even /identify, these are generally more secure.
+
+Read more on IRC: http://www.irchelp.org/irchelp/new2irc.html
+
+# Standard IM services
+MSN, Yahoo, AIM, ICQ, jabber, etc.....
+
+	As they are a centralized service they can be a whole mess of fail. At
+one point these where the defacto text communications between people. They also
+don't give out IP addresses to anyone but server operators. Get a single general
+purpose IM client that runs them ALL. Try to avoid the standard clients, as they
+tend to be slow, buggy, and laden with advertisements and security flaws.
+
+	Pidgin is the recommended client. It runs mac/windows/Linux. pidgin also
+supports OTR, and many many many usefull plugins to make the experiance more
+useful. It also gets extended with new protocols.
+
+	Go through settings of connections and make sure "encryption required"
+on any network you connect to. This makes it use SSL/TLS or TLS. Many
+IM networks support encryption. It should be the new default that most things
+use encryption.
+
+# TOX
+https://tox.im
+
+	TOX is a new type of instant message protocol, that is decentralized
+that intergrates end to end encryption into the protocol. Its fairly easy to
+use, and like TOR it uses a public key as means of idendity. It features voice
+as well as video chat, but client implemenaton varies. TOX is still somewhat
+new. At current the qTOX client is recommended on a Desktop GNU/Linux.
+qTox uses QT5 toolkit and is the most maintainable and readily portable. There
+are also windows and even a android client.
+
+to start tox'ing with people, go to settings(gear icon) -> identity, and then
+copy your tox id, and give that to people. You can also register this ID so you
+can give them a shorter email like address that resolves to this ID, you can
+give this out instead of a long ID.
+
+Tox DNS, uses an actual DNS server to resolve tox names to tox IDs. You can
+either run your own TOX DNS server, or use a free one like toxme.se. toxme.se is
+a free service that allows anyone a @toxme.se tox address. All you need to do is
+register your public key/user ID with a name. This makes big scary hexidecimal
+numbers avoidable for the human, but is completely optional.
+
+Tox is secure by default, but it does not obscure its origins of messages. If
+you wish, it is fairly easy to configure TOX to use TOR, I2P or other privacy
+networks. Simply go under settings -> general and the "Connection Settings" tab
+on the bottom. Enter proxy information as appropriate.
+
+See Appendix A for information on TOR and I2P.
+
+## OTR - Off the Record ##
+
+OTR(off the record) is a good easy to use encryption plugin for IRC and IM.
+It uses AES Encryption and Diffe Hellmen key exchange. While OTR cannot disguise
+that you're using a particular service, or who you are talking to, it can keep
+the content of the conversation private. When combined with TOR usage, however,
+it can offer complete protection.
+
+You need to generate a private/public key for every username, every nick/handle
+on every network you use. Then you need to authenticate and store keys for
+all your buddies you wish to securely chat with.
+
+In pidgin, its as easy as installing the OTR plugin, then going to the menu
+	tools - > plugins
+Now find "Off The Record", select it and hit configure. Select each individual
+"Key for account", and hit "generate" until they all have keys.
+
+NOTE: Its important to save and back up the keys, and never change your
+OTR keys unless you absolutely have to. Guard them carefully. If you loose them,
+your loose your ability to authenticate yourself to your friends. If they get
+stolen someone can impersonate you.
+
+When you see a buddy online, you must authenticate with him, which means
+swapping fingerprints. Contact him securely via other means and manually verify
+the fingerprint then save it. If someone who you already swapped keys for,
+asks to swap keys, contact him via another secure medium(or in real life), and
+verify the keyswap, to make sure its not an impersonator.
+
+XCHAT - you need to do this on the command line via /otr commands in xchat,
+see the user guide:
+http://git.tuxfamily.org/irssiotr/irssiotr.git?p=gitroot/irssiotr/irssiotr.git
+a=blob_plain;f=README;hb=HEAD
+
+Backup OTR Keys:
+
+xchat - in $HOME/.xchat2/otr - back this up and restore it for your saved
+personal keys and saved authentications.
+
+pidgin/libpurple - $HOME/.purple/otr.fingerprints - your saved authentications
+you've made previously.
+		$HOME/.purple/otr.private_key - your personal key you use for
+authentications. Keep this safe, if someone else gets this, they can fake your
+identity.
+
+Save and restore to the same locations to maintain a key. This helps prevent
+man in the middle attacks, and verify/preserve your identity. Its important to
+back up these files if you are reformatting your computer, moving to a new
+computer, or using a live operating system. You need to restore these files
+every time you start your LiveOS.
+
+Secure connection to the IRC/IM server(TLS/SSL), this will authenticate the
+server, and encrypt all communications between you and the server. A snooper
+WILL be able to see your computer is connecting to the server, and not much
+else, to include who you are talking to. The server itself WILL be able to tell
+these things.
+
+OTR, or other end to end encryption, encrypts message send from you to the
+person you are actually talking with. Someone snooping will see what server
+and protocol you are using, your user name, and who you are talking to,
+but not what is being said. The server will NOT be able to tell the content
+of the messages.
+
+Using SSL/TLS to the server, AND OTR together is recommended. It is a complete
+solution.
+
+
+-- I. Disk Encryption/Secure Storage --
+
+As of May 14, 2014, Truecrypt has been suddenly discontinued, under extremely
+suspicious circumstances. We recommend you don't use it. Its still mentioned in
+this guide, because TCRYPT containers are still used by other programs, and at
+least two valid forks exist, of which the guide is still relivant. the Ninja OS
+development team, however recommend using a from scratch re-implementation of
+the Truecrypt protocol in the form of tcplay and ZuluCrypt
+to manage and manipulate TCRYPT containers.
+
+ZuluCrypt can work in two ways:
+
+1. it can encrypt an entire disk(not the one you boot off of)
+2. it can create an encrypted CONTAINER in a file which contains an virutal
+disk in it.
+
+In addition you can make and use TCRYPT, or Truecrypt compatible containers,
+or use more standard LUKS, as well as the new VeraCrypt format.
+
+Offline encryption is what Truecrypt containers excel at, making encrypted
+containers and disks mounted only long enough to use sensitive information,
+then unmounted where they are safely stored. Its up to you how to store
+encrypted containers. No single way should be used by everyone otherwise a
+pattern emerges.
+
+There are three algorithms with Truecrypt Containers, AES, Twofish and Serpent.
+AES is a US government standard of Belgian origin for storing data up to
+TOP SECRET. Twofish and Serpent were finalists in the AES competition.
+Its also widely used in webservers, ssh, and various other internet protocols,
+as well as internally by Linux, and the big plus is that many modern CPUs have
+hardware based AES acceleration to speed up read-writes by a few powers of ten.
+tcpplay/zulucrpt use CPU based hardware acceleration of AES.
+
+Twofish is the successor to blowfish, the still unbroken 64-bit algorithm from
+1993, by Bruce Schneier, author of blowfish. There is no way to REALLY
+determine which algorithms will stand the test of time. All three operating in
+256-bit mode, and can be used in any combination. the more encryption, the
+slower it gets, the less the faster, but weaker. Widely used.
+
+General recommendations:
+For large amounts of media, AES is the best bet due to acceleration, unless
+need for security is absolute and extreme. Serpent and Twofish are less used,
+and less likely to be broken, as well as marginally more secure.
+
+If you are storing extra sensitive data, text, small images, pick any of the
+two algorithms, they should all be good. Hashing is the same way, all three
+algorithms are tried and tested. Unless you find out that one of them is bad,
+or gets broken.
+
+Truecrypt Containers can also incorporate hidden partitions - you get to choose
+another password and make an inner container which is invisible to the outer
+container. The presence of an inner container IMPLIES there is an outer
+container, but NOT vice versa. Also remember, writing to the inner container
+can damage the outer container, as they incorrectly report free space in order
+to hide from each other.
+
+Truecrypt Containers just look like random data in a file. Encrypted disks look
+like unformatted disks. Keep in mind someone technically adept enough can find
+Truecrypt partitions though, and although they where made to have
+"plausible deniability" of their existence, this was broken. Just remember this
+when facing an adversary. The plausible deniability of inner "hidden"
+containers has yet to be broken however.
+
+http://16s.us/TCHunt/index.php
+
+-- J.  Password management --
+A Password Manager is nice easy to use way to store passwords locally, storing
+passwords a file encrypted with a password key. For additional protection,
+store the file on your Truecrypt/LUKS partition for double protection.
+
+Additional features include clearing passwords out of the clipboard after a
+short period of time.
+
+A password manager will let you you use very long passwords without having to
+remember them. They also don't show passwords plaintext while you look at them
+unless you want to see them, making them great for public places and people
+looking over your shoulder and defeating some keylogger attacks.
+
+KeePass and its variants are recommended by this guide. They greatly reduce the
+risk posed by local and physical threats of force and surveillance, and they are
+open source and cross platform.(Mac/Linux/Windows/Android).
+
+KeePass secures passwords for the entire lifecycle of password usage.
+
+KeePass is somewhat self explanitory, however its worth noting, that if you keep
+multiple personas, that each persona have a seperate file.
+
+KeePass also has its own password generation tool. using random passwords at
+least 16 characters with numbers, upper and lower case letters is prefrable.
+Pronouncable passwords are desirable if the password needs to be memorized
+instead of copy-pasted.
+
+-- K. GPG (GNU Privacy Guard)
+	GPG is an encryption and authentication framework. It can be used to
+encrypt files, emails, and AUTHENTICATE the same as well. This depends on you
+creating, storing, and maintaining a private key to identify yourself with.
+You should keep the private key as secret as possible(back up file on
+encrypted space).
+
+	GPG stands for GNU Privacy Guard, and it is a fork of PGP, or Pretty
+good privacy. Today PGP is now closed source commericial software, but GPG
+remainds compatible with PGP, and PGP is the name of the format. Sometimes you
+will see GPG related items reffered to as PGP encryption. This is not entirely
+wrong.
+
+	First we need to pick a good front end for key management. GPG is a
+command line program. We need an easy way to manage keys, some front ends:
+	a. Seahorse: gnome
+	b. kgpg/kleopatra: KDE
+	c. GPA(GNU Privacy Assistant): GTK, minimal dependencies,
+	works great with XFCE and LXDE.
+	d. thunderbird-enigmail: this is a plugin for email client thunderbird
+	which is a complete solution for gpg and email, manages keys as well
+	as intergrates encryption with email. Key handling leaves much to be
+	desired though.	
+
+	Once you've found a tool you can work with, go ahead and create a key.
+Make sure you remember the pass phrase or better yet, save it securely in a
+password management keyfile on an encrypted partition. Once you're done, back up
+your private key so it doesn't get lost. This is used to verify your identity,
+so replacing it is a big deal. store it in encrypted space as well.
+
+	When you create a GPG key, you really create a pair of keys. One public,
+and one private. The public key you can give out pretty liberally, and can be
+used to identify your given persona online. The private key you should give out
+to no one, as anyone with your private key can impersonate you.
+
+	When you are setting up this particular connection for the first time,
+you need to conact your friend via other means, to confirm the key. A simple
+reciting of the public fingerprint of both parties keys should do. Most people
+publish the fingerprint of their keys. It is also important to verify the full
+fingerprint, not just the KeyID. Best practice is to simply exchange key
+fingerprints when setting up secure communication.
+
+	Next, is to actually communicate with someone else with GPG, email
+or otherwise is to make sure all parties have the public key for the other
+parties they are trying to communicate with. For most purposes the easiest way
+is to upload to a public keyserver. All of them mirror eachother and should be
+found in your GPG clients interface. After you do this, you can simply
+distribute your GPG fingerprint and have other people download your key. Yes
+That is actually safe. Sometimes you will see a "KeyID" used to identify a GPG
+key. Please note, these are merely the last 8 digits of the finger print and not
+considered secure for verifying a key. you can use a KeyID to differieniate
+between keys stored locally, or securely, but not from public sources or accross
+untrusted mediums.
+
+	Another option is you can cut and paste your public key. In most GPG
+keybrowsers, you can simply hit control-c, or copy, and then the public key is
+in the clipboard and can be pasted into chats, on websites, or saved in a text
+file. If you save the key into a text file, you can then import that file into
+any GPG program as a public key. This is Safe to give out, but always double
+check its just a public key. You can tell a public key in text because they
+start with the text:
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+and end with:
+-----END PGP PUBLIC KEY BLOCK-----
+
+	Once you have your keys sorted out, all GPG aware programs should see
+all keys(yours and other people's) and use them. See your program's guide for
+signing/encrypting data with GPG. It is up to these programs to have GPG
+support enabled.
+
+Email:
+
+	A. Thunderbird - Make sure the 'enigmail' plugin is installed
+	and enabled. Once it is, under account settings, there should be a tab
+	entitled "OpenPGP Security" under an account. Make sure the box entitled
+	"Enable OpenPGP support for this account" is checked. If you already
+	correctly put the email address of this account on your GPG it should
+	work without a problem. However it might be a good idea to manually
+	select the key, with "Use specific OpenPGP key ID", and then select
+	the key with the dialog from the "select key" button.
+
+	B. Claws Mail - On the Configuration menu
+	Configuration -> Plugins
+	# Hit the "Load" Button. Now select the all the PGP named plugoins:
+	pgpmime.so, pgpcore.so and pgpinline.so
+	# Hit Open, and then hit the close button in the plugins window.
+
+	C. K9 Mail(Android) - TODO
+
+	C. Other, the GPG plugin for outlook comes with winGPG.
+
+A similar block exists for private key. Be very careful that private keys don't
+get distributed by accident.
+
+	Using GPG on Android:
+
+There is an easy to use GNUPG port to android called "OpenKeychain". You can
+download it from google play, or f-droid(recommended). Once you have it
+installed, change the default settings for extra security:
+
+NOTE: APG has been discontinued, and no longer works with K9 Mail
+
+... -> Settings -> Advanced
+
+For "Encryption Algorithm", select either "Twofish" or AES256. For Hash
+Algorithm, select either "SHA256" or bigger.
+
+Now import your keys by copying the backup file to your phone. Now hit the left
+hand menu, and select "Import Keys", and then find and select your backup key
+file. Its now important to delete the file off your phone once its been imported
+.
+
+To send/recieve encrypted email, you need the app "K9 Mail" also available in
+the F-Droid repositories. Once you've setup the same email account as your
+desktop, you should see options for "sign" and "encrypt" show up.
+
+Also note that k9 mail has innovative ways for sharing public keys such as QR
+codes, and NFC support. This makes it very easy to swap keys with someone at
+meetups. Its also easy to give out other people's public keys. From the same
+"import keys" menu as earlier and hit the pulldown menu that says "Keyserver".
+You will have options for scanning QR codes and NFC communications. To share
+keys, you nearly need to tap on them, and then hit the three pointed "share"
+button, and it will give you the same options as for importing.
+
+Another note. Its recommended that you encrypt your phone before importing
+secret keys into Open Keychain.
+
+	=Signing vs Encrypting=
+Encrypting secures a message against unauthorized viewing. You encrypt amessage
+with the public key of the recipiant, and only they can decrypt it with their
+private key. Signing is done with the private key of the sender, and can verify
+both the integrity of the message, and identity of the sender by anyone who has
+the senders public key. It does not protect the the message from being read by
+unauthorized persons. To guaruntee that the message is authentic, and only read
+by the intended parties, it needs to be both signed with the senders private
+key, and encrypted with the recievers public key. Most email programs can handle
+this automaticly, with both "sign and encrypt". For people who cannot be
+bothered to use crypto, you can always sign your messages, and they will be very
+readable, and you'll look like a motherfucking badass if the person does decide
+to optionally check the validation of your sig.
+
+	=Keyservers=
+Public keyservers contain a searchable database of public keys that anyone can
+upload their key to. The big ones syncronize with eachother, and this allows
+anyone to retrieve a key if they have a fingerprint or keyid of the key they
+want. Because a fingerprint positively identifies a key, it is safe to upload
+your key to a keyserver, and distribute your fingerprint which others can use
+to download the key. Also note your key most likely contains your email address
+that it is needed to function. It also contains whatever name you put on it.
+This will irrecovably become public data. For the most part this is not that bad
+. People will understand a certain email address exists, and have a given name
+behind it, which to use email, you'll have to give out anyway. The only reasons
+not to publish a public key on a public keyserver are extreme fringe cases with
+high level adversaries, or if you are using non-public systems.
+
+-- L. Web Browsing --
+
+OK, so you've probably got the scare speach on how rouge government employees,
+criminals, and/or large corproations(mabey even in conjuncture) are going to spy
+on your web habits, or otherwise invade your privacy. In the previous section we
+discussed several bits of software. Now lets talk about putting them into action
+to protect your web browsing.
+
+	1. Configure web browser.
+
+	At this point, the best browswer for this is Firefox. Let start with
+firefox config You want to disable all automatic updates from inside firefox.
+Make sure you manually check for updates, at least once a week. This will give
+more control back to you, the user, and you won't get bit if a bad update gets
+pushed.
+
+	Menu -> prefrences -> advanced -> update, uncheck everything
+        Menu -> prefrences -> advanced -> data choices, this phones home to
+	firefox about your browser usage. For sensative work, turn this off. If
+	it makes you feel unfcomfortable turn it off, however this is the only
+	way mozilla can improve firefox. Mozilla is a nonprofit, and next to
+	stainless in ethics.
+
+	Menu -> -> Addons - > little gearbox menu -> uncheck update addons
+	automaticly
+
+Now some more configuring:
+	Menu -> edit -> prefrences. From prefrences, select the following.
+	Prefrences -> security -> make sure "remember passwords for sites" is
+	unchecked. Firefox can generally be trusted with "Block reported attack
+	sites" and "Block reported web forgeries", but keep in mind if the lists
+	were ever updated in the future by an unsavory party, they could have
+	the inverse effect as intended. For regular browsing they should be
+	fine. On other hand, if your extremely web savy and paranoid, and can'
+	spot forgeries and attack sides on your own, you can uncheck these, as
+	they add an extra miscelanory connections.
+
+	Now click on the "Exceptions..." button next to "Warn me when sites try
+	to install add-ons". The only site should be addons.mozilla.org, and you
+	can even delete that too.
+
+	Prefrences - > General "When firefox starts" should be set to either
+	"show my home page" or "blank page". If you were also using a proxy or
+	tor, and close the window, you don't need the last site to load over
+	clearnet. Make sure your "home page" is something sane. blank pages,
+	about:blank, and about:home aren't bad ideas.
+
+	Prefrences -> privacy -> make sure "Do Not Track" is unchecked. DNT is
+	a terrible misplaced idea. it requires sites to honor it, something
+	malacious sites will not do.
+
+	Prefrences -> privacy -> Now select "use custom settings for history"
+	from the first drop down box.
+
+The sections in this part are a little tricky, and user prefrence depending on
+your needs and how paranoid you are. You should always uncheck "Remeber search
+and form history", and you should always have "Accept cookies from sites"
+enabled, and "Accept Third Party Cookies"(will seriously degrade web performance
+if you don't.). Uncheck "Remember browsing and download history", but its NOT
+neccary, and you can easily clean up cookies, history, settings, etc... with
+bleach bit, and with a built in history remover.
+
+The theory in this, is in that some situations not having any browsing history,
+or having "private browsing mode always enabled" can look suspicous onto itself.
+Know your threat model. If you use private browsing some of the time, someone
+who finds your browser will have a perfectly normal history, and no reason to
+doubt suspicious activity.
+
+Type in the URL bar about:config, hit enter. This will enter into manual
+	settings config, change the following values:
+
+	network.http.keep-alive.timeout			600
+	network.http.pipelining				true
+        network.http.pipelining.ssl			true
+	network.http.proxy.pipeliningtrue
+
+Firefox has a nasty habbit of trying to predict what your going to click on and
+download the page. Of course network sniffing software does not care about this.
+So, if click a news link that has a terrorist, criminal or other bad actor
+comment about their illicit activities with a link to their organization,
+firefox just might follow the link for you to reduce loading times. And now
+you're a "terrorist".
+
+	network.prefetch-next				false
+	network.dns.disableprefetch			true
+	network.http.speculative-parallel-limit		0
+
+Firefox also has the ability to read your location from GPS and/or network. This
+works nice with google maps. You can generally leave this on, and modern
+versions of firefox ask before giving out your location, but for sensative work,
+disable this entirely.
+
+	geo.enabled					false
+
+RC4 is a broken cipher, disable it. This isn't too important as SSL3 is disabled
+by default these days.
+	security.ssl3.ecdhe_ecdsa_rc4_128_sha		false
+	security.ssl3.ecdhe_rsa_rc4_128_sha		false
+	security.ssl3.rsa_rc4_128_md5			false
+	security.ssl3.rsa_rc4_128_sha			false
+
+	media.peerconnection.enabled			false
+
+For further Security, but might break some usability. When using NoScript, these
+are redunant, and won't let you
+
+	network.http.sendRefererHeader			0
+	network.http.sendSecureXSiteReferrer		false
+
+Submarine mode:
+
+Set these values to null:
+
+extensions.blocklist.detailsURL
+extensions.blocklist.itemURL
+extensions.blocklist.url
+
+browser.safebrowsing.appRepURL
+browser.safebrowsing.provider.google.gethashURL
+browser.safebrowsing.provider.google.lists
+browser.safebrowsing.provider.google.reportURL
+browser.safebrowsing.provider.google.updateURL
+browser.safebrowsing.provider.mozilla.gethashURL
+browser.safebrowsing.provider.mozilla.updateURL
+browser.safebrowsing.reportMalwareMistakeURL
+browser.safebrowsing.reportPhishMistakeURL
+browser.safebrowsing.reportPhishURL
+
+browser.newtabpage.directory.ping	
+browser.newtabpage.directory.source
+browser.aboutHomeSnippets.updateUrl
+extensions.getAddons.get.url
+extensions.getAddons.getWithPerformance.url
+extensions.getAddons.link.url
+extensions.getAddons.recommended.url
+extensions.getAddons.search.browseURL
+extensions.getAddons.search.url
+browser.selfsupport.url
+
+change:
+browser.safebrowsing.downloads.remote.enabled			false
+services.sync.prefs.sync.browser.safebrowsing.enabled		false
+services.sync.prefs.sync.browser.safebrowsing.malware.enabled	false
+services.sync.prefs.sync.privacy.trackingprotection.enabled	false
+
+gmpopenh264.autoupdatemedia.gmp-gmpopenh264.enabled false
+
+browser.newtabpage.enabled			false
+browser.startup.homepage_override.mston		ignore
+
+media.peerconnection.enabled			false
+extensions.getAddons.cache.enabled		false
+
+loop.enabled			false	#firefox hello
+
+This for the most part, is unneccary and even dangerous, but if you are trying
+to be stealthy, this is needed. This is all the default in Ninja OS.
+
+For complete submarine mode, go in about:config and look for all entries with
+"http".
+
+Some must have addons and additional programs. If you run linux, see if these
+are in your distro has these before downloading them externally. There are a few
+advantages such as being owned by root and not overwritable by the system, as
+well as an extra layer of reviews. You also get unified updates that work when
+you turn automatic updates in firefox off.
+
+	a. Program - Bleachbit. Can quickly scrub usage tracks for Firefox and
+almost all programs on many systems. If you didn't install it already, install
+it. Really easy to use. Once you install run it then edit the config.
+
+	edit -> prefrences -> check "Overwrite files to hide contents"
+
+	b. Addon - https-everywhere. This automaticly uses encryption on all
+sites thate support it. Unless you are trying to be stealthy, leave the
+observatory on. You can change this in settings:
+
+	https-everywhere -> SSL Observatory Prefrences. make sure its turned on
+for normal use. Also make sure the "When you see a new certificate, tell the
+observatory, and "show a warning with the observatory caught a revoked
+certificate" boxes are checked.
+
+	c. Addon - NoScript.
+	Now if it doesn't show up as a button on the toolbar, go to:
+	Menu -> Customize. Now drag the button onto the toolbar and close the
+customize window. Click on the Noscript button.
+	NoScript -> Options -> Whitelist. delete every website on the list.(that
+doesn't start with about:, blob:, chrome:, resources:, etc...)
+
+	NoScript -> Options -> Embeddings - If your running GNU Gnash instead
+of Adobe Flash you can safely uncheck "Forbid Adobe Flash" otherwise keep it
+checked. Now hit OK.
+
+	d. Addon - Foxy Proxy. we'll use this to connect to TOR/I2P/web proxies.
+	If using this for anonmity make sure "Block all cookies when using this
+	proxy" and "Do not cache while using this proxy" are set. This is
+	configured for each invidual proxy in the per-proxy settings.
+
+	e. Addon - User Agent Switcher. The one you want is made by
+"Chris Perderick". Put it on the toolbar
+
+	Menu -> Customize. drag the UA switcher button to the tool bar. Close,
+and click
+
+	UA switcher -> edit user agents -> make sure "overwrite user agents when
+importing" is checked. You candownload a massive list from:
+
+	http://techpatterns.com/forums/about304.html
+
+	You should notice the massive amounts of user agents here. update the
+	list from time to time, from the site listed above. Internet content
+	providers can change content based on what browser is reported to them,
+	or networks can profile users based on their browser choice. If either
+	of these become an issue, you can set your user agent to whatever is
+	expected to run. This was an issue in the past with Internet Explorer.
+
+	Click "import". select the file you downloaded and hit "OK"
+
+	f. Program - privoxy. go download and install privoxy. edit
+	/etc/prixoxy/config. See Appendix B for more information settings for
+	I2P and TOR. leave alone for transparant proxying.
+
+	g. Addon - trackmenot - See above, go to menu -> addons -> trackmenot
+	-> prefrences -> options
+	Make sure enabled and query bursts are checked, as well as at all the
+	search engines you actually use Query Frequency should be no more than
+	10 per hour, otherwise you will get blacklisted from search engines.
+	Make sure logging and persistent are unchecked under logging, and hit
+	and hit apply.
+	
+Firefox now be used with TOR and I2P with one proxy setting. Follow the
+instructions for (TOR with privoxy).
+
+Great, now we have everything installed.
+
+	2. Use Firefox Like a Champ.
+
+	By now your are going to noticed that NoScript has took a bite out of
+most of your favorite sites, as it blocks everything by default. To view most
+"live" content, like flash, java, javascript, etc.., you need to tell NoScript
+to allow the sites you need. You probably don't want to do this perminantly,
+just temporarily. There is an option as such. In fact, the little popup bar on
+the bottom of your browser will now alert you to what is blocked, and give an
+option to allow to allow content by site. You will also see all the sites that
+are trying to load content.
+
+Be very not suprised when you see the likes of "googleanalytics" "doubleclick",
+etc... These are advertiser tracking links. Just keep them blocked.
+
+Most of your websites should now work, sans the large scale tracking. As far as
+java and flash apps, they will only load when you double click on them to load
+them, loading only the ones you want. You will see a NoScript Icon as a
+placeholder for disabled sites.
+
+	Now, very easily, you've gotten a grip on most obnoxious content and
+most tracking advertisements with NoScript. https-everywhere's function is more
+mundane but just as important. You will notice many sites will be re-dirrected
+to https now transparently. This will make a good chunk of the web use the
+option crypto as default. Niether of these are fool proof, but they are a great
+start, and combine with other methods to make you harder to track. They give you
+far far more control over your browsing experiance, and add a degree of informed
+consent. Do not allow more sites with NoScript than you need, and be very
+careful allowed sites in a non-temporary basis. You can always undo it later.
+
+Another thing to keep in mind is some sites you should trust SOME of the time.
+Such as facebook and google, two companies that make most of their money
+collecting information on users. NoScript will let you selectively tell these
+companies what you allow them to see. Simply don't allow google or facebook to
+run scripts on other websites. googleanalytics.com is a big one. Some sites use
+this as a backend, just keep it blocked. Only trust facebook and google when you
+are using them dirrectly. Therefor you only give the companies what you want to
+give them.
+
+I certainly say you won't let out "zero" personal information, but this will
+greatly reduce the amount available. Great volumes of data are needed to
+accurately profile you, and this method should eliminate around 80%-90% of the
+information that tracks you from site to site, making decreasing amount of
+information that sites have to profile you with. While I do not know for sure,
+and will making profiling you more difficult.
+
+
+Privacy mode 
+Firefox has a mode called "privacy mode", where settings, cookies, cache, all
+persistant data will only be stored for the durration of that privacy mode or
+until the webbrowser quits. Note this only affects local storage, anyone
+monitoring your network connection will still see the connections, but anyone
+who gets a hold of your computer physically will get nothing.
+
+If you forgot to do this, you can wipe your browsers data with Bleachbit.
+
+You can now set up proxy switcher to work with I2P and TOR. If you want to use
+vanilla firefox, use foxy proxy.
+
+Foxy Proxy -> Options -> Add New Proxy
+
+Under Proxy Settings
+Host or IP Address: 127.0.0.1
+Port: 9050 for connecting to TOR dirrectly, 4444 for I2P, and 8118 for chaining
+through privoxy
+
+Use Socks 5 for a dirrect TOR connection or leave blank.
+
+Under General Settings:
+
+pick a color you will remember, and check "block all cookies", and Do not cache
+while using this proxy.
+
+If you are going to
+use tor without torbrowser be sure to spoof your user agent to the same as
+torbrowser See Appendix D. Now test http://ip-check.info, to see what your
+browser gives up on you, or what can be gotten on you.
+
+NOTE: This is your set up for everyday browsing, to use facebook, web mail, and
+above ground official personality usage. Your demographic profile could be used
+to fingerprint you, and link you to alternate pseudonyms used elsewhere, or
+otherwise make you a target for corporate, government, or other large
+instutional attack.
+
+	3. TOR Usage - If you seem to be using TOR a lot, and are NOT an expert
+user, try using TORbrowser. TORBrowser is a fork of firefox with most of the
+above done, meant to use TOR, with a discontinued plugin called "TORButton",
+that switches TOR use on and off.
+https://www.torproject.org/projects/torbrowser.html.en
+
+	4. Yacy - http://yacy.net. Yacy is a distributed peer to peer search
+engine, that unlike client-server models like google, every peer on the network
+assissits with search, and every peer has a search interface. Its also free
+software, and a protocol as well as a service, so there are a few diffrent
+search networks.(redundancy reduces impact of attacks/breakage). Its also Free
+(as in speech) software. Its a little expirmental but the internface is good,
+and its very intuitive.
+
+Yacy will run on the background as a system service. You can then navigate to
+http://localhost:8090 in your web-browser to connect to the web interface
+running on your local machine. You'll see the familar search bar, and options
+tabs for futher configuration.
+
+-- M. CryptoCurrencies
+	1. RTFW(Read The Fine Wiki).
+
+http://bitcoin.it nuff said. its good stuff. Lists names of services. 
+
+	2. Set up your wallets.
+
+	There are three types of wallets:
+
+		A. full. A full cleint, like the desktop client stores
+	everything locally, to include the block chain. Set up a main bitcoin
+	wallet on a secure machine you trust on encrypted space. Treat this as a
+	savings account and store most of your BTC you aren't using here.
+
+		B. light - a light client also stores coins locally, but doesn't
+	download the block chain, trusting a remote source. the cell phone
+	clients are generally light, as for computers with limited internet or
+	storage. If you can afford the space, keep most of your coins on a
+	workstation with a full client. A phone client can useful however, for
+	keeping coins in your pocket and paying for stuff in meatspace with
+	them. If you are going to be using cryptocurrency on mobile.
+
+		C. Web - pick an online wallet for storing/mixing coins. Many
+	webservices such as coinbase or localbitcoins also have wallets built
+	in. you should play around with which services fits your bill with throw
+	away emails before making a real one. Also, many online services with
+	wallets, will let you create accounts without real names. Many only ask
+	for realname verification when you start mixing Government backed
+	currency into the mix. online wallets have the added benefit they are
+	more anonymous, and cannot be directly traced back to your IP. Online
+	wallets store your currency as a figure, not actual coins, so mixing
+	between acounts will effectively give you diffrent coins. An observer
+	will only see the coins going from service to service, or to your IP,
+	with no identity of the accounts of those services. make new ones as
+	needed. find a *handful* of services you trust.
+
+Recommendations of this guide are to use the full clients for regular desktop
+use. They are slow and painful, but the most secure. electrum seems to work the
+best on the the Live OS, and mycellium on mobile.
+
+	3. Buy stuff with CryptoCurrency.
+
+		A. if privacy is no concern at all, pay directly with your main
+	bitcoin wallet.
+		B. If privacy is wanted, then filter your coins through an
+	ewallet before using them to pay for goods or services.
+		C. If your buying goods services that need complete anonymittiy,
+	double filteryour funds in both directions. Use one web wallet on the
+	clearnet. You should be fine recyling other accounts on localbitcoin,
+	cex.io, and then make a seperate unrelated account with your darknet
+	proxy connection. Get paid/pay from your anonymous wallet. Then while
+	still using TOR, transfer the BTC to your clearnet wallet. Don't forget
+	to disable your proxy/darknet, then log into your clearnet webwallet,
+	and transfer the funds to your computer.
+
+	4. Sell cryptocurrency for fiat currency(like USD or EUR).
+		A. If discretion is not needed, set up an account on either
+	coinbase, or one of the major four exchanges or CEX.io. Please note that
+	all of these services are going to want a lot of legal documents to
+	establish your identity, and it will all be very much tied to real life.
+	Coinbase and other similar fixed rate sites are simpler.
+
+		B. sites like BitSimple, allow use of paypal accounts, and less
+	paperwork. These are slowly going away. Bitquick.co lets you purchase
+	BTC anonymously by making bank deposits.
+
+		C. Sites like the now defunct Satoshi Square Exchange in
+	downtown manhattan allow people to trade Bitcoin for cash(USD), face to
+	face. Other crypto currencies are welcome, but irregular.
+		D. Use localbitcoin.com to find local people to meet up with and
+	trade bitcoins for cash. You can also use localbitcoin to use a wide
+	variety of person to person money transfers
+
+-- N. Mobile Devices
+
+	1. Pick a Device.
+
+	First pick what OS you want to run. Next pick a device with
+attractive hardware that runs the OS you want to run. Best case is you
+should have two or three devices you are willing to use. You can use
+these sites to compare features of phones.
+
+	* http://www.gsmarena.com/
+	* http://www.phonearena.com/
+	* http://www.google.com
+	* http://howardforums.com - community site, read reviews.
+
+	Now that you have a few devices your intrested in, you need to aquire a
+device. Buying one from your carrier is not recommended. Look for used mobile
+phone stores, or if you can buy one new, in a box from an eletronics retailer,
+do so. Do not activate it in the store. Always buy the plan seperately. Keep
+your eye out for where you can buy and sell phones. Like always check the place
+out before you do business. Always pay cash.
+
+	Once you physically have the phone, the first thing to do is a physical
+inspection, take the battery out, look at it. You might want a new battery if
+buying a used phone, they do go bad. Make sure all the mechanical pieces work,
+and look for obvious signs of tampering. reassemble the phone and do a functions
+check. power on and make sure all the features work, specificly the radios.
+
+	Assuming all is well, then, and only then, flash your choice operating
+system on the phone.
+	2. Android
+
+	Android's security model is based around mobile usage and containing
+runaway apps, and other user installed junk. It reflects the reality of usage of
+how people use cell phones. Phones are powerful, plenty, and cheap, Android is
+FOSS, and there are no shortage of custom android based ROMs. Speaking of custom
+ROMs, its the recomendation not to use factory ROM with your phone. These are
+modified by the carrier and HW distributor, and generally contain bloatware, and
+have been found to contain spyware before, such as CarrierIQ.
+
+	 A. Recommended Android Based Solutions:
+		* Cyanogen Mod - dozens of fully supported phones vanaillaish
+	feel, pre-rooted, and comes with most of the tools you'd want, such as
+	terminal and file manager. completely compatible with stock android and
+	no malware/spyware.
+
+		* Replicant - Free Software only version of Android. limited
+	amount of phones, but if security and privacy is essential for you,
+	this might be your best option.
+
+	B. Apps
+		Only install as much apps as you need. Install only Free Open
+	Source apps. If you have freinds you need to communicate securely with,
+	see Section I for crypto apps, and see the section on Key Handling for
+	security in such matters. Installing F-droid as a repository for free
+	apps to keep everything up to date is also essential. Turn off automatic
+	upgrades, and only upgrade when you feel you are in a secure location.
+
+	3. Maemo/Meego/other GNU phones.
+	    TODO
+
+-- O.	 GPG, OTR and Tox.
+
+        ++GPG++
+
+    GPG is a framework, with data being available account-wide on a machine. All
+GPG enabled programs will be able to use the same GPG keys. There are many use
+cases for GPG, this guide will cover the two most common, inline GPG email, and
+GPG blocks found and posted inline manually. Email GPG will automaticly detect
+and proccess GPG. You might also see the acronym PGP, which stands for Pretty
+Good Privacy, which is an older version and similar encryption tool which GPG was
+based on, and ultimately forked when PGP went closed source in the first decade
+of century. It continues to be compatible however.
+    
+    1. Install the GPG base tools:
+    
+        i. MS Windows - GPG4WIN, installs a bundle of GPG ready to use software,
+to include GPG enabled email client clawsmail, as well as lightweight keymanager,
+APG, and a plugin for MS Exchange.
+
+        ii. GNU/Linux - Check your distributions guide for installing software
+from their repositories, GPG is almost universally available. GPG for linux
+command-line only, but there are many GUI front ends. APG as mentioned above is
+available in many linux distributions, and both Gnome(seahorse) and KDE(KGPG),
+are both good DE specific solutions. If you are not running KDE/Gnome, GPA is
+the recommended solution.
+
+        iii. Android  - APG, or the Android Privacy Guard is available in both
+fDroid custom repositories, and the Google Play store. FDroid being recommended
+of course.
+
+    1a. Install Mail Client plugins
+        i. Enigmail  - Tightly intergrates into Mozilla Thunderbird. Highly
+recommended.
+
+        ii. Clawsmail - lightweight email client that comes with a GPG plugin.
+	After installation enable the plugins:
+        menu -> configuration -> plugins
+        Verify that PGP/Core, PGP/inline, PGP/MIME, and S/MIME are all loaded.
+If not hit the load button and open the the following files:
+        pgpcore.so pgppinline.so pgpmime.so smime.so
+
+        iii. K9 Mail - On android, the K9Mail client intergrates with APG, and
+	is available on FDroid and Google Play.
+        
+    1b. Extras:
+        gpg-crypter - cut and paste GPG block text. Usefull if GPG blocks are
+found on websites and other non GPG communications.
+        
+    2. Create a GPG keypair
+            i. GPA under menu       -> Keys ->New Key...
+            ii. Seahorse under File -> New Key
+            iii. APG(android) menu  -> Create Key(expert)
+
+        Each keypair represents a unique identity. The only field in creating
+a key that matters is email. This field is used by software to find the correct
+keys to use when encrypting email. Enter the email address you plan on using.
+Every email address you have needs a seperate key.
+        
+        Encryption Type/Algorythm should be "RSA", and Key Strength/Size should
+be at least 2048 bits, optimally 4096 bits. Standard GPG implementations have a
+hard coded limit of 4096. This should keep your key safe for the foreseable
+future. If you are going to set your keys to expire, make sure the key is valid
+for a long time, 5+ years. Setting a password is not required, but recommend.
+        
+        After your key is created, GPA will ask you back it up. You should
+already have a encrypted file container(secure space), to back up the full key(public
+and private pair), so go ahead and save the file on your encrypted partition. Also
+record your "Key ID", and "Key Signature", the "Key ID" being a shorter version
+of the signature. verifying signatures is a good way to ensure public keys you
+send recieve are authentic. Key IDs are a good way to search for public keys.
+        
+        In GNOME this will not be done automaticly. Go down to the GnuPG keys
+section under PGP keys, and then menu -> view -> show personal. then right click
+and select "properties". Then click "Details". Under the "Actions" Section there
+is a button labeled "Export", click that button. Save this in your encrypted
+parition. Unforunately, this does not save the entire pair, just the private
+key. Next find and open the file you just created with a text editor, select
+your key from the main seahorse menu, and hit ctrl-c on your keyboard. This will
+copy the public key to the clipboard. next, paste this at the very end of the
+file with your exported private key, and hit save. See section III on secure
+keyhandling.
+        
+    3. Loading your Identity/Key Pair on all your devices.
+        It is this public/private keypair that essentially represents and
+verifies you as an invidual, if it gets lost, the ability to verify yourself is
+lost as well. You also need to load this key into every device you wish to use
+the same email or identity with. With GNU/Linux and windows you can easily mount
+your encrypted partition on, and simply load the key. This would be
+file -> import in Gnome(seahorse), the left menu on APG(android), and
+Keys -> Import Keys... in GPA.
+
+        To copy them to your phone you can use an SD Card, or you can connect
+your phone dirrectly with a USB cable. If you copy the file using an SD Card,
+you can securely shred in on your computer when you are done.
+        
+    4. Configure Your Mail Client.
+        At this point you can use the "clipboard"(and gpg crypter) function to
+encrypt/decrypt plain text, and sign/verify messages directly, but you still
+need email support.
+
+            i. K9Mail in android, select your account, then
+menu button -> settings -> account settings > Cryptography. Cryptography is the
+last menu item. Select "APG"(one without the key icon). You should now notice,
+"sign" and "encrypt" check boxes. Incoming emails will automaticly be decrypted
+if you have the public key.
+            
+        ii. Enigmail in Thunderbird. Menu -> Edit -> Account Settings
+            you should now see a item named OpenPGP Security. Open this tab.
+Click "Enable OpenPGP support (Enigmail) for this identity. If this is the email
+you put on the key in step one, then it should work as is. If you want to use a
+diffrent key, then select "Use Specific OpenPGP key ID", and then use the
+"Select Key" button to select a diffrent key.
+            
+        iii. Claws mail should automaticly pick up the key, but if it does not:
+            Configuration -> Edit Accounts, select your account and then hit
+edit. Under plugins -> GPG, there is an option to chage the GPG key similar to
+Enigmail. For sending mail, in the "Compose" window, under options -> Privacy
+System, you can select PGP/Inline. Be sure to select PGP/Inline and not PGP/Mime.
+        
+    5. Exchanging public keys.
+        You've set up a GPG keypair. However, you still need public keys from
+other people to communicate with them.
+        
+        i. import
+            Almost all clients have an "import" function, which will work
+automaticly sort between private, public, and keypairs. This will simply import
+a text file with the public key into GPG. If you see a public key block, posted
+on a website, you can simply copy it into a text file, save it, and import the
+text file. GPG Blocks are designed to be easily identifyable in text, and easily
+transmitted as readable ASCII text.
+
+        In GPA            : Menu -> Keys -Import Keys...
+        In Seahorse(GNOME): File -> Import...
+        In APG(android)   : Left Menu -> import Keys.
+        
+        ii. export
+            you need to give other people your public key. The first step is to
+upload you're key to a key server. Key servers are publicly avaible servers,
+that store public keys for download.
+
+            gpa            : menu -> server -> send keys...
+            seahorse(gnome): menu -> remote -> sync and publish keys...
+            
+            Now, make a public key file, in gnome you select your key, copy it,
+and paste it in a text file and save it, or you could paste the public key
+somewhere public in text format for someone to retrieve. Copying also works the
+same way in GPA, in addition you can right click on the key and select "Export
+Keys..."
+
+            In APG(Android) you can tap on the key name, and then hit:
+menu -> export.
+        
+            You can now give people either the file, or your key's signature,
+and they can now send you secure and authentified messages with GPG. Anyone you
+need to contact securely needs either to get this key, either form a signature,
+or from the full key. Also be aware KeyIDs are not secure. Its possible to
+generate a duplicate key from only the ID, instead of the full signature. Also
+be aware, all metadata you used in key creation is available in your public key.
+            
+        iii. Mobile-fu of APG.
+            Now lets talk about APG for a second. Being a mobile client, it has
+features many things desktop clients lack, such as support for QR codes,
+and NFC(Near Field). This is very convienant because handling files with phones,
+from physical person to person can get rather clumbsy. For meatspace key
+exchanges, either QR or NFC is the recommended option. It is the best of
+physical security as well. In can make sure you can stay in touch with your new
+friends.
+            
+            QR
+            a. To send - tap the name of the key you want to share. then
+menu -> share
+            you have two options at this point, whole key, or QR code. Its
+feasible to share the entire Key with QR code, but only use this option if your
+key is not on a key server. Keys are long, and take up way too much space to
+share in one code, and requires four. Sharing the fingerprint will allow the
+other person to download your key from a keyserver.
+            
+            b. To recieve - tap the left menu -> Import Key. Select "Import from
+QR Code" from the menu at the top". You'll now see a button with "Scan QR code
+with <barcode scanner name>", hitting the button will launch your barcode
+scanner. Scan the other person's screen, and as soon as it takes the phone will
+vibrate, it will show up in APG. Hit the "Import selected keys", and the key is
+imported.
+            
+            NFC.
+Make sure you have NFC enabled on your phone, and support hardware.
+Follow the instructions above, except instead of scanning barcodes, tap the
+backs of both phones.
+
+That was the hard part.
+
+        ++TOX++
+Tox Rox.
+Tox is a full chat protocol that features text, audio, and video chat, and is
+built on asymetric cryptographic peer to peer communications from the get go.
+It is mostly install and use, with a few caveats. We'll use qTox as an example,
+but instructions are similar in uTox and venom.
+
+    1. Open qTox for the first time.
+    2. Hit your username in the upper left hand corner.
+    3. Under "Profiles" Hit "Export", and save the .tox file to an encrypted
+partition. Treat this file as a private key.
+    4. Under click to copy your ToxID, this is a public key.
+    5. Setup ToxDNS. Public ToxDNS available at toxme.io and utox.org. Both have
+simple web interfaces, pick a user name, and enter your ToxID/Public key, and
+you can now be reached at your <username>@toxme.se (or utox.org)
+    
+    All new machines that you want have the same ID, simply import the .tox
+file(private key), and the rest is automatic.
+    
+    ++OTR, Off the Record - Instant Message/IRC++
+    OTR is another asymetric encryption scheme that protects instant messages.
+Its available as a plugin for many instant message clients, but the reccomended
+one is "pidgin", because it is cross platform.
+    
+    1. Open Pidgin, click menu -> Tools -> Plugins -> Off the Record. Enable
+the check box, and hit "configure". remember this, because this is the only way
+to configure/manage keys for OTR in pidgin.
+
+    2. From the "Key for account" dropdown menu, select the account you want to
+use OTR with. Now click the "Generate" button to make a private key.
+"No Key Present", should be replaced by a fingerprint. Save this fingerprint, or
+remember how to get back here. Make sure "Enable private messenging" is checked.
+
+    3. Now close this and the plugins window.
+
+    4. Open the pidgin configuration directory.($HOME/.purple in Linux/UNIX),
+and backup the otr.private_key to an encrypted storage space. For a
+new machine/device, make sure you import this to the configuration directory.
+Also save/backup otr.fingerprints
+
+    5. Key exchange in OTR is automatic. Use the "Not Private" OTR button to
+initate key exchange, and as long as it says "Private" in green, you are having
+a secure conversation. Everytime you do this with a new person it writes a new
+key into otr.fingerprints. Back up this key along with otr.private_key, as it
+contains all your friends public keys.
+
+NOTE: Always double check key signatures out of band. As someone to repeat their
+signature over another, prefrably secure medium, or in person.
+
+
+		-----===== Section 3 Operating Theory =====-----		
+
+Now that you've learned what some tools are and how they work, now lets talk
+about theory.
+
+-- A. LIFECYCLE OF SENSATIVE DATA --
+ the lifecycle of data refers to the creation, storage, usage, and destruction
+of senative data, and how to handle data at each stage to prevent leaks.
+
+1. Creation
+
+	There are three ways that new data is obtained. Sometimes a combination
+of these is true, if so follow guidelines for all applicable.
+
+	a. Downloaded from the internet or other network: make sure you
+download or view sensitive data via an encrypted connection, preferably
+authenticated. If you are downloading from an source that would arouse suspicion
+by itself, make sure you use an anonymizing proxy, such as TOR to disguise your
+origin. You should download directly to an encrypted container if possible. If
+this is NOT possible, download to a location you can easily scrub later on. See
+below for sensitive data on unencrypted/unsecured space.
+
+	b. Created using programs and tools on the local machine, particularly
+from other files. Create files on a secure/encrypted partition/drive, and never
+let them touch unsecure space. See below if it happens.
+
+	c. Downloaded from a locally connected media capture device such as a
+cellphone, digital camera or camcorder. Please note there will be traces of this
+data on both your device, and your computer. You will need to transfer the data
+to an encrypted space, then securely remove it from the device.
+
+2. Access
+	Mostly as simple as making sure you have a clean operating system to
+use, as much as you feel comfortable with no spyware or other malware. Also make
+sure page files and disk based swap is either encrypted or disabled to avoid
+leaving residue on the disk. Make sure your operating system doesn't make/use
+temp files outside the encrypted partition(Don't use Windows XP). Again, Don't
+move sensitive data off encrypted/secure partitions, use them where they are.
+Remember access data from a physically secure position as well. Don't use data
+when someone who might physically compromise you is nearby. have a good plan to
+close data, and secure the disk encryption in case things the situation changes
+suddenly. Using something like a LiveOS or other methods to prevent usage traces.
+Find out what these traces are and what you can reasonably do to get around them.
+
+Encryption Techniques that encrypt a disk or part of a disk reign supreme here,
+so you can lock your data when not immediately using it, and segregate content
+with multiple containers. Segregating Content among many independant encrypted
+partition, and encryption schemes, helps contain failure in case of a breach.
+An attacker doesn't get everything on a single compromise.
+
+3. Uploading
+	Its good sense to use an IP other than your own, be it an internet cafe
+or routed through tor, using a VPN, or a good old fashion proxy. Using a public
+computer/network it is imperative you spoof your mac to avoid the transmission
+being tied to the hardware you are using. If you directly upload form a home
+network, your IP can be compared to usage accross other sites, and traced back
+to your ISP, the general vicinity(city or town), you live in. Make sure you use
+encryption layers like TLS/SSL, that go end to end from where you are uploading
+to your intented recipient. Its not enough that you encrypt the data so it
+cannot be intercepted, but you disguise the nature of the data so its not
+singled out, and hide the source/destination of the data so you don't bring
+attention to either sender or receiver. See Sections I & II. For uploading
+sensative data, use the same techniques for network access as for downloading it
+in point number 1.
+
+3a. Sending encrypted containers
+	Sometimes you need to send someone a sensitive file accross the internet.
+The best way is to make an encrypted container, either as an archive with an
+encryption based password like zip or 7zip, or make a Truecrypt container. Then
+you need to transmit the password separately through secure lines. Truecrypt
+containers are preferred because they contain no visable meta-data to identify
+them. make sure these use unbroken encryption algorithms. See Sections I &II
+
+4. Deletion
+	End of life for sensitive data. You have no more use for data, but
+its still sensitive, so you want it irrevocably erased. Do not simple delete,
+but overwrite byte by byte the entire file.
+
+	If an entire disk or partition is being decommissioned, the entire drive
+needs to be overwritten byte by byte. A single overwrite with zeros is deemed
+sufficient. It is recommended to use zeros for an entire drive, and then format
+the drive and leave an empty partition.
+
+	If deleting a single file on a disk, its recommended to use a single
+pass of random, or junk data, so the file does not look like a "hole" or a
+purposefully deleted file.[
+
+Multiple passes are not recommended as they take a long time, and attacks
+involving going "layers" has never been done and is most likely not feasible for
+real world data retrievable. 
+
+See sections I &II for secure deletion/scrubbing/shredding.
+
+5. Copying data from
+	COPY the data to an encrypted partition. Never move or delete sensative
+data FROM an unencrypted partition. First copy to an encrypted/secure location,
+verify your copy, then securely scrub the data off the unencrypted space, as
+discussed in section II
+
+-- B. TOR, Darknets, and Proxy Usage --
+
+1. Anonymiziation of "Clearnet".
+	Traditionally to hide your IP address on websites you'd use a web
+proxy(you can also use a VPN as a proxy, its overkill, but they work well in
+this role, and commonly done). This has many drawbacks. TOR works as a proxying
+network to address many of these concerns. TOR can also function as a "darknet",
+but we'll get into that later. There are many advantages to TOR. Your data
+cannot be traced back through the path, its "onion encrypted", so each router
+doesn't know the full chain, only peels a layer and re-transmitts. Its a pretty
+good way of hiding your source IP.
+
+There also some potential problems with TOR. Its slow. The last hop on the
+network(exit node) gets to see your data unencrypted(can snoop your traffic),
+and there is no encryption from the last hop to the destination. The exit node's
+network might be more dangerous than yours. Another big limitation is that tor
+nodes are fingerprinted as being TOR nodes, and many sites won't work. So far
+using TOR in most civilized nations is 100% without restrictions, BUT it might
+finger print you as an "undesirable". That said, there is no better option for
+researching sensative information on "clearnet", or the above ground internet.
+
+You should most likely use TOR for researching sensative information, doing
+research on topics that are taboo, controversial, or might get you as an
+invidual, or as part of a group, in trouble. You might be further researching
+additional privacy methods. Its also the best method for contact sites the
+mainstream has deemed "unsavory". This is an effective tool to prevent
+censorship by shame.
+
+You should never use TOR or an anonymizing proxy for accessing websites or
+internet services that need a real login attached to your meatspace self. Not
+only is TOR worthless in covering your usage tracks in this respect, it exposes
+your personal inforamtion to being intercepted over TOR. This includes sites
+like online bill paying, banking, a social network site with real information,
+etc...
+
+2. Darknets - The Web Beneath the Web
+	So called "dark networks", i.e. websites and networks that aren't
+accessible from the outside of the internet, while transmitted over the
+internet, the contents, senders, and destintions of data are purposefully
+obscured to give anonitmitty. The term "clearnet" is used for the regular
+internet, when discussing "darknets".
+
+	TOR is mentioned earlier. TOR can also function as a darknet in addition
+to being a proxy network. I2P(Invisible Internet Project), is an example a
+network which is primarily a darknet, but can be configured with "exit" nodes.
+They are generally set up in the same fashion as proxies are, and some use
+darknet specific software. Both I2P and TOR have in common that it would be
+exceeding difficult if not impossible for a user to find the location, or
+identity of either a site visitor, or a site via the usual TCP/IP lookup methods.
+They both use similar means of progressive encryption, that obscures the routing
+details all but what is needed to function.
+
+	We will call these APDs(Anonymous Public Darknet). The defining
+characteristic of an APD, is that its a virtual network, that runs ontop of
+another network, generally the Internet. and can grow almost infinately in
+size(within scope of larger parent network), and it protects not only the 
+anonimitiy of its users from each other, but the outside world as well. Unlike
+VPN based darknets, APDs actually get more secure and more anonymous the more
+people use them. They are all at least partially decentralized, and there is no
+center node that can be attacked or compromised.
+
+	Then other type of "darknet" is simply a private virtual network, either
+physical or virtual, but invitation only. They generally use commonly available
+internet and/or VPN software, and whoever invites you will generally give you
+instructions on its use. These sorts of networks are fairly easy to recognize
+connecting to one, but look like otherwise legitimate business software(VPNs
+afterall are commonly used in business), however they are centralized, and do
+not protect users from one another. They are easy to set up and take down.
+
+	Generally both types will give you instructions on their use. Most of
+them will use TLD DNS that only works on their network, so there is little
+confusion. .i2p for i2p, .onion for TOR, and .chaos for CHAOSnet, CHAOS Computer
+Club's private VPN.
+
+	Once you've configured a web browser or other internet software to use
+your darknet, you need to connect to a site. This is generally done the same was
+as "clearnet", but you will notice darknets generally use net specific darknet
+domain names, that will only make sense on that net. I2P uses .i2p domains, and
+TOR uses .onion. 
+
+	a. IRC - using IRC with TOR can be tricky, you should see if your
+network has an official .onion, as many networks ban tor exit nodes because of
+abuse. See your IRC client's TOR settings.
+
+	b. .onion version of clearnet websites.
+	Always Always Always, double check to make sure they are official, and
+CONFIRM THIS. This would be a great way for someone to do a phising attack on
+you.  Using a .onion is far safer than using tor as a proxy, because there is
+end to end encryption, and .onions are authenticated with private/public key
+encryption. You can be certain you are getting the same server every time. Just
+be careful though, an attacker can make a similarlly named site. They can also
+be useful, and are verified with hash sums, and encrypted end to end via TOR.
+Its also impossible to prove from the outside which .onions you are using.
+This adds far side protection as well as the usual near side security.
+
+	c. Culture
+	There is a lot of strange things you will find on darknets, specificly
+APDs. If you are unfamilar with darknets, you should be very careful. You can
+still be indentified on darknets if you post identifable information of
+yourself, or otherwise give out information such as credit cards, shipping
+addresses, pictures, or metadata that could be used to identify you. Although
+you can be certain that all manner of law enforcement are watching many darknet
+sites, there is nothing any of them will do to help you if a dispute does not
+resolve in your favor. However, there is little that your fellow darknet uses
+could do against you, if you don't let them.
+
+	Also be warned, there are many goods and services for sale that might
+seem silly or out of place to the deziens of the "risk adverse" clearnet. Also,
+if it sounds ridiculous, it probably is. If it looks illegal, it just might be.
+If there is a question of legitimacy, there is none.  It should be noted that if
+you are not familiar with a seller on darknet, do not contract them for high
+value service, as your first transaction. When purchasing services that are
+quesiontable, there are no gurauntees. There are illegitimate, unethical,
+illegal, and most certainly sexual content on darknets. Expect Frauds and liars.
+
+	As policy, this guide recommends no darknet only sites, nor to the best
+of our knowledge will recommend anything "questionable". We just point out that
+"questionable" material lurks out there, and to take caution.
+
+	If you or your dumb little buddies, while on said "darknets"; do
+anything, masterbate to, purchase, or other otherwise fuck with materials that
+are: illegal, ammoral, unethical, communist, or known by the State of California
+to cause cancer and; Get your shit fucked up, shit your pants, warp your mind,
+commit a Class 9A felony, or any other bad shit happens to you, cause your a
+fucking brainless 15 year old fuckhead trying to be edgy, then get caught
+because your not as badass, l337, or as hardcore as you think you are: Don't
+blame the darknets, don't blame this guide, don't blame the internet, don't
+blame the author, or any of the other projects he/she works on, or anyone else
+but your dumb weeabo yiffy self. You did it. Not us. You. I told you not to.
+
+
+3. VPNs - Securely tunnel accross the web
+
+	VPNs stand out in this group, as its unlikey they will ever be truely
+anonymous, but still serve proper function. Unlike darknets and routing
+networks, they create an encrypted tunnel from your present computer to a
+server, in a traditional client-server model, and then you can access that
+computer as if it was a seperate local area network. If so configured, you can
+access the outside internet or other networks, routing all traffic through the
+VPN, and even other machines on the VPN, with otherwise unaccessable address
+space. Tunneling out to a VPN, you will always have the VPN's IP address, and it
+will be very constant. a good VPN can vastly increase near side security,
+especially if you use lots of random very untrustworthy local networks, you
+don't have control over, or local security in your area is suspicous at best.
+Just remember to get a VPN server somewhere there is known good internet.
+
+	What private VPNs, excell at is security. The certificate based
+authentication model of something like OpenVPN makes it impossible to brute
+force or guess passwords, as well as no passwords to remember. If you run a
+server, its also good for securing remote access, if access needs to be limited
+to a few trusted users. You also know exactly where the data is going to come
+out of in the internet, eliminating the last hop attack problem with APD/routing
+networks
+
+	If your going to use a VPN as a proxy, you should understand your
+"threat model". If the biggest concern is using public wireless, or other public
+networks of dubious trust/security, you can set up a VPN at your house, and it
+will route all your data(securely) through your home network. If you need
+greater privacy from ISP snooping, or having your traffic identified, the
+suggestion is to purchase a VPN service.(See section 1). Some of these you can
+even pay in bitcoin for greater anonymittity.
+
+	OpenVPN is a good choice of FOSS VPN software, widely ported. if you
+already have a server running, getting OpenVPN installed is pretty trivial.
+Follow the instructions for certificate infrastructure. Just remember, the
+server needs a cert/key set, and so does *every diffrent* client that connects.
+They all need to be generated on the server.
+
+	If your going to use a VPN to tunnel around your local network's
+problems, you need a good place to host the VPN server, there are many places
+that sell VPN access, and unless your home connection is good enough for
+your standards, then buying one is a good idea. If your worried about your
+financial details being tracked, there are even VPN providers that sell services
+in crypto currency.
+
+4. Alter-egos, pseudonyms, and screennames.
+
+This is a grey area. pseudonyms not linked back to your physical being. When you
+make them you have to decide, is this a TOR/proxy pseudonym, or not, and you
+have to stick with that decision for the rest of time you use the pseudonym. If
+you choose "tor/proxy", then you must use the same means of connection every
+time. TOR or a good anonymous web proxy. Anonymity has levels. You must decide
+how anonymous/pseudononymous you want to be.
+
+Be Mindful of the "Use New Identity" button in vidalia, if you use this, you
+will get you a new IP. Make sure you don't mix and match identities you want to
+keep seperate by using them at the same time, with the same identity.
+
+-- C. Disk Encryption Theory
+
+	In previous chapters, we've already covered HOW various sorts of disk
+encryption work. Its important to know the limitations of every kind
+
+1. Operating System Encryption on a Fixed setup.
+
+	Encrypt the operating system drive entirely with something like LUKS or
+ecryptfs, using either a password, some form of security certificates/tokens.
+Alterantively, you can encrypt your $HOME directory with ecryptfs, so it
+decrypts when you log in. If your the SOLE user of the computer, full disk
+encryption is the best. There can only be one password, and once thats entered,
+the system is decrypted. If you plan on many users, encrypt just your home, or
+a specific secure directory. You again, are only vulrenble when you are logged in.
+
+	Attacks against this kind of approach include the "Evil Maid" attack. It
+works as follows: You leave your laptop unattented and powered off, and and
+someone boots a USB stick that installs a keylogger on your boot sector,
+then comes back later to retrieve the key with your password on it. Its named as
+such because it would be easy for someone working as, or posing as a hospitality
+worker to pull off.
+
+2. Offline Media
+
+	Removable Disks, and encrypted containers, or encryption that doesn't
+get accessed until its needed, and quickly re-encrypted, is desirable for
+extremely sensative data. You don't have to worry about it being exposed
+everytime you use the computer. Encrypted containers ON the computer's disk
+give the advantage they don't get lost or stolen, but they are also accessable
+to the operating system, and if the computer itself is stolen, they can be
+compromised. The mere presence of encrypted container could condemn the user in
+the wrong circumstances, and time intensive attack against crypto can be done
+subversively if the rest of the machine is compromised.
+
+	A solution to this is making a completely disconnected cold storage
+device that only gets plugged in when needed. You can use any kind of disk
+encryption, but the various methods used by truecrypt and now TCRYPT containers
+in other programs are the best.
+
+3. Attacks against Disk Encryption
+
+	A. Math/Sidechannel - Either a flaw in the encryption, i.e. the math is
+proven bad, or a sidechannel, a flaw in the implemenation, is found, and your
+encryption scheme is reversed.
+
+	B. Brute Force - Systematicly guessing passwords until your password is
+found and encryption is undone.
+
+	C. "Rubber Hose" Cryptography - You are beaten or tortured(with or
+without water filled hose), or otherwise coerced into giving out your password,
+or decryption key.
+
+	Now we get to the so called "Rubber Hose". I'll start by saying this
+sort of attack is impracticle. Unlike portrayals of the movies, torture is
+generally considered ineffective means of aquring intellegence. Combine with a
+cryptography scheme that gives plausable denyibility, only a fool would attempt
+to torture such information out of someone. If this person is going to torture
+you for a password that doesn't exist, they are most likely going to torture
+you anyway, regardless of circumstances, and they are just looking for excuses.
+Most attacks against cryptography are by parties that surreptiously steal data,
+or sneak access to encrypted files. Hiding an encrypted partition in addition
+to encrypting it, makes the attacker's job that much harder.
+
+	Truecrypt forks and compatable programes, Feature "hidden" partitions"
+inside the main truecrypt container using a second key that are near impossible
+to prove or disporve. Use of things like hidden paritions in truecrypt is a
+tough call. Since they are deniable, you could be able to theorhetically
+bullshit your way out of a bad situation by giving your adversary dummy files.
+However, this could easily backfire, and they could always assume you have a
+hidden partition even if you do not and harrass/beat you forever. Also  If your
+adversary knows exactly what they are looking for, this is a bad idea, as they
+will know you're lying.
+
+	If faced with a rubber hose cryptographer, there are several things you
+can do. The first is to size up the technical skills of your attacker. If you
+think he's really stupid, and you've hidden your partition well, deny it exists.
+In most cases, for serious adversaries, you'll assume they found your partition.
+In this case, the first time they ask for the password, be very forward about
+giving them the password for the outer container , and deny the existance of the
+inner one. Before hand, make sure there is enough junk in the outer container,
+and a plausable excuse of what it is, and why its encrypted. Give your
+explination. Deny this existance of the hidden container. There is nothing they
+can really do, except make vast sweeping accusations. Again, if they are going
+either beat you, or use any other types of coercion, they are most likley going
+to do this anyway.
+
+	Recent critique of Truecrypt-style container formats theorizes that
+everyone with the rubber hose is the government, acting in full support from the
+rest of the government, or someone with such authority elsewhere. This is RARELY
+the case.
+
+	Dedicated physical effort from a powerful force is going to get
+information pretty quick. Useful information, is another story. While its said
+the mere presence of encryption will probably land you a beating, reality is,
+they'd most likely beat you anyway in this case. More likely, an adversary will
+use some non-physical force to get information out of you, either threat of jail
+time, bribe, a spy, etc... In this case encryption shines. This also depends on
+them knowing exactly what they are looking for. If they DON'T know what is in
+the truecrypt container, giving them the normal partition's password, and
+denying the hidden partition, they have no way of knowing if your telling the'
+truth.
+
+	Your most likely digital adversary as a non-political activist is going
+to be a cyber-theif. Your most likely digital adversary as a political activist,
+will most likely be a politically motived cyber-theif.
+
+	At time of this writing, Truecrypt is considered obsolete, and legacy
+software. However the format lives on in forks and other programs, and its
+recommended you use one of them instead. Usage of forks and replacements remains
+largely the same.
+
+-- D. Cellphones and You, Mobile Security Explained
+
+	I'll start this off by saying you'll never be completely secure on mobile.
+Its just not going to happen. There are simply too many vectors, and they rely
+on too many un-auditable blobs. That said, security is not black and white.
+There are things you can do to mitigate threats. HOWEVER THERE IS NO REAL
+SECURITY ON MOBILE. IF YOU NEED REAL SECURITY, LEAVE THE PHONE BEHIND. Leave it
+on, plugged in to its charger, i.e. "forget it at home". The cover story is
+so plausable, and it looks not the slightest bit suspicious on the network side.
+
+	You the many ways you can be compromised by mobile. It starts with
+radios. More than any other computing device you own, mobile devices are jam
+packed full of radio equipment. This makes them very useful for communicating,
+getting directions, hacking, and other purposes, but it makes them vulnerable to
+tracking, and remote intrusion attacks. There is nothing you can do to prevent
+a radio on a phone from being located, except turning it off. On most phones
+there is generally a software button to turn radios off. This can be trusted as
+much as the OS. For most things, it should be fine, but a skilled attacker could
+possibly override or turn this back on. This is known to be the case with google
+and wifi for location tracking.
+
+What is known:
+
+* The facebook official app records voice conversations of people around device
+  it is on, and converts the words to text and recognizes content of
+  conversation.
+* Law Enforcement can subversively turn the microphone of a cell phone on, and
+  listen in, or get the location, even if the phone is off.
+  - NOTE: If the phone lacks GPS, they can still get the location, but it is
+	  only accurate within hundreds of meters.
+
+What is speculated
+
+* If Law Enforcement can do it, then rouge agents, as well as whoever hires
+  them, as well as whoever figures out the backdoor.(Backdoors work for anyone).
+
+* If facebook
+
+		Lets look at a few radios...
+
+	1. Cell CDMA/GSM/HSPA/LTE - This is the most powerful radio in your
+phone. Security varies by protocol, with GSM being broken some time ago. 3G and
+4G protocols should be fine, but also keep in mind the other end of this radio
+is a tower controlled by the cell phone company. If your adversary is large well
+connected org, this is assumed to be not safe. Its also the easiest to use as a
+radio locator (read triangulation), which *can* be done by cell phone towers,
+as they are all at known points. If you are on 2G, your data and voice can be
+snooped relatively easily. As long as the radio is active, it can be located
+fairly easily, even more so by the cell phone network which does, in fact, keep
+tabs on you at all times. Accurary is fairly rough at around 300-1000meters
+accuracy. Location of all Cellphone towers is known, there are often dozens
+within range of most cellphones, hence triangulation is trivial.
+
+	Also, be advised many if not most cellphones have the cell modem plugged
+dirrectly into memory and many are known to bypass the operating system. Law
+enforcement is known to use this as a backdoor. There are a few devices that
+have properly segregated modems, but they are rare.
+
+	If you are paying for a cell phone plan under a real name, and address,
+the billing information is tied to your cell phone's IMEI number, and its
+simcard, which can be used to identify the invidual phone you use, even accross
+networks. Its possible to fake IMEI numbers, but this can be slightly tricky.
+
+	2. WiFi - 802.11somethingoranother . There is no real security on WiFi,
+and it can be attacked by anyone with a laptop and some simple knowhow. If you
+scramble your ethernet mac(see sections I and II), on a public network, its
+pretty good chance of leaving no trace. WiFi can also be a vector for attack,
+and some companies like google use open WiFi points as identification markers.
+WiFi location is not a real threat, because there is generally only one base
+station, and no ready made tools for triangulation, and its extreme close
+distances. Its worth noting that wifi with WPA2 and a very long password will
+take a very long time to bruteforce, and should be considered relatively secure.
+
+	3. Bluetooh - short range. Bluetooth is known to be relatively secure
+as long as your key isn't captured durring paring. That said, flaws in the
+implemenation *can* be attacked, remotely, and depending on this for secure work
+is shaky at best.
+
+	4. NFC - as the name "nearfield" implies its only worth while for
+communications in the signals near field, distance less than the wave length,
+but the broadcast can be retrievable at some distance. Its also vulnerable to
+attacks where the attacker brushes up against your device in a pocket. You won't
+be found for using this, but its feasible for an NFC transmitter to be stuffed
+in anything, turn this off when not using it. It should be secure against
+snooping and location attacks for the most part.
+
+	Next we get to the software. I think it goes without saying to download
+only the apps you need, stay away from ad supported software, and stick to
+mainly open source programs. Ad supported software doesn't seem like a big deal,
+except it opens network connections to download ads, and send your personal data
+back to the server. Also, many carriers/manufactures ship with stuff like
+Carrier IQ, and other spyware, that litterally tracks how you use the phone.
+A good option is to install your own OS on the phone. Cynogen Mod comes out on
+top on quality, but if you need another level of security, check into using
+Replicant, a community driven Free software only port of Android. As usual
+functionality will be lacking, and support for various phones is limited.
+
+	There are many apps for android that can encrypt text messages and
+otherwise help with privacy. These apps can only do so much. For encryption
+apps, it takes two to tango. Your friends also need to run the same app. See
+section 1.
+
+	In addition to setting up crypto apps, another thing to consider on
+Android based OSs is full disk encryption. Make sure you pick a good password
+that can't be bruteforced easily.
+
+	Mobile phones *can* do lots of cool things. Being packed with radios
+does have some perks. you can walk around and use them. You can stay in contact
+with your friends on the go. You can cordinate events in real time, play music,
+and organize flash mobs out of nowhere in short order. You can even load
+cryptocurrency on your phone, put the phone in your pocket, and carry the
+bitcoins like you would cash, and exchange for goods and services in person.
+
+	So, how do you stop the threat? Determine your threat level. Determine
+your own *skill* level. Determine the features you need, and then figure out if
+what fork of android you want to run(cyanogenmod or replicant). Then buy the
+hardware to run the software. Cynogenmod and Replicant both list the phones
+they support. If you plan on using either, *buy a supported device*, as listed
+on respective website.
+
+	Threat level for the most part is the capabilities of your adversary.
+Capability is not what your adversary *can* do, but what they are can *and*
+willing to do. Now keep that in mind. Lets look at a few adversaries on mobile,
+and how you can mitigate the threat. From easy to hard, and levels of
+seriousness of the organizations behind them:
+
+	1. MITM attacker - Someone is either able to compromise a router, o
+re-dirrect traffic, but has no access to your device, or service you are trying
+to connect to. Pile on the crypto, TLS, GPG, OTR, etc..., and checking data
+with hash sums, will defeat this. Assuming the attacker does not have a flaw
+your implementation, he is thwarted. Most commmon scenario.
+
+	2. Website based hijacker - Attacker has access to the resource you are
+trying to access. Either you are tricked into using resource, or a resource is
+compromized. verify data with asymetric crypto(like GPG), keep your software up
+to date, stop using the resource as soon as you find something is wrong, and
+then check your device.
+
+	3. Malacious app store app - Someone is uploading crap to otherwise
+trusted sources of software. Limit the apps you buy, read reviews, stay away
+from adware, shareware, use open source apps, and if an app feels wrong, use
+the privacy guard(cyanogen mod) to minimize damage. never give automatic root
+to anything. Give root permissions to apps 10 min at a time.
+
+	4. Carrier/Vendor based spyware - High level spyware is being added to
+your device from the factory. Good news, its not embedded in the hardware, and
+its easy to get rid of by reprogramming. Run a third party trusted custom rom
+such as cyanogenmod, or replicant. This will certainly get rid of top level
+spyware, as most of it is not written with the intent to be hidden. These can be
+fairly common.
+
+	5. OS level spyware/backdoor - Now we get deeper into the software, but
+still software. Many phones ship with bits of closed source software for
+drivers, so run Replicant, or another FOSS *only* OS on your phone. Your phone
+choices and capabilities will be limited, and there is *no guaruntee* this will
+get all secret backdoors.
+
+	6. Hardware level exploit - The last level down. The most serious
+attack. All cell modems allowed on US networks have to be approved by the
+government, and they are all currently closed source. Most commericial cell
+phones allow the modem direct access to the phone's memory, bypassing any
+operating system level controls or countermeasures you might have. Mitigation
+is to find a specific phone that isolates the modem, and doesn't allow it direct
+access to memory or other hardware. There are a few HW projects that aim to
+accomplish this, but as of now, none are on market, and none plan to be
+available either cheaply, or in large numbers.
+
+	Unrelated, it should be noted that nation state actors, and even
+substate actors, will be able to get your personal information my cell data by
+asking your cell phone company for phone data. A skilled hacker might be able to
+extract this data from intrusions, or more likely a rouge employee or social
+engineer might trick it out of phone company employees. While this cannot
+compromise the phone security wise, it can de-anonymize you.
+
+	Next we get to the fact that cell phones are never completely off.
+Sensative conversations are done outside of earshot of a phone i.e. leave it
+home. Removing the battery of the phone, gives some protection, but again, it
+is somewhat suspicious if a phone just disappears and reappears. An easily
+removable battery should be a top feature in looking for a phone. That said, a
+phone's battery being unplugged at certain times can raise suspicion onto itself.
+	
+	You will never be able to prevent all attacks, but the closer to
+hardware these attacks get, the more limited and complicated they need to be to
+be executed correctly. Security does not exist in absolutes. Consider most
+attackers are not skilled hackers, but simply script kiddies pushing buttons.
+
+	Now for reccomendations.
+
+Encrypt your phone. Encrypt your phone, and set a password.
+On android there is a setting in "security" in the menu. Also set a good lock
+screen password. Use applications that feature encryption such as GPG or OTR.
+The current recomendation of K9 Mail and Openkeychain, plus the Secure Chat or
+Conversations app for android. See above for details.
+
+Use an OS such as replicant or cyanogen mod will get rid of bloadware on
+android that may have a tendancy to track users.
+
+If you need to have secure conversations, do so out of earshot of
+your phone.
+
+If the conversation is spur of the moment:
+
+* Turn the phone off and take the battery out. *
+
+If you are planning on holding a meeting where discression is advised:
+
+* get a microwave, don't plug it in. put all cellphones in the microwave for the
+  meeting.
+
+* get a white noise generator. pull all cellphones next to the white noise
+  generator.
+
+* hold the meeting in the next room over.
+
+* don't discuss sensantive information on the phone. Keep communications short
+  and to the point. if anything is important, wait until you can meet in person,
+  securely
+
+	+ Burner Phones/Anonymous cell phone. +
+
+	If you just want a disposable phone, they sell pre-paid smart phones for
+really cheap, that you could buy once, use as advertised and discard with little
+suspicion. If you go this route, buy the phone close to your operating area,
+register it in the operating area to a fake name, and then discard it before
+leaving. Make a new google account for the phone, and be very sparse in your
+communication.
+
+	If privacy and discression is key, you need an anonymous/burner phone.
+Breathe easy, this is more painless that it seems. You can do a lot of sensative
+work for these, and many old phones you can simply toss them when you're done,
+or even re-sell them.
+
+For this guide I use Net10 wireless. They don't require much in the way of user
+registration, and don't really check credientials you give. You can use existing
+AT&T, T-Mobile, and Verizon cell phones unlocked.
+
+	Unlocking a cellphone increases its value immensely, because now you can
+use any frequency compatible network, including international networks.
+
+	First you need a phone, your best bet is looking at a local phone store.
+Ask for a cheap unlocked phone, or sparing that, a t-mobile or AT&T phone. You
+might want to check the cyanogenmod web site for compataiblity. Pay cash for all
+transactions, cash or properly tumbled BTC.
+
+You can also get phones on amazon and ebay. If you are going to buy a phone on
+ebay, first price check the phone, or at least ballpark it. Next go to a local
+store that sells either amazon or ebay gift cards. Using cash, buy a gift card
+for the total amount of your phone. Over TOR, or at a local restaurant or cafe
+register a new account with a new email to purchase the phone.
+
+Next you need a SIM card and AIRTIME. You can buy both at big box stores(target,
+wallmart, bestbuy, etc...). You'll find a box full of sims, and then you find
+one that fits your phone, and then you register this on your computer. Its
+recommended to use TOR
+
+If you need a more long time ghost phone, cyanogenmod + TOR is recommended. This
+you need root, and its recommended to use cyanogenmod with all the carrier+OEM
+stuff removed.
+
+After you've gotten the phone, sit down in a coffee shop or somewhere else some
+what comfortable. You need a laptop, the phone and a USB cable. First of all
+plug everything in and make sure it works. connect to TOR with the laptop,
+register the cellphone over TOR. Create a new email address for this regisration.
+You can also get fake naming information at fakenamegenerator.com. Its
+recommended to save all the information for re-use. Use an encrypted partition.
+Once you registered your SIM, you will recieve your phone #, write this down.
+
+Now you can re-flash the phone. Again, over TOR, find the required files for
+putting cyanogen mod on this phone, and then flash it. Make sure you test the
+phone once it comes back up.  Now, add a PIN #, encrypt the phone, and save the
+PIN in the same place as the rest of the phone details. Once this is done you
+can install the f-droid repos
+
+http://f-droid.org
+
+From f-droid you can install TOR, and then you can re-route all data through TOR.
+
+
+-- E. Key Handling with Assymetric Crypto(Such as GNU Privacy Guard(GPG) and OTR)
+
+	1. How it works, in theory:
+	Using Symmetric Cryptopgraphy is easy, everyone just inputs the same key
+and you are set. However Symmetric-Key encryption doesn't provide for either
+authentication, or secure key exchange.
+
+	In assymetric crypto, instead of a shared key that both, or multiple
+parties use, Each party has has two keys, a public, and a private. In addition,
+everyone has everyone elses public key. A message encrypted with a public key
+can be read by someone with the private key, however its impossible to get the
+private key from the public key. A message can also be signed by the private key,
+and verified by the public key, without getting the private key. They can also
+be used in a secure key exchange, the ability to generate symetric keys accross
+a network, that is resistant to the key being intercepted by a third party.
+	
+    Asymetric cryptography is used by things like GPG, OTR, Tox, and various
+APD style darknets.
+
+https://en.wikipedia.org/wiki/Public-key_cryptography
+
+	You need to keep the "private", or "personal" section of the key hidden
+at all times, and guard it as much as you value your privacy. You should never
+under any circumstances give this out to anyone. If the private key is stored
+as a file, set least acces permission on it, so only the author can read it. A
+keyfile with your private key should most likely be stored in encrypted space,
+as well as physically secure the device it resides on. If you have a keyring
+that stores key information, make sure its secure and no one else can access it.
+
+	You can safely give your *public key* out to people, and its absolutely
+neccary to do so if you want to use encryption with these people. It is harmless
+to give out. If you have a public email address, it might be wise to upload your
+*public key* to a keyserver to make it easier to access. If you meet someone you
+like at a convention, its a good idea to exchange public keys with the person.
+There is nothing bad that could happen.
+	
+	Once you exchange keys with someone accross the internet, its always
+good practice to confirm the signature of the key to make sure its authentic.
+Having the person who issued the key, if possible, repeat the signature back to
+you, and checking it confirms the key. If you know the person offline, this
+should be standard practice. You should also be prepared for someone to double
+check the signature of your keys, and it is good practice to repeat your
+signature. This is valid security practice. Also remember KeyIDs are not enough
+verification, you need to verify the full signature.
+
+	A keyserver is a public server that hosts public encryption keys. If
+someone gives you a fingerprint for a key, chances are, that their key is on a
+public keyserver. This is safe, because knowing the fingerprint guaruntees only
+one key in existance will match. Several entities run keyservers and they are
+all expected to sync up, but often do not. Most keys are on pgp.mit.edu.
+
+	Keysigning, is when you sign someone elses key, and attach the
+signature. You can then re-upload this to the keyserver. Everyone who downloads
+the key will see the signatures given. Many people use this as a reputation
+system on trusting keys and people.
+
+	A "Keysigning party" is when people meetup in real life and exchange
+public keys, verify the keys in person, and then sign the keys. This is a great
+way to teach crypto and establish secure communications with your friends.
+
+	The tl;dr, your private key is an identity file that identifies you as
+you. The public key, is a mathematicly related key that lets the public verify
+your private key without being able to guess it. Make your public key public,
+and keep your private key, private.
+
+Example, from the Ninja OS website:
+http://ninjaos.org/?page_id=7
+Name 		Key ID 		Fingerprint
+Dev Ninja 	A1F8331E 	D5E7 6841 665A 4408 D73C
+				2D87 96FD 6113 A1F8 331E
+Download
+ninja os public key.gpg
+
+	Its also a good idea to back up your key pair as well. Backing up a
+combined public/private key to a safe spot, is essential in case your computer
+or other device malfunctions, gets lost or stolen, or you need to use multiple
+devices. There is no way to get a private key back once it is lost. With GPG
+most programs have an option to export the entire key. Make sure you export both
+the public and private key. Don't store or keep the private key in unencrypted
+space. With OTR, you can copy the public keys from whatever program's
+configuration directory is in.(generally a .dir in $HOME in UNIX-like OSes.)
+
+    In short give out your public key, guard your private key with your life,
+learn to know the diffrence by looking at them
+Confirm Key IDs and fingerprints. Backup keys in safe secure locations.
+
+-- F. Private Conversations.
+
+The previous section covered the threat of mobile phones, which should be for 
+the purposes of setting up a private conversation in meatspace, vulnerable. You
+should assume the same for all electronic devices that have both microphones,
+cameras, and outside wired or wireless data communications protocols.
+
+Solution: Either leave them or block their recording and transmit capabilities.
+
+Setting up a "safe" space for a private conversation.
+
+	1. MATERIALS:
+
+		+ Tools +
+	* A fairday cage. This should be a box or a pouch which is big
+enough to fit everyone's electronic devices. You can make a box with radio
+reflective paint. You can find the paint on ebay and other web sites, search for
+it. "EMF Blocking Paint". the product:
+
+"MG Chemicals 841 Super Shield Nickel Conductive Coating",
+
+but as of writing is yet untested.
+
+	* White Noise Generator(s). You need one to place next to the devices
+and another near where you could fit any bugs, and near entrances and windows.
+Again, you can buy these online, or you can make one.
+
+	* Paper shredder. At min cross cut, at best, security cut that crinkles
+the shreds. shredded paper is far easier to burn, and using it as kindling if
+you regularly create fires of any sort is a good idea.
+
+
+NOTE: TEST YOUR SETUP BEFORE YOU USE IT IN PRODUCTION.
+
+Test an RF box by putting a phone which is bluetooth, wifi, and cell connected
+wireless phone. All connections should drop.
+
+Test a white noise generator with a laptop and a decent microphone from next to
+the cellphones or outside, and then try recording and try cleaning up with
+digital audio tools(audacity/Amour works)
+
+	2. USE
+
+	At the beginning of the meeting, gather all devices, from all attendies,
+and place them in the faraday box. Remember to take all devices including
+bluetooth headset. Next turn on the white noise generators. All conversation is
+to happen within a physical area known to be out of earshot of devices and with
+devices connected.
+
+	While in a secure space its also possible to exchange and verify GPG
+fingerprints on business cards. This is now a good time to discuss all changes
+in GPG and other assymetric keys.
+
+	Controversial in use is the use of a single or few especially secured
+and hardened electronics made dirrectly for use in presentations or
+communications. If you feel you can realisticly secure an information system
+completely, you may include it, but if not, don't.(all the way down to hardware/
+firmware).
+
+	Before you are done, shred all sensative pieces of paper.
+
+	Now that you are in person, you can now discuss means of using secure
+electronic communications, and distribute secure keys and passwords. Keys for
+distribution should be saved on encrypted flash media, at least a thumb drive,
+for max protection, use a microSD card hidden in a larger object. Verify all
+persons are capable of using the secure electronic communication channel, and
+that the communication method is appropriate and has not been compromised. The
+previous sections have been dedicated to setting up and using secure tools. Pick
+tools that can be worked with. Its recommended to set up a secure backup channel
+in case the primary fails, and set up protocol to communicate over insecure
+channels securely(such as codeword), in case of total failure. At worse, private
+physical conversations are the most secure, and can be used to re-establish
+trust and security.
+
+
+
+                       * -~~+++=====APPENDIX=====+++~~- *
+
+Appendix A. - Privacy Network Web Browser Proxy Settings.
+
+TOR(The onion router) + filtering proxy(polipo/privoxy)
+					Port
+	http proxy	127.0.0.1	8118
+	ssl proxy	127.0.0.1	8118
+	ftp proxy	127.0.0.1	8118
+
+TOR(The onion router) - No filtering
+					Port
+	Host SOCKS	127.0.0.1	9050
+		Check SOCKS v5
+
+I2P(Invisible Internet Project)
+					Port
+	http proxy	127.0.0.1	4444
+	ssl proxy	127.0.0.1	4445
+
+
+Appendix B. - Privoxy config for using TOR and I2P (add ONE to your
+		/etc/privoxy/config)
+
+		TOR
+	forward-socks5 / localhost:9050 .
+
+		I2P
+	forward / localhost:4444
+
+		TOR+I2P
+	forward-socks5 / localhost:9050 .
+	forward .i2p localhost:4444
+
+Appendix C. - Lists of IRC Networks
+	http://http://searchirc.com/
+	http://netsplit.de/
+
+Appendix D. - Torbrowser/button HTTP user agent.
+	Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0
+
+Appendix E. - Manual FireFox settings (type about:config in address bar)
+	network.http.keep-alive.timeout		    	    		600
+	network.http.pipelining			    	        	true
+        network.http.pipelining.ssl					true
+	network.http.proxy.pipelining			        	true
+
+	network.prefetch-next			            		false
+	network.dns.disableprefetch					true
+	network.http.speculative-parallel-limit				0
+	geo.ennabled							false
+
+	security.ssl3.ecdhe_ecdsa_rc4_128_sha				false
+	security.ssl3.ecdhe_rsa_rc4_128_sha				false
+	security.ssl3.rsa_rc4_128_md5					false
+	security.ssl3.rsa_rc4_128_sha					false
+
+	media.peerconnection.enabled					false
+
+For further Security, but might break some usability(generally OK to not set
+these when using NoScript):
+
+	network.http.sendRefererHeader		        0
+	network.http.sendSecureXSiteReferrer	    false
+
+Appendix E-1. - Submarine mode for firefox(type about:config in address bar)
+Set these values to null:
+
+extensions.blocklist.detailsURL
+extensions.blocklist.itemURL
+extensions.blocklist.url
+
+browser.safebrowsing.appRepURL
+browser.safebrowsing.provider.google.gethashURL
+browser.safebrowsing.provider.google.lists
+browser.safebrowsing.provider.google.reportURL
+browser.safebrowsing.provider.google.updateURL
+browser.safebrowsing.provider.mozilla.gethashURL
+browser.safebrowsing.provider.mozilla.updateURL
+browser.safebrowsing.reportMalwareMistakeURL
+browser.safebrowsing.reportPhishMistakeURL
+browser.safebrowsing.reportPhishURL
+
+browser.newtabpage.directory.ping	
+browser.newtabpage.directory.source
+browser.aboutHomeSnippets.updateUrl
+extensions.getAddons.get.url
+extensions.getAddons.getWithPerformance.url
+extensions.getAddons.link.url
+extensions.getAddons.recommended.url
+extensions.getAddons.search.browseURL
+extensions.getAddons.search.url
+browser.selfsupport.url
+
+change:
+browser.safebrowsing.downloads.remote.enabled			false
+services.sync.prefs.sync.browser.safebrowsing.enabled		false
+services.sync.prefs.sync.browser.safebrowsing.malware.enabled	false
+services.sync.prefs.sync.privacy.trackingprotection.enabled	false
+
+gmpopenh264.autoupdatemedia.gmp-gmpopenh264.enabled false
+
+browser.newtabpage.enabled			false
+browser.startup.homepage_override.mston		ignore
+
+media.peerconnection.enabled			false
+extensions.getAddons.cache.enabled		false
+
+loop.enabled					false	#firefox hello
+
+Appendix F. - URLs on localhost(127.0.0.1)
+	http://localhost:8090 - YaCY
+	http://localhost:7657 - I2P control pannel
+
+Appendix G. - Ninja OS public key
+
+Name 		Key ID 		Fingerprint
+Dev Ninja 	A1F8331E 	D5E7 6841 665A 4408 D73C
+				2D87 96FD 6113 A1F8 331E
+
+--------------------------------------------------------------------------------
+Epilogue - Just a reminder, this is copypasta.
+© 2011-2017 Ninja OS. Licensed under the Creative Commons Attribution-ShareAlike
+3.0 Unported (CC BY-SA 3.0)
+

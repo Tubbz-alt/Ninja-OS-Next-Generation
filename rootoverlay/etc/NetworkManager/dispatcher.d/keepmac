@@ -1,0 +1,50 @@
+#!/bin/bash
+#
+#  Written for the NinjaOS by the development team.
+#  licensed under the GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+#
+# This script preserves scrambled macs from being lost on every disconnect.
+# This prevents wireless disconnects from un-masking a scrambled MAC address.
+
+IFACE=$1 # The interface which is brought up or down
+STATUS=$2 # The new state of the interface(up or down)
+MACFILE="/var/interface/${IFACE}"
+MAC=$(cat "${MACFILE}")
+IFCONFIG=false
+USE_NM_RNDMAC=false
+
+#someday in the future this will work
+#source /etc/mh_scramble.conf
+
+# Check to see if we have a stored MAC address for this interface. If not, exit
+[ ! -f "${MACFILE}" ] && exit
+[ "${USE_NM_RNDMAC}" == true ] && exit
+
+#get the name of the connection active on 
+CONNAME=$(nmcli -t --fields name,device connection|grep ${IFACE}|cut -d ":" -f1 )
+# get device "type" ethernet or wifi
+DEVTYPE=$(nmcli -t --fields type,device device|grep ${IFACE}|cut -d ":" -f1 )
+
+# When NetworkManager disconnects, it resets the MAC address of the interface.
+# this doesn't actually take the interface "down" per se, just disconnects.
+# To keep wireless disconnections from de-masking a scrambled MAC.
+
+do_ifconfig(){
+  ifconfig ${IFACE} down
+  ifconfig ${IFACE} hw ether ${MAC}
+  ifconfig ${IFACE} up
+}
+
+case ${STATUS} in
+ down)
+  nmcli connection modify "${CONNAME}" ${DEVTYPE}.cloned-mac-address ${MAC}
+  #nmcli device modify ${IFACE} ${DEVTYPE}.cloned-mac-address ${MAC}
+  [ "${IFCONFIG}"  == true ] && do_ifconfig
+  ;;
+ pre-up)
+  nmcli connection modify "${CONNAME}" ${DEVTYPE}.cloned-mac-address ${MAC}
+  [ "${IFCONFIG}"  == true ] && do_ifconfig
+  #nmcli device modify ${IFACE} ${DEVTYPE}.cloned-mac-address ${MAC}
+  ;;
+esac
+

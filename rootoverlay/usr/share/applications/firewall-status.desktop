@@ -1,0 +1,23 @@
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=Firewall Status
+GenericName=Firewall Status
+Exec=/usr/share/scripts/firewall_gui_control.sh status
+Terminal=false
+Icon=security-high
+Type=Application
+Categories=firewallctl
+Comment=Check Status of IPtable Firewall Rules
+
+Name[en]=Firewall Status
+Name[zh]=启用状态
+Name[es]=Habilitar Estado
+Name[ar]=تمكين الحالة
+Name[pt]=habilitar Estado
+Name[ja]=ステータスを有効にします
+Name[ru]=Включить Статус
+Name[de]=Freigabestatus
+Name[fr]=activer Status
+Name[ms]=membolehkan Status
+

@@ -1,0 +1,84 @@
+&             ========-----```++*~ Ninja OS ~*++```-----========               &
+
+This is a Ninja OS redistributable package, with the disk image(.img) and native
+scripts for copying them to a flash drive. the main image is a partition image
+that can simply be restored to any partition of the correct size or larger. See
+liveos_version.conf for more information.
+
+Ninja OS is a live desktop operating system based on Arch, GNU, Linux, and
+XFCE4. It is designed to run live off a flash drive. See packing list and
+instructions bellow.
+
+Ninja OS is copyright and distributed under the GNU Public License Version 3.
+See license.txt below for more detail.
+
+Files:
+
+Install Scripts
+---------------
+scripts/ninjaforge.sh - run this script to install Ninja OS to a new flash drive
+			see ./ninjaforge.sh --help
+scripts/liveos_lib.sh - bash library with common variables.
+liveos_version.conf   - config file with versioning information about this
+			packages contents.
+
+Docs
+----
+doc/README - This file
+doc/license.txt - License, GPL v3
+
+Disk Images
+-----------
+ninjaos_Y.X.X.img	 - main Ninja OS disk image. This is an image of an ext4
+			   partition, the size of which is described in
+			   liveos_version.conf
+ninjabootsectorY.X.X.img - syslinux MBR partition for corrisponding version
+			       of Ninja OS.
+
+Verification
+------------
+hash/		- Directory containing hash sums of the partitions
+gpg/		- Directory containing GPG signatures of the partitions. It also
+		  contains the gpg keyring and gpg key.
+	\-------- ninja_pubring.gpg - keyring file with the Ninja OS public key
+
+Instructions:
+-------------
+1. New install:
+Use the "forge" command:
+
+	./scripts/ninjaforge.sh /dev/<sdX>
+
+where sdX is the name of the block device, i.e. /dev/sdb sdc, etc.. You can
+get this information from dmesg, disk manager, or other sources.
+
+WARNING: This will overwrite the entire disk.
+
+See ./scripts/ninjaforge.sh --help for more information.
+
+2. Upgrade
+Only use this on an existing version of Ninja OS. Double check partition sizes
+are correct. We went to a new size with 0.8.x
+
+NOTE: makeninja.sh is depreciated. This makes far more sense.
+
+use the "--upgrade" command:
+
+	./scripts/ninjaforge.sh  --upgrade /dev/<sdX>
+
+For more information check us out on the web:
+
+official sourceforge site: http://sourceforge.net/projects/ninjaos/
+
+official homepage:  http://ninjaos.org
+
+official TOR .onion: http://ninjaos4xt6nc2ft.onion/ninjaos
+
+official git repo: https://gitlab.com/ninjaos/ninjaos
+
+official pirate bay: https://thepiratebay.se/user/devninja/
+
+--------------------------------------------------------------------------------
+© 2011-2016 Ninja OS. Licensed under the Creative Commons Attribution-ShareAlike
+3.0 Unported (CC BY-SA 3.0)
+

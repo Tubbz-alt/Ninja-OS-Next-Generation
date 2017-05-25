@@ -1,0 +1,5 @@
+[Unit]
+Description=Update man-db cach
+
+[Service]
+Type=disabled

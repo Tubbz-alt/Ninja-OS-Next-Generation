@@ -1,0 +1,122 @@
+The following scripts have been written for use with Ninja OS, they are available in /usr/share/scripts/:
+
+
+Converting, Cleaning, Scrubbing Scripts
+---------------------------------------
+2iso.sh - Converts proprietary formated disk images into standard .iso files.
+Supports .nrg and .ccd
+
+pngstrip.sh - uses pngcrush to strip metadata off .png images
+
+*_notify.sh - called from within the file manager. makes use of libnotify when
+standard output and error cannot be seen from not running in a console
+
+diskscrub.sh - after zerofill/rand fill, uses hdparm to destroy
+recovery information. Be warned, the hdparm --security-erase is still
+experimental and may cause kernel panic.
+
+Security Scripts
+----------------
+bootanuke.sh - the script behind Ninja Boot'N'Nuke. This is not run directly,
+but compiled into the nban initcpio image.
+
+liveos_integritycheck.sh - hash sums some important files and compares them with
+saved defaults.
+
+liveos_sd.sh - self destruct/zeroize mode. will overwrite the entire flash
+drive. use with care.
+
+reboot_nuke.sh - reboots the system right into Ninja Boot and Nuke. This will
+erase all data on all attached storage media. You get one prompt before
+overwrite
+
+reboot_nuke_press.sh - Reboot and Nukes the system by calling reboot_nuke.sh
+after certain amount of button presses.
+
+shuriken_forge.sh - Creates Ninja "Shurikens". Single use Ninja Boot and Nuke
+USB sticks. See the User Guide for more information on Shurikens and Ninja Boot
+'n'Nuke(NBAN).
+
+terminal_zeroize.sh - run self destruct/zeroize as a window in XFCE, via a
+terminal
+
+Misc
+----
+crypt_backup.sh - backs up OTR and GPG keys to a directory, or restores them,
+from a previous backup.
+
+electrum-preload.sh - preloads video4linux version one compat libraries before
+launching electrum so the barcode scanning works.
+
+firewall_gui_control.sh - wrapper to enable and disable iptables with systemctl,
+and also use libnotify to inform the user.
+
+liveos_lib.sh - sets common LiveOS bash variables. add
+". /usr/share/scripts/liveos_lib.sh " to the top of your scripts.
+
+parachute.sh - copies a static busybox compile to /tmp/
+
+metasploit_rpcd.sh - starts metasploit rcpd. half assed
+
+/install/ - all the files that go into the Ninja OS installer. to
+include portable versions of Forge.
+
+
+Clone and Forge Scripts
+-----------------------
+makeninja.sh - copies OS data to a USB stick. Previously used by ninjaforge.sh,
+now depreciated. This will dissapear in the future
+
+ninjaforge.sh - creates new Ninja OS usb sticks. formats and copies over
+previously packaged data.
+
+cloneninja.sh - clones the running system into image files or packages.
+
+
+Privacy Mode Scripts
+--------------------
+priv_notify.sh - informs user that privacy mode is activated via notify-send.
+checks if privacy mode is activated before using notify-send to send a pop up to
+the desktop.
+
+notify-privmode.desktop - another helper for enabling user privacy mode
+settings at login.
+
+mh_scramble.py - mac and host name scrambling. called from priv_mode.sh. to use
+from a running system use mh_scramble.py --rescramble.
+
+rescramble_gui.sh - runs mh_scramble --rescramble and uses notify-send to post a
+message to the GUI deskop.
+
+rescramble.desktop - desktop icon that calls rescramble_gui.sh. it gets copied
+to the desktop on privacy mode boot.
+
+macchanger.sh - changes mac address of interface, in five lines of bash
+
+
+System
+------
+
+multi_mon.sh - runs at startup after XFCE is loaded to handle multi-monitor
+setups, with xrandr
+
+auto_dpi.sh - automaticly calculates and sets screen DPI based on xrandr.
+
+auto_dpi.desktop - calls auto_dpi.sh on X start to change DPI. activated by
+autodpi mode
+
+kernel_cmd_check.sh - runs at start up from systemd, proccesses options on the
+kernel command line(from /proc/cmdline)
+
+drive_watch.sh - watches to make sure the USB stick running Ninja OS stays
+plugged in. Otherwise issues a ACPI reboot.
+
+xfce4-camo.sh - camoflauge XFCE to look like other various OSs.(not working yet)
+
+gen_ssh.sh - generate sshd keys. must be done before starting sshd.
+
+
+Third Party
+-----------
+check_arp.py - watches an IP address for arp address changes. watch for arp
+poisoning. FreeBSD licensed. Written by Jack @ NYI.

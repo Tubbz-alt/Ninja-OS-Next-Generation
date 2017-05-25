@@ -1,0 +1,13 @@
+[Unit]
+Description=Remount /boot Read Only
+
+[Service]
+Type=oneshot
+ExecStart=mount -o ro,remount /boot
+ExecStop=mount -o rw,remount /boot
+TimeoutSec=3
+StandardOutput=tty
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

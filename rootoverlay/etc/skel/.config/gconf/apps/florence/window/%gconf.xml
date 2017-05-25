@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="opacity" mtime="1425865789" type="float" value="90"/>
+	<entry name="transparent" mtime="1425866026" type="bool" value="true"/>
+	<entry name="ypos" mtime="1490833626" type="int" value="491"/>
+	<entry name="xpos" mtime="1490833626" type="int" value="510"/>
+</gconf>

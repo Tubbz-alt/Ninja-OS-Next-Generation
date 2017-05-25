@@ -1,0 +1,21 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Set Password
+GenericName=Self-Destruct/Zeroize
+Comment=Change User Password
+Exec=xfce4-terminal --command="passwd" --hide-menubar --hide-borders --geometry=48x7
+Icon=computer
+Categories=Settings;X-Xfce-Toplevel;
+Name[en]=Set Password
+Name[zh]=設置密碼
+Name[es]=Establecer contraseña
+name[jp]=パスワードの設定
+Name[pt]=Definir senha
+name[de]=Passwort wählen
+name[ar]=تعيين كلمة المرور 
+Name[fr]=Définir mot de passe
+Name[ru]=Установить пароль
+Name[ko]=암호 설정 
+
+

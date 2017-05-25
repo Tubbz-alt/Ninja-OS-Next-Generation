@@ -1,0 +1,76 @@
+[Firefox]
+row=1
+col=4
+
+[Audacity]
+row=1
+col=7
+
+[Vidalia]
+row=2
+col=6
+
+[Change MAC addresses]
+row=2
+col=7
+
+[Sound Converter]
+row=3
+col=7
+
+[Xfburn]
+row=3
+col=5
+
+[Asunder CD Ripper]
+row=3
+col=3
+
+[AcidRip DVD Ripper]
+row=3
+col=4
+
+[GNU Image Manipulation Program]
+row=1
+col=6
+
+[Pitivi Video Editor]
+row=1
+col=8
+
+[Transmageddon Video Transcoder]
+row=3
+col=8
+
+[/boot]
+row=4
+col=0
+
+[root]
+row=0
+col=0
+
+[751 MB Filesystem]
+row=3
+col=0
+
+[5.9 MB Filesystem]
+row=1
+col=1
+
+[Ninja Data]
+row=0
+col=1
+
+[Trash]
+row=2
+col=0
+
+[File System]
+row=1
+col=0
+
+[Home]
+row=2
+col=1
+

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Mumble(over TOR)
+GenericName=Voice Chat(over TOR)
+Comment=A low-latency, high quality voice chat program for gaming, (tor enabled)
+Exec=torsocks mumble
+TryExec=mumble
+Icon=mumble
+Terminal=false
+Type=Application
+StartupNotify=false
+Categories=Network;Chat;Qt;
+Version=1.0

@@ -1,0 +1,59 @@
+.TH LIVEOS_LIB 3
+.SH NAME
+liveos_lib.sh - Live Operating System Library (BASH)
+.SH LOCATION
+/usr/bin/scripts/liveos_lib.sh
+.SH DESCRIPTION
+BASH library with common functions and variables for LIVEOS(Ninja OS based)
+distros
+.SH VERSIONING
+	Versioning information is sourced from a liveos_version.conf file.
+Nominally this is placed in /var/liveos_version.conf. However this can be
+overrridden by local copies either in \$HOME or present directory.
+
+	$OSNAME		- Name of the Operating System
+.br
+	$OSVERSION 	- Version of the operating System
+.br
+	$OSSLUG		- is a UNIX santized version of $OSNAME
+.br
+	$FORMAT_VER	- version of the format of /var/liveos_version.conf
+.br
+	$BOOT_BACKGROUND- the jpg from the syslinux splash screen
+.br
+	$BACKGROUND_SHA256	- hash sum of the background
+.br
+	$PART_SIZE	- Parition size in megabytes
+.br
+	$LINE5		- vestige from the old /var/LIVEOS_VERSION.TXT file
+.br
+	$CONF_KEYNAME	- GPG Keyname as read from the conf file
+.br
+	$CONF_KEYSIG	- Full GPG fingerprint as read from the conf file
+.br
+	$SCRIPT_NAME	- Name of the originating script, with no path.
+
+.SH SYSTEM
+	$BOOTDEV	- Block device of the drive that the Ninja OS resides on
+.br
+	$BOOTPART	- Parition of that drive with /boot, generally the real
+.br
+			  physical partition with the OS.
+.br
+	$CMDLINE	- The contents of /proc/cmdline. Useful for checking
+.br
+			  boot time options
+.br
+	gpg_check_key()	- function that checks the gpg key that is used vs gpg
+.br
+			  key reported by the configuration file. returns 0 for
+.br
+			  good key, 1 for a bad one.
+
+	read_old_version_file() - function that reads old LIVEOS_VERSION.TXT
+.br
+				  file
+.br
+	check_sudo()	- checks if sudo works for granting root access. returns
+.br
+			  "TRUE" or "FALSE"

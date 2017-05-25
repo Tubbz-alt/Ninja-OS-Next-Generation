@@ -1,0 +1,43 @@
+.TH SHURIKEN_FORGE 1
+.SH NAME
+.B shuriken_forge -
+Make a shuriken out of a USB stick. Singal use Ninja Boot'N'Nuke
+.SH SYNOPSIS
+.B ninja_clone
+[\fB\-r\fR]
+[\fB\-\-reuse-nban\fR]
+[\fB\-k\fR]
+[\fB\-\-kernel-name\fR]
+[\fB\-n\fR]
+[\fB\-\-nban-only\fR]
+.IR block_device
+.SH DESCRIPTION
+This script makes a Ninja Shuriken. A Shuriken is the Ninja OS Boot and Nuke
+script combined with a basic extlinux bootloader on a USB stick.
+
+Booting a shuriken will wipe all the storage media attached to the computer
+including the shuriken, leaving blank FAT32 formated media. Block device is the
+/dev/sdX name of the USB stick you want to use.
+.SH OPTIONS
+.TP
+.BR \-r ", " \-\-reuse-nban
+Reuses a build nban initcpio image. This must be in /boot/ on the host Arch
+system.
+.TP
+.BR \-k ", " \-\-kernel-name
+Specify the kernel name, the default for Arch Linux the default is "default".
+"default" or "linux" will use the vanilla Arch Linux kernel.
+.TP
+.BR \-n ", " \-\-nban-only
+Compile Ninja Boot'N'Nuke initcpio image only. Do not make a shuriken.
+.SH OPTIONS\ \-\ NOT\ IMPLEMENTED\ YET
+
+.TP
+.BR \-i ", " \-\-inert
+Makes an inert shuriken, for testing purposes only.
+.TP
+.BR \-b ", " \-\-bootloader
+Specify the type of bootloader. Three options: extlinux, isolinux, and pxelinux.
+
+.SH SEE ALSO
+\fInban\fR(7) \fImkinitcpio\fR(1) \fIinitrd\fR(4)

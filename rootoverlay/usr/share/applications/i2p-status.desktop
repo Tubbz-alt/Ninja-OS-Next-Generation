@@ -1,0 +1,21 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=I2P Status
+GenericName=Check I2P Status
+Exec=/usr/share/scripts/i2p_control.sh status
+Terminal=false
+Icon=i2p
+Type=Application
+Categories=i2pctl
+Comment=Check the status of the Invisible Internet Router
+
+Name[en]=I2P Status
+Name[zh]=I2P状态
+Name[es]=I2P Estado
+Name[ar]=I2P الحالة
+Name[pt]=I2P Estado
+Name[ja]=I2Pステータス
+Name[ru]=I2P Статус
+Name[de]=I2P-Status
+Name[fr]=I2P Statut
+Name[ms]=I2P Status

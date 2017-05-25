@@ -1,0 +1,1 @@
+/usr/share/scripts/ninja_forge.sh --upgrade "${@}"

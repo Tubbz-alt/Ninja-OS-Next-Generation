@@ -1,0 +1,41 @@
+.TH LIVEOS_VERSION_CONF 5
+.SH NAME
+liveos_version.conf - versioning and index file for Ninja OS. Contains metadata
+for OS.
+.SH DESCRIPTION
+Ninja OS stores its metadata in \fI/var/liveos_version.conf\fR. This is called
+from various scripts and \fIliveos_lib.sh\fR to provide consistant versioning
+information. It is used by Clone and Forge as well as  integrity check, and
+other Ninja OS components. It is also used by .liveos.zip as an index file.
+
+Values are stored in a key=value pair, and use # for comments. This can be
+read as a shell script.
+
+.SH SYNTAX
+The following keys are recognized:
+
+\fBFORMAT_VER\fR - version of LIVEOS.ZIP being used.
+.br
+\fBOSNAME\fR - Name of OS in the package. \fBOSSLUG\fR is made from this value
+by removing spaces and moving all chars to lowercase
+.br
+\fBOSVERSION\fR - Version of the OS in the package.
+.br
+\fBOSARCH\fR - CPU archecture the OS is compiled for.(i686 or x86_64)	
+.br
+\fBPART_SIZE\fR - Size of the partition that the OS will take up on the disk.
+This needs to match the size of the .img file
+.br
+\fBBOOT_BACKGROUND\fR - JPEG file that is shown on the boot loader screen
+.br
+\fBBACKGROUND_SHA256\fR - Hash sum of said JPEG. This is done for authenticity
+reasons.
+.br
+\fBCONF_KEYNAME\fR - the short GPG keyname of the OS that is used to sign
+the package, and for integrity checks.
+.br
+\fBCONF_KEYSIG\fR - the full fingerprint of the key the OS uses for integrity
+checking.
+
+.SH SEE ALSO
+\fIliveos_zip(5)\fR

@@ -1,0 +1,11 @@
+#iptables.rules for ipv4 and ip6tables.rules for ipv6
+#this filter silentely drops all incomming packets, with exceptions that are made for the loopback interface, to allow anything running locally that depends on IP to for internal communications to work.(i.e. web interfaces on localhost)
+
+*filter
+:INPUT DROP [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT ACCEPT [0:0]
+-A INPUT -i lo -j ACCEPT
+-A OUTPUT -o lo -j ACCEPT
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+COMMIT
