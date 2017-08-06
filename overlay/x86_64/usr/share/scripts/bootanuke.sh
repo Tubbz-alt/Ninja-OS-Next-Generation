@@ -192,12 +192,15 @@ main(){
   # 202 block	Xen Virtual Block Device
   XEN_HD="$(ls /dev/xvd? 2> /dev/null)"
 
+  # NVME devices
+  NVME_FLASH="$(ls /dev/nvme?n?)"
+
   # These are for block devices that use /dev/AAAXY format for the partition. Just
   # like /dev/sd* "scsi/sata/hdparm/etc..."
   REGDEVS="${MODERN_DISKS} ${FLOPPYS} ${XEN_HD} ${OLD_DISKS}"
 
   # devices that mark parition /dev/AAAXpY format.
-  P1DEVS="${MMC_BLOCK}"
+  P1DEVS="${MMC_BLOCK} ${NVME_FLASH}"
 
   set ${REGDEVS} ${P1DEVS}
   NUMDEVS=${#}
