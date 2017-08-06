@@ -54,15 +54,18 @@ syslinux_install() {
     local -i exit=0
     local target="$1"
     local mount_boot_dir="${MOUNT_POINT}/syslinux/"
+    local boot_menu_jpg="/usr/share/shuriken/shuriken.jpg"
+    [ $INERT == "TRUE" ] && boot_menu_jpg="/usr/share/shuriken/shuriken_inert.jpg"
     submsg "Installing bootloader..."
     sudo mkdir -p "${mount_boot_dir}"
     exit+=$?
     sudo cp -af /usr/lib/syslinux/bios/vesamenu.c32 "${mount_boot_dir}"
-
+    exit+=$?
     sudo cp -af /usr/lib/syslinux/bios/chain.c32 "${mount_boot_dir}"
     sudo cp -af /usr/lib/syslinux/bios/libcom32.c32 "${mount_boot_dir}"
     sudo cp -af /usr/lib/syslinux/bios/libutil.c32 "${mount_boot_dir}"
     sudo cp -af /usr/lib/syslinux/bios/reboot.c32 "${mount_boot_dir}"
+    exit+=$?
 
     #set correct kernel name.
     sed "s/vmlinuz-linux/vmlinuz-linux${KERNEL_NAME}/g" /usr/share/shuriken/extlinux.conf > /tmp/extlinux.conf
@@ -70,8 +73,10 @@ syslinux_install() {
 
     sudo mv -f /tmp/extlinux.conf "${mount_boot_dir}"
     exit+=$?
-    sudo cp -af /usr/share/shuriken/shuriken.jpg "${mount_boot_dir}"
+
+    sudo cp -af "${boot_menu_jpg}" "${mount_boot_dir}"
     exit+=$?
+
     sudo dd if=/usr/lib/syslinux/bios/mbr.bin of=${target} bs=440 count=1 &> /dev/null
     exit+=$?
     sync
@@ -155,10 +160,10 @@ including the shuriken, leaving blank FAT32 formated media. Block device is the
 	-n, --nban-only		Compile Ninja Boot'N'Nuke initcpio image only.
 				do not make a shuriken.
 
-        	-NOT IMPLEMENTED YET-
 	-i, --inert		Makes an inert shuriken, for testing purposes
 				only.
 
+        	-NOT IMPLEMENTED YET-
 	-b, --bootloader	Specify the type of bootloader. Three options:
 				extlinux, isolinux, and pxelinux.
 
@@ -167,22 +172,35 @@ exit 1
 }
 
 exit_with_error() {
-    # parameter 1 is exit code, 2 is message, be sure to quote the message.
-    message "${BRIGHTRED}ERROR:${NOCOLOR} ${2}" 1>&2
-    sudo umount -f "${MOUNT_POINT}" &> /dev/null
-    sudo rm -rf "${MOUNT_POINT}" &> /dev/null
-    sudo rm -f /tmp/extlinux.conf &> /dev/null
-    sudo mv -f /etc/mkinitcpio.d/nban.preset.orig /etc/mkinitcpio.d/nban.preset &> /dev/null
-    sudo rm -f /tmp/nban.preset &> /dev/null
-    exit $1
+  # parameter 1 is exit code, 2 is message, be sure to quote the message.
+  message "${BRIGHTRED}ERROR:${NOCOLOR} ${2}" 1>&2
+  sudo umount -f "${MOUNT_POINT}" &> /dev/null
+  sudo rm -rf "${MOUNT_POINT}" &> /dev/null
+  sudo rm -f /tmp/extlinux.conf &> /dev/null
+  sudo mv -f /etc/mkinitcpio.d/nban.preset.orig /etc/mkinitcpio.d/nban.preset &> /dev/null
+  sudo rm -f /tmp/nban.preset &> /dev/null
+  exit $1
 }
 
 create_initcpio_nban() {
-    ## Compile the Boot'N'Nuke image.
-    #get /boot readwrite status
-    local readonly="$(check_boot)"
-    local -i exit=0
-    #Test to make sure /boot is read
+  ## Compile the Boot'N'Nuke image.
+  local readonly="$(check_boot)"
+  local -i exit=0
+  if [ ${INERT} == "TRUE" ];then
+    submsg "Generating Inert Ninja Boot'n'Nuke .img file..."
+    sudo cp -af /etc/mkinitcpio.d/nban_inert.preset /etc/mkinitcpio.d/nban_inert.preset.orig
+    sudo sed "s/vmlinuz-linux/vmlinuz-linux${KERNEL_NAME}/g" /etc/mkinitcpio.d/nban_inert.preset > /tmp/nban_inert.preset
+    exit+=$?
+    sudo mv -f /tmp/nban_inert.preset /etc/mkinitcpio.d/
+    exit+=$?
+    [ ${readonly} == "READONLY" ] && sudo mount -o rw,remount /boot
+    sudo mkinitcpio -p nban_inert &> /dev/null
+    exit+=$?
+    [ ${readonly} == "READONLY" ] && sudo mount -o ro,remount /boot
+    sudo mv -f /etc/mkinitcpio.d/nban_inert.preset.orig /etc/mkinitcpio.d/nban_inert.preset
+    exit+=$?
+
+   else
     submsg "Generating Ninja Boot'n'Nuke .img file..."
     sudo cp -af /etc/mkinitcpio.d/nban.preset /etc/mkinitcpio.d/nban.preset.orig
     sudo sed "s/vmlinuz-linux/vmlinuz-linux${KERNEL_NAME}/g" /etc/mkinitcpio.d/nban.preset > /tmp/nban.preset
@@ -195,7 +213,10 @@ create_initcpio_nban() {
     [ ${readonly} == "READONLY" ] && sudo mount -o ro,remount /boot
     sudo mv -f /etc/mkinitcpio.d/nban.preset.orig /etc/mkinitcpio.d/nban.preset
     exit+=$?
-    return $exit
+
+  fi
+  return $exit
+
 }
 
 copy_kernel_nban() {
