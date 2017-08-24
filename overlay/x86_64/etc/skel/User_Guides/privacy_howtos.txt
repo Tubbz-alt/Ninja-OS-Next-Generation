@@ -47,6 +47,7 @@ How To Remain Anonymous in Cyberspace. A short intro.
 	E. Key Handling with Assymetric Crypto(Such as GNU Privacy Guard(GPG)
 	   and OTR)
 	F. Private Conversations
+	G. Chain a Private Conversation from a non-private source
 
    Appendix
 
@@ -3211,6 +3212,51 @@ channels securely(such as codeword), in case of total failure. At worse, private
 physical conversations are the most secure, and can be used to re-establish
 trust and security.
 
+-- G. Chaining a Private Conversation from an insecure one
+
+In this world, secure conversations are rare, private even rarer. The tools
+exist, but often, almost always, insecure, heavily watched communications are
+far more common, and in fact become the default. As we know, privacy and
+security are a chain. If a single "break" happens in any part, the entire chain
+is worthless. This gives people the false assumption, that if you start with
+an insecure media, all conversations that come from such are automaticly
+insecure. This is not true. The example I give is for facebook, but it can be
+applied to any medium.
+
+We start with emails, or chat services. For this excersize, every party needs
+two. A public email and private email. Both need to be unrelated to eachother.
+You need to be able to use GPG with both accounts. Make all keys are setup first
+
+On facebook, there is a specific field for you to enter your GPG key, and
+another for email. For your facebook account, you should have a "public" email
+that is soley used for your public persona, or even just the facebook account.
+Not all social media services have a specific GPG key field, but you can
+paste a GPG public key in any text field, so it will work with any social
+media service that allows about 50000 characters for an RSA4906 public key, or
+about 1700 for a 2048-bit kit.
+
+You list your public key and public email publicly.
+
+Person two wishing a secure conversation imports the public key, and uses their
+public email, to send a signed and encrypted email to send the other an email
+to their public email. The second person, seeing the email, should be able to
+find their public key in their profile, and decrypt it, responded back with
+a signed encrypted message with the address of their private email, and they
+public key of their private email address.
+
+Please note, subject names are not encrypted, and niether are file names. Send
+a generic subject, and put all the public keys emailed in the body of the text.
+
+The second person imports the public key from the private message, and can now
+respond.
+
+The privacy? An attacker could see that someone used the first two public
+emails to contact eachother, using GPG. They will not be able to tell the
+contents which are instructions for further contact, or the secret emails or
+their GPGs key. The two email addresses should be entirely unrelated.
+
+For Max privacy, one could use TOR, a VPN or other proxy to disguise IP source
+for the second set of private emails.
 
 
                        * -~~+++=====APPENDIX=====+++~~- *
