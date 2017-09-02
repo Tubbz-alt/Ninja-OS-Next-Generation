@@ -265,6 +265,8 @@ gnumeric
 #memory analysis framework
 volatility
 python2-yara
+dialog
+xdialog
 
 ###Crypto Currency ###
 electrum # BTC Client
