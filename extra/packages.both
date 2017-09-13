@@ -350,11 +350,13 @@ zulucrypt
 
 ## [ninjaos] Not included by default. These are maintained in the repo, but not installed in default builds of Ninja OS ##
 #autopsy
+#bettercap
 #bed
 #bluelog
 #b43-firmware-classic
 #bluebugger
 #chaosvpn
+#crunch
 #evilgrade
 #firefox-extension-trackmenot
 #gcipher
