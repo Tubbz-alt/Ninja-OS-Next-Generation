@@ -153,6 +153,7 @@ sqlmap
 iftop
 ngrep
 metasploit
+reaver
 #qtox
 #zaproxy
 
@@ -322,7 +323,6 @@ purple-hangouts-hg
 purple-vk-plugin
 putty-freedesktop
 pyrit
-reaver-wps-fork-t6x
 samdump2
 scrub
 secure-delete
@@ -373,6 +373,7 @@ zulucrypt
 #purple-matrix-git
 #qkistmet-svn
 #rcracki_mt
+#reaver-wps-fork-t6x
 #retroshare
 #redfang
 #scalpel-git
